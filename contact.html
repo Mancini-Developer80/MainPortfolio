@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
+    />
+    <link rel="stylesheet" href="./css/style.css" />
+    <title>Giuseppe Mancini | Full Stack Web Developer</title>
+  </head>
+  <body>
+    <header class="header" id="home">
+      <nav class="navbar">
+        <div class="container flex-container">
+          <div class="logo">
+            <a href="#home" aria-label="Homepage">
+              <img src="./img/FullStackDev.svg" alt="Logo" />
+            </a>
+          </div>
+          <div class="main-list-items">
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#portfolio">Projects</a></li>
+              <li><a href="about.html">About Me</a></li>
+            </ul>
+          </div>
+          <div class="mobile-list-items">
+            <button
+              class="mobile-menu-toggle"
+              aria-label="Open navigation menu"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              type="button"
+            >
+              <i class="fas fa-bars fa-2x"></i>
+            </button>
+            <ul class="mobile-menu" id="mobile-menu" aria-hidden="true">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html#portfolio">Projects</a></li>
+              <li><a href="about.html">About</a></li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <section class="contact">
+      <div class="container">
+        <form action="">
+          <h3>Contact Me</h3>
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="5" required></textarea>
+          </div>
+        </form>
+      </div>
+    </section>
+    <footer class="footer">
+      <div class="container footer-grid">
+        <div class="footer-left">
+          <p>
+            © 2023 Giuseppe Mancini | Full Stack Web Developer | All rights
+            reserved.
+          </p>
+        </div>
+      </div>
+    </footer>
+    <script src="./js/script.js"></script>
+  </body>
+</html>
