@@ -237,7 +237,7 @@ img {
 
 .hero {
   padding: 14rem 0;
-  background-image: url(/img/franckfurt_1.jpg);
+  background-image: url(../img/franckfurt_1.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -520,7 +520,7 @@ a[href="index.html#portfolio"]:focus {
 }
 
 .second-about {
-  background-image: url(/img/laptopDesk.jpg);
+  background-image: url(../img/laptopDesk.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -784,7 +784,7 @@ a[aria-label="Twitter"] i {
   align-items: center;
   justify-content: center;
   padding: 4rem 2rem;
-  background-image: url(/img/laptopDesk.jpg);
+  background-image: url(../img/laptopDesk.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -826,7 +826,7 @@ a[aria-label="Twitter"] i {
   content: "";
   position: absolute;
   inset: 0;
-  background: url("/img/businessWorld.jpg") center center/cover no-repeat;
+  background: url("../img/businessWorld.jpg") center center/cover no-repeat;
   z-index: 1;
 }
 
@@ -926,7 +926,7 @@ a[aria-label="Twitter"] i {
 }
 
 .case-studies {
-  background-image: url("/img/workPlace.jpg");
+  background-image: url("../img/workPlace.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
