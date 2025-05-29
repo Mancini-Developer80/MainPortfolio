@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const navbar = document.querySelector(".navbar");
   const mobileToggle = document.querySelector(".mobile-menu-toggle");
   const mobileList = document.querySelector(".mobile-list-items");
-  const mobileMenu = document.querySelector(".mobile-menu");
+  const mobileMenu = document.getElementById("mobile-menu");
 
   // Track mobile menu state
   let mobileMenuOpen = false;
