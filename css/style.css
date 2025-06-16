@@ -1002,9 +1002,6 @@ a[aria-label="Twitter"] i {
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
   padding: 2rem 0;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .case-study-card {
@@ -1150,7 +1147,6 @@ a[aria-label="Twitter"] i {
   transition: background 0.2s, color 0.2s;
   cursor: pointer;
   text-decoration: none;
-  display: inline-block;
 }
 
 .about-page .about-section-btn:hover,
@@ -1828,4 +1824,44 @@ a[aria-label="Twitter"] i {
     border-radius: 0.7em;
     margin: 0.2em 0;
   }
+}
+
+#form-message {
+  color: #1a2233;              /* Dark text for readability */
+  background: #fff;            /* White background */
+  border-radius: 0.7em;
+  box-shadow: 0 4px 16px rgba(57, 125, 226, 0.08);
+  padding: 2rem 1.5rem;
+  max-width: 500px;
+  margin: 2rem auto;
+  text-align: center;
+  font-size: 1.15rem;
+  z-index: 10;
+}
+
+#form-message h3 {
+  color: #397de2;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+#form-message a.btn {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1.5rem;
+  background: linear-gradient(90deg, #397de2 0%, #60efff 100%);
+  color: #fff;
+  border-radius: 0.7em;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: 0 2px 12px rgba(57, 125, 226, 0.08);
+  transition: background 0.2s, color 0.2s;
+  text-decoration: none;
+}
+
+#form-message a.btn:hover,
+#form-message a.btn:focus {
+  background: linear-gradient(90deg, #60efff 0%, #397de2 100%);
+  color: #222c3c;
 }

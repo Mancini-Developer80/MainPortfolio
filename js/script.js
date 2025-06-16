@@ -59,38 +59,30 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Highlight active nav link automatically
-  // Get current path and hash (for anchors)
+  // Navbar active link highlighting
   const currentPath = window.location.pathname.split("/").pop();
   const currentHash = window.location.hash;
 
-  // Select all nav links (desktop and mobile)
-  const navLinks = document.querySelectorAll(
-    '.navbar ul a, .mobile-menu a'
-  );
+  // Desktop nav links
+  const desktopLinks = document.querySelectorAll('.navbar ul a');
+  // Mobile nav links
+  const mobileLinks = document.querySelectorAll('.mobile-menu a');
 
-  navLinks.forEach(function (link) {
-    // Get the link's href (relative to current location)
+  // Highlight desktop nav links based on scroll/hash/path
+  desktopLinks.forEach(function (link) {
     const linkHref = link.getAttribute("href");
-
-    // For anchor links on index.html
     if (
       (currentPath === "" || currentPath === "index.html") &&
       linkHref.startsWith("#") &&
       linkHref === currentHash
     ) {
       link.classList.add("active");
-    }
-    // For normal page links (about.html, contact.html, etc.)
-    else if (
+    } else if (
       linkHref === currentPath ||
-      // For index.html, also match empty path
       (linkHref === "index.html" && (currentPath === "" || currentPath === "index.html"))
     ) {
       link.classList.add("active");
-    }
-    // For anchor links to index.html#section from other pages
-    else if (
+    } else if (
       linkHref.includes("#") &&
       (window.location.pathname + window.location.hash).endsWith(linkHref)
     ) {
@@ -98,6 +90,18 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  // Highlight mobile nav links ONLY by exact path match (no scroll/hash)
+  mobileLinks.forEach(function (link) {
+    const linkHref = link.getAttribute("href");
+    if (
+      linkHref === currentPath ||
+      (linkHref === "index.html" && (currentPath === "" || currentPath === "index.html"))
+    ) {
+      link.classList.add("active");
+    }
+  });
+
+  // AJAX Formspree form submission with custom thank you message and auto-redirect
   if (form) {
     form.addEventListener("submit", async function (e) {
       e.preventDefault();
@@ -116,7 +120,15 @@ document.addEventListener("DOMContentLoaded", function () {
         if (response.ok) {
           form.style.display = "none";
           messageDiv.style.display = "block";
-          messageDiv.innerHTML = "<h3>Thank you!</h3><p>Your message has been sent. We will get back to you soon.</p>";
+          messageDiv.innerHTML = `
+            <h3>Thank you!</h3>
+            <p>Your message has been sent. We will get back to you soon.</p>
+            <a href="index.html" class="btn" style="margin-top:1.5rem;display:inline-block;">Return to Home</a>
+          `;
+          // Automatically redirect to home after 4 seconds
+          setTimeout(function() {
+            window.location.href = "index.html";
+          }, 4000);
         } else {
           messageDiv.style.display = "block";
           messageDiv.innerHTML = "<p>There was an error sending your message. Please try again later.</p>";
