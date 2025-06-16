@@ -3,6 +3,8 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileToggle = document.querySelector(".mobile-menu-toggle");
   const mobileList = document.querySelector(".mobile-list-items");
   const mobileMenu = document.getElementById("mobile-menu");
+  const form = document.getElementById("contact-form");
+  const messageDiv = document.getElementById("form-message");
 
   // Track mobile menu state
   let mobileMenuOpen = false;
@@ -95,4 +97,34 @@ document.addEventListener("DOMContentLoaded", function () {
       link.classList.add("active");
     }
   });
+
+  if (form) {
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      try {
+        const response = await fetch(form.action, {
+          method: "POST",
+          body: formData,
+          headers: {
+            Accept: "application/json"
+          }
+        });
+
+        if (response.ok) {
+          form.style.display = "none";
+          messageDiv.style.display = "block";
+          messageDiv.innerHTML = "<h3>Thank you!</h3><p>Your message has been sent. We will get back to you soon.</p>";
+        } else {
+          messageDiv.style.display = "block";
+          messageDiv.innerHTML = "<p>There was an error sending your message. Please try again later.</p>";
+        }
+      } catch (error) {
+        messageDiv.style.display = "block";
+        messageDiv.innerHTML = "<p>There was an error sending your message. Please try again later.</p>";
+      }
+    });
+  }
 });

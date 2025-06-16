@@ -70,9 +70,10 @@
     <section class="contact">
       <div class="container container-form">
         <form
-          autocomplete="on"
+          id="contact-form"
           action="https://formspree.io/f/xeokqzja"
           method="POST"
+          autocomplete="on"
         >
           <h3>Contact Me</h3>
           <div class="form-group">
@@ -105,9 +106,10 @@
               autocomplete="off"
             ></textarea>
           </div>
-          <input type="hidden" name="_redirect" value="./thankyou.html" />
+
           <button type="submit" class="btn btn-contact">Send Message</button>
         </form>
+        <div id="form-message" style="display: none"></div>
       </div>
     </section>
     <footer class="footer">
