@@ -1,3 +1,27 @@
+/* Fixed arrow-up button bottom right */
+.arrow-up-fixed {
+  position: fixed;
+  right: 2.2rem;
+  bottom: 2.2rem;
+  z-index: 1000;
+  background: linear-gradient(135deg, #60efff 0%, #397de2 100%);
+  color: #fff;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  box-shadow: 0 2px 12px rgba(57, 125, 226, 0.18);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s, background 0.3s, transform 0.2s;
+}
+.arrow-up-fixed:hover {
+  background: linear-gradient(135deg, #397de2 0%, #60efff 100%);
+  transform: translateY(-4px) scale(1.08) rotate(-8deg);
+}
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 
 *,

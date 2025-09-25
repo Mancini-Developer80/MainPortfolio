@@ -143,143 +143,8 @@
         <a class="btn btn-moreInfo" href="about.html">Discover my journey</a>
       </div>
     </section>
-    <section class="portfolio" id="portfolio">
-      <h2 class="portfolio-heading">My Portfolio Projects</h2>
-      <div class="projects projects-grid">
-        <div class="project project-1">
-          <img src="img/Pokemon_2.png" alt="Pokemon App Screenshot" />
-          <div class="project-info">
-            <h3 class="project-heading">Pokemon App</h3>
-            <p class="project-description">
-              A fully responsive web application engineered with HTML, CSS,
-              JavaScript, and Bootstrap that empowers users to seamlessly browse
-              diverse Pokémon profiles and access comprehensive details.
-            </p>
-            <div class="btn-group">
-              <a
-                href="https://mancini-developer80.github.io/PokemonAppBootstrap/"
-                target="_blank"
-                class="btn btn-project"
-                >View Project</a
-              >
-              <a
-                href="https://github.com/Mancini-Developer80/PokemonAppBootstrap"
-                target="_blank"
-                class="btn btn-github"
-                >Repository</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="project project-2">
-          <img src="img/MeetUp.png" alt="Meet Up App Screenshot" />
-          <div class="project-info">
-            <h3 class="project-heading">Meet Up</h3>
-            <p class="project-description">
-              A serverless, progressive web application (PWA) with React using a
-              test-driven development (TDD) technique. The application uses the
-              Google Calendar API to fetch upcoming events.
-            </p>
-            <div class="btn-group">
-              <a
-                href="https://meet-app-git-main-giuseppes-projects-44470569.vercel.app/"
-                target="_blank"
-                class="btn btn-project"
-                >View Project</a
-              >
-              <a
-                href="https://github.com/Mancini-Developer80/MeetApp"
-                target="_blank"
-                class="btn btn-github"
-                >Repository</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="project project-3">
-          <img src="img/myFlix.png" alt="My Flix React Screenshot" />
-          <div class="project-info">
-            <h3 class="project-heading">My Flix</h3>
-            <p class="project-description">
-              A RESTful API built with Node.js and Express using an innovative
-              modular approach. The myFlix-App API delivers movie, director, and
-              genre data while reliably managing user profiles and favorites.
-            </p>
-            <div class="btn-group">
-              <a
-                href="https://lively-genie-620dd9.netlify.app/"
-                target="_blank"
-                class="btn btn-project"
-                >View Project</a
-              >
-              <a
-                href="https://github.com/Mancini-Developer80/myFlix-client"
-                target="_blank"
-                class="btn btn-github"
-                >Repository</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="project project-4">
-          <img
-            src="img/MyFlixAngularApp.png"
-            alt="My Flix Angular Screenshot"
-          />
-          <div class="project-info">
-            <h3 class="project-heading">My Flix Angular</h3>
-            <p class="project-description">
-              A RESTful API built with Node.js, Express, and Angular, employing
-              an innovative modular approach. The myFlix-App API delivers movie,
-              director, and genre data while managing user profiles and
-              favorites.
-            </p>
-            <div class="btn-group">
-              <a
-                href="https://mancini-developer80.github.io/MyFlixAngular/welcome"
-                target="_blank"
-                class="btn btn-project"
-                >View Project</a
-              >
-              <a
-                href="https://github.com/Mancini-Developer80/MyFlixAngular"
-                target="_blank"
-                class="btn btn-github"
-                >Repository</a
-              >
-            </div>
-          </div>
-        </div>
-        <div class="project project-5">
-          <img src="img/promontoliohome.png" alt="Pokemon App Screenshot" />
-          <div class="project-info">
-            <h3 class="project-heading">Promontolio Blog</h3>
-            <p class="project-description">
-              A modern, full-stack blog and admin dashboard for an Italian olive
-              oil business, featuring rich text editing, media management,
-              authentication, and responsive design.
-            </p>
-            <div class="btn-group">
-              <a
-                href="https://promontolio-blog-production.up.railway.app/"
-                target="_blank"
-                class="btn btn-project"
-                >View Project</a
-              >
-              <a
-                href="https://github.com/Mancini-Developer80/promontolio-blog"
-                target="_blank"
-                class="btn btn-github"
-                >Repository</a
-              >
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="btn-cases">
-        <a href="caseStudies.html">Go to the case Studies</a>
-      </div>
-    </section>
+
+    <!-- Skills section moved here, before portfolio -->
     <section class="skills-icons" id="skills">
       <div class="container">
         <h2 class="skills-heading">Skills</h2>
@@ -292,7 +157,6 @@
           JavaScript to engineering scalable APIs in Python and JavaScript, I
           deliver secure, maintainable, and user-centric digital solutions.
         </p>
-
         <ul
           class="skills-grid"
           itemscope
@@ -524,10 +388,151 @@
           </li>
         </ul>
       </div>
-      <div class="arrow">
-        <a href="#home" aria-label="Back to top">
-          <i class="fa-solid fa-arrow-up"></i>
-        </a>
+      <!-- Fixed arrow-up button -->
+      <a
+        href="#home"
+        aria-label="Back to top"
+        class="arrow-up-fixed"
+        id="arrowUpBtn"
+      >
+        <i class="fa-solid fa-arrow-up"></i>
+      </a>
+    </section>
+    <section class="portfolio" id="portfolio">
+      <h2 class="portfolio-heading">My Portfolio Projects</h2>
+      <div class="projects projects-grid">
+        <div class="project project-1">
+          <img src="img/Pokemon_2.png" alt="Pokemon App Screenshot" />
+          <div class="project-info">
+            <h3 class="project-heading">Pokemon App</h3>
+            <p class="project-description">
+              A fully responsive web application engineered with HTML, CSS,
+              JavaScript, and Bootstrap that empowers users to seamlessly browse
+              diverse Pokémon profiles and access comprehensive details.
+            </p>
+            <div class="btn-group">
+              <a
+                href="https://mancini-developer80.github.io/PokemonAppBootstrap/"
+                target="_blank"
+                class="btn btn-project"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/Mancini-Developer80/PokemonAppBootstrap"
+                target="_blank"
+                class="btn btn-github"
+                >Repository</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="project project-2">
+          <img src="img/MeetUp.png" alt="Meet Up App Screenshot" />
+          <div class="project-info">
+            <h3 class="project-heading">Meet Up</h3>
+            <p class="project-description">
+              A serverless, progressive web application (PWA) with React using a
+              test-driven development (TDD) technique. The application uses the
+              Google Calendar API to fetch upcoming events.
+            </p>
+            <div class="btn-group">
+              <a
+                href="https://meet-app-git-main-giuseppes-projects-44470569.vercel.app/"
+                target="_blank"
+                class="btn btn-project"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/Mancini-Developer80/MeetApp"
+                target="_blank"
+                class="btn btn-github"
+                >Repository</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="project project-3">
+          <img src="img/myFlix.png" alt="My Flix React Screenshot" />
+          <div class="project-info">
+            <h3 class="project-heading">My Flix</h3>
+            <p class="project-description">
+              A RESTful API built with Node.js and Express using an innovative
+              modular approach. The myFlix-App API delivers movie, director, and
+              genre data while reliably managing user profiles and favorites.
+            </p>
+            <div class="btn-group">
+              <a
+                href="https://lively-genie-620dd9.netlify.app/"
+                target="_blank"
+                class="btn btn-project"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/Mancini-Developer80/myFlix-client"
+                target="_blank"
+                class="btn btn-github"
+                >Repository</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="project project-4">
+          <img
+            src="img/MyFlixAngularApp.png"
+            alt="My Flix Angular Screenshot"
+          />
+          <div class="project-info">
+            <h3 class="project-heading">My Flix Angular</h3>
+            <p class="project-description">
+              A RESTful API built with Node.js, Express, and Angular, employing
+              an innovative modular approach. The myFlix-App API delivers movie,
+              director, and genre data while managing user profiles and
+              favorites.
+            </p>
+            <div class="btn-group">
+              <a
+                href="https://mancini-developer80.github.io/MyFlixAngular/welcome"
+                target="_blank"
+                class="btn btn-project"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/Mancini-Developer80/MyFlixAngular"
+                target="_blank"
+                class="btn btn-github"
+                >Repository</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="project project-5">
+          <img src="img/promontoliohome.png" alt="Pokemon App Screenshot" />
+          <div class="project-info">
+            <h3 class="project-heading">Promontolio Blog</h3>
+            <p class="project-description">
+              A modern, full-stack blog and admin dashboard for an Italian olive
+              oil business, featuring rich text editing, media management,
+              authentication, and responsive design.
+            </p>
+            <div class="btn-group">
+              <a
+                href="https://promontolio-blog-production.up.railway.app/"
+                target="_blank"
+                class="btn btn-project"
+                >View Project</a
+              >
+              <a
+                href="https://github.com/Mancini-Developer80/promontolio-blog"
+                target="_blank"
+                class="btn btn-github"
+                >Repository</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="btn-cases">
+        <a href="caseStudies.html">Go to the case Studies</a>
       </div>
     </section>
 
@@ -557,5 +562,18 @@
       </div>
     </footer>
     <script src="./js/script.js"></script>
+    <script>
+      // Show/hide arrow-up button on scroll
+      const arrowUpBtn = document.getElementById("arrowUpBtn");
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 300) {
+          arrowUpBtn.style.opacity = "1";
+          arrowUpBtn.style.pointerEvents = "auto";
+        } else {
+          arrowUpBtn.style.opacity = "0";
+          arrowUpBtn.style.pointerEvents = "none";
+        }
+      });
+    </script>
   </body>
 </html>
