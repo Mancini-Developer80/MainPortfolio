@@ -53,11 +53,13 @@
             </a>
           </div>
           <div class="main-list-items">
-            <ul>
+            <ul class="cluster cluster--end">
               <li><a href="index.html">Home</a></li>
               <li><a href="about.html">About Me</a></li>
               <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="caseStudies.html">Case Studies</a></li>
+              <li>
+                <a href="caseStudies.html" aria-current="page">Case Studies</a>
+              </li>
               <li><a href="index.html#portfolio">Projects</a></li>
             </ul>
           </div>
@@ -85,12 +87,14 @@
     <section class="case-studies-section">
       <div class="case-studies-section-container">
         <h2 class="case-studies-section-title">Case Studies</h2>
-        <div class="case-studies-section-grid">
+        <div class="case-studies-section-grid grid grid--cols-3 grid--gap-sm">
           <div class="case-studies-section-card card card--case">
             <img
               src="./img/MyFlix_1.png"
               alt="My Flix App Screenshot"
               class="case-studies-section-image card__media"
+              loading="lazy"
+              decoding="async"
             />
             <div class="card__body">
               <h3 class="case-heading card__title">Case Study My Flix App</h3>
@@ -113,8 +117,10 @@
           <div class="case-studies-section-card card card--case">
             <img
               src="./img/Pokemon_2.png"
-              alt="My Flix App Screenshot"
+              alt="Pokemon App Screenshot"
               class="case-studies-section-image card__media"
+              loading="lazy"
+              decoding="async"
             />
             <div class="card__body">
               <h3 class="case-heading card__title">Pokemon App</h3>
@@ -137,8 +143,10 @@
           <div class="case-studies-section-card card card--case">
             <img
               src="./img/MeetUp.png"
-              alt="My Flix App Screenshot"
+              alt="Meet App Screenshot"
               class="case-studies-section-image card__media"
+              loading="lazy"
+              decoding="async"
             />
             <div class="card__body">
               <h3 class="case-heading card__title">Meet App</h3>
@@ -161,8 +169,10 @@
           <div class="case-studies-section-card card card--case">
             <img
               src="./img/landingpage.png"
-              alt="My Flix App Screenshot"
+              alt="Job Tracker App Screenshot"
               class="case-studies-section-image card__media"
+              loading="lazy"
+              decoding="async"
             />
             <div class="card__body">
               <h3 class="case-heading card__title">Job Job-Tracker</h3>
@@ -185,8 +195,10 @@
           <div class="case-studies-section-card card card--case">
             <img
               src="./img/BlogDashboard.png"
-              alt="My Flix App Screenshot"
+              alt="Promontolio Blog Screenshot"
               class="case-studies-section-image card__media"
+              loading="lazy"
+              decoding="async"
             />
             <div class="card__body">
               <h3 class="case-heading card__title">Promontolio Blog</h3>
@@ -209,8 +221,10 @@
           <div class="case-studies-section-card card card--case">
             <img
               src="./img/MyFlixAngularApp.png"
-              alt="My Flix App Screenshot"
+              alt="My Flix Angular App Screenshot"
               class="case-studies-section-image card__media"
+              loading="lazy"
+              decoding="async"
             />
             <div class="card__body">
               <h3 class="case-heading card__title">My Flix App with Angular</h3>
@@ -240,20 +254,24 @@
             © 2025 Giuseppe Mancini | Full Stack Web Developer | All rights
             reserved.
           </p>
-          <a
-            href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://github.com/Mancini-Developer80"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
+          <div class="social-list">
+            <a
+              class="social-link"
+              href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              class="social-link"
+              href="https://github.com/Mancini-Developer80"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

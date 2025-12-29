@@ -102,25 +102,15 @@
   animation: slideInLeft 1s cubic-bezier(0.4, 0, 0.2, 1) 0.8s forwards;
 }
 
-.content .social {
+.content .social-list {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  margin-top: 3rem;
+  margin-top: 5rem;
 }
 
-.content .social img {
-  width: 70px;
-  filter: brightness(0) invert(1);
-  z-index: 3;
-}
-
-.content .social img:hover {
-  filter: brightness(1.2) invert(0.8);
-  transform: scale(1.1);
-  transition: transform 0.3s ease, filter 0.3s ease;
-}
+/* Old image-based social styles removed; using .social-link component */
 
 @media (max-width: 400px) {
   .content .main-text {

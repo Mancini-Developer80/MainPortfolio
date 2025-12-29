@@ -65,7 +65,7 @@
   z-index: 1;
 }
 
-.first-about,
+.about-intro,
 .skills-icons {
   background-image: linear-gradient(
     45deg,
@@ -74,7 +74,7 @@
   );
 }
 
-.first-about {
+.about-intro {
   padding: 4rem 2rem;
   justify-content: space-between;
   box-shadow: var(--box-shadow);
@@ -176,7 +176,7 @@
   background: #fff;
 }
 
-.second-about {
+.about-overview {
   background-image: url("../img/laptopDesk.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -187,7 +187,7 @@
   box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.35);
 }
 
-.second-about::before {
+.about-overview::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -196,13 +196,13 @@
   pointer-events: none;
 }
 
-.second-about .left-content,
-.second-about .right-content {
+.about-overview .left-content,
+.about-overview .right-content {
   position: relative;
   z-index: 2;
 }
 
-.second-about .btn {
+.about-overview .btn {
   position: relative;
   z-index: 2;
   align-self: center;
@@ -238,12 +238,9 @@
 }
 
 .skills-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
-  gap: 2rem;
   justify-items: center;
   align-items: center;
-  padding: 2rem 0;
+  padding: 1rem 0;
 }
 
 .flex-skill {
@@ -261,8 +258,8 @@
 }
 
 /* Visibility animations for about sections */
-.first-about .left-content,
-.first-about .right-content {
+.about-intro .left-content,
+.about-intro .right-content {
   opacity: 0;
   transform: translateY(60px) scale(0.96) rotate(-4deg);
   filter: blur(12px);
@@ -272,7 +269,7 @@
   will-change: opacity, transform, filter;
 }
 
-.first-about .left-content.visible {
+.about-intro .left-content.visible {
   opacity: 1;
   transform: translateY(0) scale(1.04) rotate(0deg);
   filter: blur(0);
@@ -280,7 +277,7 @@
   transition-delay: 0.08s;
 }
 
-.first-about .right-content.visible {
+.about-intro .right-content.visible {
   opacity: 1;
   transform: translateY(0) scale(1.04) rotate(0deg);
   filter: blur(0);
@@ -288,42 +285,42 @@
   transition-delay: 0.28s;
 }
 
-.second-about .left-content,
-.second-about .right-content,
-.second-about .btn-info a {
+.about-overview .left-content,
+.about-overview .right-content,
+.about-overview .btn-info a {
   opacity: 0;
   transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
     transform 0.7s cubic-bezier(0.4, 0, 0.2, 1);
   will-change: opacity, transform;
 }
 
-.second-about .left-content.visible {
+.about-overview .left-content.visible {
   opacity: 1;
   transform: translateX(0);
   transition-delay: 0.08s;
 }
 
-.second-about .left-content {
+.about-overview .left-content {
   transform: translateX(-80px);
 }
 
-.second-about .right-content.visible {
+.about-overview .right-content.visible {
   opacity: 1;
   transform: translateX(0);
   transition-delay: 0.28s;
 }
 
-.second-about .right-content {
+.about-overview .right-content {
   transform: translateX(80px);
 }
 
-.second-about .btn-info a.visible {
+.about-overview .btn-info a.visible {
   opacity: 1;
   transform: translateY(0);
   transition-delay: 0.48s;
 }
 
-.second-about .btn-info a {
+.about-overview .btn-info a {
   transform: translateY(60px);
 }
 
@@ -472,8 +469,8 @@
     margin-bottom: 1rem;
   }
 
-  .first-about,
-  .second-about {
+  .about-intro,
+  .about-overview {
     padding: 3rem 0.5rem;
     box-sizing: border-box;
   }
@@ -591,12 +588,26 @@
     max-width: 100%;
   }
 
+  .skills-icons .skill {
+    font-size: 0.92rem;
+  }
+
   .skills-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 0.5rem;
     padding: 0;
   }
 
+  /* Keep skills in two columns on smallest mobile */
+  .skills-grid.grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  /* Ensure at most two columns on small tablets as well */
+  @media (max-width: 768px) {
+    .skills-grid.grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
   .skills-icons {
     padding-left: 0;
     padding-right: 0;

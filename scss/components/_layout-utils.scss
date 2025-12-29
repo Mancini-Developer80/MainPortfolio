@@ -1,0 +1,81 @@
+/* Layout utility classes */
+.section {
+  padding: 4rem 2rem;
+}
+.section--tight {
+  padding: 2rem 1rem;
+}
+.section--roomy {
+  padding: 6rem 2.5rem;
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.stack--sm {
+  gap: 0.5rem;
+}
+.stack--md {
+  gap: 1.2rem;
+}
+.stack--lg {
+  gap: 2rem;
+}
+
+.cluster {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.8rem;
+}
+.cluster--center {
+  justify-content: center;
+}
+.cluster--start {
+  justify-content: flex-start;
+}
+.cluster--end {
+  justify-content: flex-end;
+}
+
+.grid {
+  display: grid;
+  gap: 1.2rem;
+}
+.grid--cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+.grid--cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+.grid--cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+.grid--cols-5 {
+  grid-template-columns: repeat(5, 1fr);
+}
+
+.grid--gap-sm {
+  gap: 0.8rem;
+}
+.grid--gap-xs {
+  gap: 0.5rem;
+}
+
+@media (max-width: 992px) {
+  .grid--cols-4,
+  .grid--cols-5 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .grid--cols-2,
+  .grid--cols-3,
+  .grid--cols-4,
+  .grid--cols-5 {
+    grid-template-columns: 1fr;
+  }
+}

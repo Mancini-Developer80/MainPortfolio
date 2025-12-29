@@ -148,7 +148,7 @@
   flex-direction: column;
   align-items: flex-start;
   transition: transform 0.25s, box-shadow 0.25s;
-  border: 1.5px solid #60efff22;
+  border: none; /* remove thin border */
   position: relative;
   min-height: 340px;
   max-width: 370px;

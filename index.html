@@ -54,7 +54,7 @@
           </div>
           <div class="main-list-items">
             <ul>
-              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html" aria-current="page">Home</a></li>
               <li><a href="about.html">About Me</a></li>
               <!-- <li><a href="contact.html">Contact Me</a></li> -->
               <li><a href="caseStudies.html">Case Studies</a></li>
@@ -72,7 +72,7 @@
               <i class="fas fa-bars fa-2x"></i>
             </button>
             <ul class="mobile-menu" id="mobile-menu" aria-hidden="true">
-              <li><a href="index.html">Home</a></li>
+              <li><a href="index.html" aria-current="page">Home</a></li>
               <li><a href="about.html">About Me</a></li>
               <!-- <li><a href="contact.html">Contact Me</a></li> -->
               <li><a href="caseStudies.html">Case Studies</a></li>
@@ -93,8 +93,10 @@
               >
             </h1>
 
-            <a class="btn btn-contact" href="#contact-form">Contact Me</a>
-            <div class="social">
+            <a class="btn btn-contact btn--primary" href="#contact-form"
+              >Contact Me</a
+            >
+            <div class="social-list">
               <a
                 href="https://github.com/Mancini-Developer80"
                 target="_blank"
@@ -114,7 +116,7 @@
         </div>
       </div>
     </header>
-    <section class="first-about">
+    <section class="about-intro section">
       <div class="container about-grid">
         <div class="left-content">
           <div class="globus-icon">
@@ -132,16 +134,27 @@
             <img
               src="img/PortfolioHero.png"
               alt="Portrait of Giuseppe Mancini"
+              width="280"
+              height="280"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         </div>
       </div>
     </section>
-    <section class="second-about">
+    <section class="about-overview section section--roomy">
       <div class="container about-grid">
         <div class="left-content">
           <div class="profile-img-wrapper">
-            <img src="img/globalBusiness.jpg" alt="Giuseppe Mancini at work" />
+            <img
+              src="img/globalBusiness.jpg"
+              alt="Giuseppe Mancini at work"
+              width="280"
+              height="280"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
         </div>
         <div class="right-content">
@@ -155,12 +168,14 @@
         </div>
       </div>
       <div class="btn-info">
-        <a class="btn btn-moreInfo" href="about.html">Discover my journey</a>
+        <a class="btn btn-moreInfo btn--primary" href="about.html"
+          >Discover my journey</a
+        >
       </div>
     </section>
 
     <!-- Skills section moved here, before portfolio -->
-    <section class="skills-icons" id="skills">
+    <section class="skills-icons section section--tight" id="skills">
       <div class="container">
         <h2 class="skills-heading">Skills</h2>
         <p class="skills-description">
@@ -173,7 +188,7 @@
           deliver secure, maintainable, and user-centric digital solutions.
         </p>
         <ul
-          class="skills-grid"
+          class="skills-grid grid grid--cols-4 grid--gap-sm"
           itemscope
           itemtype="https://schema.org/ItemList"
         >
@@ -187,6 +202,10 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
               alt="HTML5 logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">HTML5</span>
             <meta itemprop="position" content="1" />
@@ -201,6 +220,10 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
               alt="CSS3 logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">CSS3</span>
             <meta itemprop="position" content="2" />
@@ -215,6 +238,10 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
               alt="JavaScript logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">JavaScript</span>
             <meta itemprop="position" content="3" />
@@ -229,6 +256,10 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"
               alt="Node.js logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">Node.js</span>
             <meta itemprop="position" content="4" />
@@ -243,6 +274,10 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
               alt="React logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">React</span>
             <meta itemprop="position" content="5" />
@@ -257,9 +292,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
               alt="Vue logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">Vue.js</span>
-            <meta itemprop="position" content="5" />
+            <meta itemprop="position" content="6" />
           </li>
           <li
             class="skill-icon flex-skill"
@@ -271,9 +310,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg"
               alt="Angular logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">Angular</span>
-            <meta itemprop="position" content="5" />
+            <meta itemprop="position" content="7" />
           </li>
           <li
             class="skill-icon flex-skill"
@@ -285,9 +328,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
               alt="Typescript logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
-            <span class="skill" itemprop="name">React</span>
-            <meta itemprop="position" content="5" />
+            <span class="skill" itemprop="name">TypeScript</span>
+            <meta itemprop="position" content="8" />
           </li>
           <li
             class="skill-icon flex-skill"
@@ -299,9 +346,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg"
               alt="MongoDB logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">MongoDB</span>
-            <meta itemprop="position" content="6" />
+            <meta itemprop="position" content="9" />
           </li>
           <li
             class="skill-icon flex-skill"
@@ -313,9 +364,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
               alt="Bootstrap logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">Bootstrap</span>
-            <meta itemprop="position" content="7" />
+            <meta itemprop="position" content="10" />
           </li>
           <li
             class="skill-icon flex-skill"
@@ -327,9 +382,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
               alt="Python logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">Python</span>
-            <meta itemprop="position" content="8" />
+            <meta itemprop="position" content="11" />
           </li>
           <li
             class="skill-icon flex-skill"
@@ -341,9 +400,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg"
               alt="Django logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">Django</span>
-            <meta itemprop="position" content="9" />
+            <meta itemprop="position" content="12" />
           </li>
           <li
             class="skill-icon flex-skill"
@@ -355,9 +418,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
               alt="Figma logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">Figma</span>
-            <meta itemprop="position" content="10" />
+            <meta itemprop="position" content="13" />
           </li>
           <li
             class="skill-icon flex-skill"
@@ -369,9 +436,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg"
               alt="Illustrator logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">Illustrator</span>
-            <meta itemprop="position" content="11" />
+            <meta itemprop="position" content="14" />
           </li>
           <li
             class="skill-icon flex-skill"
@@ -383,9 +454,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
               alt="Photoshop logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">Photoshop</span>
-            <meta itemprop="position" content="12" />
+            <meta itemprop="position" content="15" />
           </li>
           <li
             class="skill-icon flex-skill"
@@ -397,9 +472,13 @@
               src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xd/xd-original.svg"
               alt="Adobe XD logo"
               itemprop="image"
+              width="90"
+              height="90"
+              loading="lazy"
+              decoding="async"
             />
             <span class="skill" itemprop="name">Adobe XD</span>
-            <meta itemprop="position" content="13" />
+            <meta itemprop="position" content="16" />
           </li>
         </ul>
       </div>
@@ -413,14 +492,16 @@
         <i class="fa-solid fa-arrow-up"></i>
       </a>
     </section>
-    <section class="portfolio" id="portfolio">
+    <section class="portfolio section" id="portfolio">
       <h2 class="portfolio-heading">My Portfolio Projects</h2>
-      <div class="projects projects-grid">
+      <div class="projects projects-grid grid">
         <div class="project project-1 card card--project">
           <img
             class="card__media"
             src="img/Pokemon_2.png"
             alt="Pokemon App Screenshot"
+            loading="lazy"
+            decoding="async"
           />
           <div class="project-info card__body">
             <h3 class="project-heading card__title">Pokemon App</h3>
@@ -450,6 +531,8 @@
             class="card__media"
             src="img/MeetUp.png"
             alt="Meet Up App Screenshot"
+            loading="lazy"
+            decoding="async"
           />
           <div class="project-info card__body">
             <h3 class="project-heading card__title">Meet Up</h3>
@@ -479,6 +562,8 @@
             class="card__media"
             src="img/myFlix.png"
             alt="My Flix React Screenshot"
+            loading="lazy"
+            decoding="async"
           />
           <div class="project-info card__body">
             <h3 class="project-heading card__title">My Flix</h3>
@@ -508,6 +593,8 @@
             class="card__media"
             src="img/MyFlixAngularApp.png"
             alt="My Flix Angular Screenshot"
+            loading="lazy"
+            decoding="async"
           />
           <div class="project-info card__body">
             <h3 class="project-heading card__title">My Flix Angular</h3>
@@ -538,6 +625,8 @@
             class="card__media"
             src="img/chartDashboard.png"
             alt="Job Tracker App Screenshot"
+            loading="lazy"
+            decoding="async"
           />
           <div class="project-info card__body">
             <h3 class="project-heading card__title">Job Tracker</h3>
@@ -568,6 +657,8 @@
             class="card__media"
             src="img/promontoliohome.png"
             alt="Promontolio App Screenshot"
+            loading="lazy"
+            decoding="async"
           />
           <div class="project-info card__body">
             <h3 class="project-heading card__title">Promontolio Blog</h3>
@@ -595,7 +686,7 @@
         </div>
       </div>
       <div class="btn-cases">
-        <a href="caseStudies.html">Go to the case Studies</a>
+        <a href="caseStudies.html">Go to Case Studies</a>
       </div>
     </section>
 
@@ -689,21 +780,24 @@
             © 2025 Giuseppe Mancini | Full Stack Web Developer | All rights
             reserved.
           </p>
-
-          <a
-            href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
-            target="_blank"
-            aria-label="LinkedIn"
-          >
-            <i class="fab fa-linkedin"></i>
-          </a>
-          <a
-            href="https://github.com/Mancini-Developer80"
-            target="_blank"
-            aria-label="GitHub"
-          >
-            <i class="fab fa-github"></i>
-          </a>
+          <div class="social-list">
+            <a
+              class="social-link"
+              href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
+              target="_blank"
+              aria-label="LinkedIn"
+            >
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a
+              class="social-link"
+              href="https://github.com/Mancini-Developer80"
+              target="_blank"
+              aria-label="GitHub"
+            >
+              <i class="fab fa-github"></i>
+            </a>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,0 +1,46 @@
+/* Social links component */
+.social-list {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+}
+
+.social-link,
+.social-list a[aria-label] {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #60efff 0%, #397de2 100%);
+  border-radius: 50%;
+  width: 58px;
+  height: 58px;
+  box-shadow: 0 2px 12px rgba(57, 125, 226, 0.1);
+  color: #fff;
+  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+}
+
+.social-link i,
+.social-list a[aria-label] i {
+  color: #fff;
+  font-size: 2rem;
+  transition: color 0.2s;
+}
+
+.social-link:hover,
+.social-link:focus,
+.social-list a[aria-label]:hover,
+.social-list a[aria-label]:focus {
+  background: linear-gradient(135deg, #397de2 0%, #60efff 100%);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 6px 24px rgba(96, 239, 255, 0.18);
+}
+
+/* Smaller variant */
+.social-link--sm {
+  width: 44px;
+  height: 44px;
+}
+.social-link--sm i {
+  font-size: 1.6rem;
+}

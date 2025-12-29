@@ -64,9 +64,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const currentHash = window.location.hash;
 
   // Desktop nav links
-  const desktopLinks = document.querySelectorAll('.navbar ul a');
+  const desktopLinks = document.querySelectorAll(".navbar ul a");
   // Mobile nav links
-  const mobileLinks = document.querySelectorAll('.mobile-menu a');
+  const mobileLinks = document.querySelectorAll(".mobile-menu a");
 
   // Highlight desktop nav links based on scroll/hash/path
   desktopLinks.forEach(function (link) {
@@ -79,7 +79,8 @@ document.addEventListener("DOMContentLoaded", function () {
       link.classList.add("active");
     } else if (
       linkHref === currentPath ||
-      (linkHref === "index.html" && (currentPath === "" || currentPath === "index.html"))
+      (linkHref === "index.html" &&
+        (currentPath === "" || currentPath === "index.html"))
     ) {
       link.classList.add("active");
     } else if (
@@ -95,7 +96,8 @@ document.addEventListener("DOMContentLoaded", function () {
     const linkHref = link.getAttribute("href");
     if (
       linkHref === currentPath ||
-      (linkHref === "index.html" && (currentPath === "" || currentPath === "index.html"))
+      (linkHref === "index.html" &&
+        (currentPath === "" || currentPath === "index.html"))
     ) {
       link.classList.add("active");
     }
@@ -113,8 +115,8 @@ document.addEventListener("DOMContentLoaded", function () {
           method: "POST",
           body: formData,
           headers: {
-            Accept: "application/json"
-          }
+            Accept: "application/json",
+          },
         });
 
         if (response.ok) {
@@ -126,59 +128,61 @@ document.addEventListener("DOMContentLoaded", function () {
             <a href="index.html" class="btn" style="margin-top:1.5rem;display:inline-block;">Return to Home</a>
           `;
           // Automatically redirect to home after 4 seconds
-          setTimeout(function() {
+          setTimeout(function () {
             window.location.href = "index.html";
           }, 4000);
         } else {
           messageDiv.style.display = "block";
-          messageDiv.innerHTML = "<p>There was an error sending your message. Please try again later.</p>";
+          messageDiv.innerHTML =
+            "<p>There was an error sending your message. Please try again later.</p>";
         }
       } catch (error) {
         messageDiv.style.display = "block";
-        messageDiv.innerHTML = "<p>There was an error sending your message. Please try again later.</p>";
+        messageDiv.innerHTML =
+          "<p>There was an error sending your message. Please try again later.</p>";
       }
     });
   }
 
-  // IntersectionObserver for first-about animation (bidirectional)
-  const left = document.querySelector('.first-about .left-content');
-  const right = document.querySelector('.first-about .right-content');
+  // IntersectionObserver for about-intro animation (bidirectional)
+  const left = document.querySelector(".about-intro .left-content");
+  const right = document.querySelector(".about-intro .right-content");
   if (left && right) {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
           } else {
-            entry.target.classList.remove('visible');
+            entry.target.classList.remove("visible");
           }
         });
       },
       {
-        threshold: 0.3 // Trigger when 30% of the element is visible
+        threshold: 0.3, // Trigger when 30% of the element is visible
       }
     );
     observer.observe(left);
     observer.observe(right);
   }
 
-  // IntersectionObserver for second-about animation (bidirectional)
-  const secondLeft = document.querySelector('.second-about .left-content');
-  const secondRight = document.querySelector('.second-about .right-content');
-  const btnInfo = document.querySelector('.second-about .btn-info a');
+  // IntersectionObserver for about-overview animation (bidirectional)
+  const secondLeft = document.querySelector(".about-overview .left-content");
+  const secondRight = document.querySelector(".about-overview .right-content");
+  const btnInfo = document.querySelector(".about-overview .btn-info a");
   if (secondLeft || secondRight || btnInfo) {
     const observer2 = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
           } else {
-            entry.target.classList.remove('visible');
+            entry.target.classList.remove("visible");
           }
         });
       },
       {
-        threshold: 0.3
+        threshold: 0.3,
       }
     );
     if (secondLeft) observer2.observe(secondLeft);
@@ -187,41 +191,41 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // IntersectionObserver for each project card animation (bidirectional)
-  const projectCards = document.querySelectorAll('.projects .project');
+  const projectCards = document.querySelectorAll(".projects .project");
   if (projectCards.length) {
     const projectObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
           } else {
-            entry.target.classList.remove('visible');
+            entry.target.classList.remove("visible");
           }
         });
       },
       {
-        threshold: 0.25 // Animate when 25% visible
+        threshold: 0.25, // Animate when 25% visible
       }
     );
-    projectCards.forEach(card => projectObserver.observe(card));
+    projectCards.forEach((card) => projectObserver.observe(card));
   }
 
   // IntersectionObserver for skills heading and description (bidirectional)
-  const skillsHeading = document.querySelector('.skills-heading');
-  const skillsDescription = document.querySelector('.skills-description');
+  const skillsHeading = document.querySelector(".skills-heading");
+  const skillsDescription = document.querySelector(".skills-description");
   if (skillsHeading || skillsDescription) {
     const skillsObserver = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
+            entry.target.classList.add("visible");
           } else {
-            entry.target.classList.remove('visible');
+            entry.target.classList.remove("visible");
           }
         });
       },
       {
-        threshold: 0.3
+        threshold: 0.3,
       }
     );
     if (skillsHeading) skillsObserver.observe(skillsHeading);
