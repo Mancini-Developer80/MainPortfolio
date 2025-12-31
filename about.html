@@ -85,35 +85,48 @@
         <h3 class="about-section-title">About Me</h3>
 
         <div class="about-intro-content">
-          <p>
-            I'm a <strong>full‑stack web developer</strong> who builds
-            <strong>clean, scalable, and intuitive digital experiences</strong>.
-            My work blends strong technical foundations with a creative mindset
-            shaped by my background in
-            <strong
-              >international relations, design, and multilingual
-              communication</strong
-            >.
+          <p class="intro-item">
+            <span class="intro-icon" aria-hidden="true">
+              <i class="fas fa-code"></i>
+            </span>
+            <span class="intro-text">
+              I'm a <strong>full‑stack web developer</strong> who builds
+              <strong>clean, scalable, and intuitive digital experiences</strong
+              >. My work blends strong technical foundations with a creative
+              mindset shaped by my background in
+              <strong
+                >international relations, design, and multilingual
+                communication</strong
+              >.
+            </span>
           </p>
 
-          <p>
-            I enjoy turning complex ideas into elegant solutions — whether it's
-            a full‑stack application, a refined UI, or a well‑structured API.
+          <p class="intro-item">
+            <span class="intro-icon" aria-hidden="true">
+              <i class="fas fa-lightbulb"></i>
+            </span>
+            <span class="intro-text">
+              I enjoy turning complex ideas into elegant solutions — whether
+              it's a full‑stack application, a refined UI, or a well‑structured
+              API.
+            </span>
           </p>
 
-          <p>
-            I recently completed a <strong>Django-based project</strong> that
-            showcases my backend versatility, including authentication, admin
-            customization, security best practices, and deployment
-            problem-solving.
+          <p class="intro-item">
+            <span class="intro-icon" aria-hidden="true">
+              <i class="fab fa-python"></i>
+            </span>
+            <span class="intro-text">
+              I recently completed a <strong>Django-based project</strong> that
+              showcases my backend versatility, including authentication, admin
+              customization, security best practices, and deployment
+              problem-solving.
+            </span>
           </p>
         </div>
 
         <div class="stack stack--lg" aria-label="Additional About Sections">
-          <section
-            class="section section--tight section--alt"
-            aria-labelledby="what-i-do"
-          >
+          <section class="section section--tight" aria-labelledby="what-i-do">
             <h3 id="what-i-do" class="about-section-title">What I Do</h3>
             <div class="about-section-content stack stack--md">
               <p>
@@ -282,36 +295,73 @@
           </section>
 
           <section
-            class="section section--tight section--alt"
+            class="section section--tight about-beyond"
             aria-labelledby="beyond-code"
           >
             <h3 id="beyond-code" class="about-section-title">Beyond Code</h3>
-            <div class="about-section-content stack stack--sm">
-              <p>
-                I'm <strong>multilingual</strong> — fluent in Italian, German,
-                and English — and thrive in
-                <strong>international environments</strong>. My background in
-                <strong>international relations</strong> taught me how to
-                communicate clearly, think critically, and collaborate across
-                cultures. These skills translate naturally into software
-                development, especially when working in diverse teams or
-                building user-centric products.
-              </p>
-              <p>
-                I'm passionate about <strong>UI/UX design</strong> and believe
-                great code should create intuitive, delightful experiences. I
-                approach every feature with the end user in mind, balancing
-                technical constraints with user needs.
-              </p>
-              <p>
-                I'm also exploring <strong>SaaS ideas</strong> and
-                entrepreneurship, thinking about product design, market
-                validation, and how to build solutions people actually want. I
-                leverage <strong>AI tools strategically</strong> to boost
-                productivity, research faster, and prototype ideas more
-                efficiently — while maintaining critical thinking about what to
-                build and why.
-              </p>
+            <div class="about-beyond-grid">
+              <div class="beyond-item">
+                <div class="beyond-header">
+                  <span class="beyond-icon" aria-hidden="true">
+                    <i class="fas fa-language"></i>
+                  </span>
+                  <h4 class="beyond-title">
+                    Multilingual & Global Perspective
+                  </h4>
+                </div>
+                <p class="beyond-text">
+                  I'm <strong>multilingual</strong> — fluent in Italian, German,
+                  and English — and thrive in
+                  <strong>international environments</strong>. My background in
+                  <strong>international relations</strong> taught clear
+                  communication, critical thinking, and cross‑cultural
+                  collaboration — strengths I apply when building user‑centric
+                  products with diverse teams.
+                </p>
+              </div>
+
+              <div class="beyond-item">
+                <div class="beyond-header">
+                  <span class="beyond-icon" aria-hidden="true">
+                    <i class="fas fa-palette"></i>
+                  </span>
+                  <h4 class="beyond-title">UI/UX Mindset</h4>
+                </div>
+                <p class="beyond-text">
+                  I'm passionate about <strong>UI/UX</strong>. I approach every
+                  feature with the end user in mind, balancing technical
+                  constraints with user needs to create intuitive, delightful
+                  experiences.
+                </p>
+              </div>
+
+              <div class="beyond-item">
+                <div class="beyond-header">
+                  <span class="beyond-icon" aria-hidden="true">
+                    <i class="fas fa-lightbulb"></i>
+                  </span>
+                  <h4 class="beyond-title">Entrepreneurship & SaaS</h4>
+                </div>
+                <p class="beyond-text">
+                  I explore <strong>SaaS ideas</strong> and product strategy —
+                  from problem discovery and market validation to designing
+                  solutions people actually want.
+                </p>
+              </div>
+
+              <div class="beyond-item">
+                <div class="beyond-header">
+                  <span class="beyond-icon" aria-hidden="true">
+                    <i class="fas fa-robot"></i>
+                  </span>
+                  <h4 class="beyond-title">Pragmatic Use of AI</h4>
+                </div>
+                <p class="beyond-text">
+                  I leverage <strong>AI tools strategically</strong> to
+                  accelerate research and prototyping while maintaining critical
+                  judgment on what to build and why.
+                </p>
+              </div>
             </div>
           </section>
 
@@ -328,12 +378,27 @@
                 Germany or across the EU. I’m especially interested in teams
                 working with:
               </p>
-              <ul role="list" class="stack stack--sm">
-                <li role="listitem">Modern JavaScript frameworks</li>
-                <li role="listitem">Python/Django backends</li>
-                <li role="listitem">Scalable architectures</li>
-                <li role="listitem">API‑driven products</li>
-                <li role="listitem">SaaS platforms</li>
+              <ul role="list" class="tech-interest-list">
+                <li role="listitem">
+                  <i class="fab fa-react tech-interest-icon"></i>
+                  Modern JavaScript frameworks
+                </li>
+                <li role="listitem">
+                  <i class="fab fa-python tech-interest-icon"></i>
+                  Python/Django backends
+                </li>
+                <li role="listitem">
+                  <i class="fas fa-project-diagram tech-interest-icon"></i>
+                  Scalable architectures
+                </li>
+                <li role="listitem">
+                  <i class="fas fa-plug tech-interest-icon"></i>
+                  API‑driven products
+                </li>
+                <li role="listitem">
+                  <i class="fas fa-cloud tech-interest-icon"></i>
+                  SaaS platforms
+                </li>
               </ul>
               <p>
                 I’m ready to contribute, grow, and take on challenges that push

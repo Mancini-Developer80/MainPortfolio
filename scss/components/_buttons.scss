@@ -48,6 +48,12 @@
   border-color: rgba(57, 125, 226, 0.4);
 }
 
+/* Make secondary button same width in card groups */
+.card__actions .btn--secondary,
+.btn-group .btn--secondary {
+  flex: 1 1 0;
+}
+
 .btn--secondary:hover,
 .btn--secondary:focus {
   color: #222c3c;
@@ -315,13 +321,15 @@
   flex: 1 1 0;
   background: linear-gradient(90deg, #397de2 0%, #60efff 100%);
   color: #fff;
-  border: none;
-  border-radius: 0.7em;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
   font-weight: 600;
   font-size: 1rem;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  padding: 0.7rem 1.1rem;
+  padding: 0.75rem 1.2rem;
   box-shadow: 0 2px 12px rgba(57, 125, 226, 0.08);
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   cursor: pointer;
@@ -337,13 +345,15 @@
   flex: 1 1 0;
   background: #222c3c;
   color: #fff;
-  border: none;
-  border-radius: 0.7em;
+  border: 1px solid transparent;
+  border-radius: 0.7rem;
   font-weight: 600;
   font-size: 1rem;
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  padding: 0.7rem 1.1rem;
+  padding: 0.75rem 1.2rem;
   box-shadow: 0 2px 12px rgba(57, 125, 226, 0.08);
   transition: background 0.2s, color 0.2s, box-shadow 0.2s;
   cursor: pointer;

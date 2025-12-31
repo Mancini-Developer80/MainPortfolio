@@ -28,6 +28,13 @@ body {
   width: 100%;
 }
 
+@media (max-width: 600px) {
+  .flex-container {
+    max-width: 100%;
+    overflow: hidden;
+  }
+}
+
 .about-container {
   display: flex;
   flex-direction: column;
@@ -40,4 +47,20 @@ body {
   width: 200px;
   padding: 1.2rem;
   margin-right: 2rem;
+}
+
+@media (max-width: 600px) {
+  .logo {
+    width: 140px;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+  }
+}
+
+@media (max-width: 400px) {
+  .logo {
+    width: 120px;
+    padding: 0.3rem;
+    margin-right: 0.3rem;
+  }
 }
