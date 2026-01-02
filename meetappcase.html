@@ -1,304 +1,125 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHDXH71YP9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+{% extends 'base.html' %} {% load static %} {% block title %}Giuseppe Mancini |
+Full Stack Web Developer{% endblock %} {% block body_class %}case-studies
+case-studies-single{% endblock %} {% block content %}
+<main class="case-content">
+  <div class="container">
+    <div class="screenshot-img">
+      <img src="{% static 'MeetUp_2.png' %}" alt="Meet App charts and UI" />
+    </div>
 
-      gtag("config", "G-PHDXH71YP9");
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Giuseppe Mancini, Full Stack Web Developer in Frankfurt. Specializing in React, Node.js, Angular, MongoDB, Python/Django & UI/UX design to build sleek, dynamic web applications."
-    />
-    <meta name="author" content="Giuseppe Mancini - Full Stack Web Developer" />
-    <meta
-      name="keywords"
-      content="Giuseppe Mancini, Full Stack Developer, Web Development, React, Node.js, Angular, MongoDB, Python, Django, UI/UX, Software Engineer, Frankfurt am Main"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Giuseppe Mancini | Full Stack Web Developer</title>
-  </head>
-
-  <body class="about-page">
-    <header class="header" id="home">
-      <nav class="navbar">
-        <div class="container flex-container">
-          <div class="logo">
-            <a href="index.html" aria-label="Homepage">
-              <img src="./img/SVGdev/SVG/Risorsa 2.svg" alt="Logo" />
-            </a>
-          </div>
-          <div class="main-list-items">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-          <div class="mobile-list-items">
-            <button
-              class="mobile-menu-toggle"
-              aria-label="Open navigation menu"
-              aria-expanded="false"
-              aria-controls="mobile-menu"
-              type="button"
-            >
-              <i class="fas fa-bars fa-2x"></i>
-            </button>
-            <ul class="mobile-menu" id="mobile-menu" aria-hidden="true">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main class="case-studies case-studies-single">
-      <div class="container-single-case">
-        <div class="overview">
-          <h1>Meet App - Overview</h1>
-          <p>
-            The Meet App is a polished React single-page application that
-            leverages Recharts for rich data visualizations and the Google
-            Calendar API alongside OAuth-based Google Authentication for secure
-            user sign-in. It empowers tech enthusiasts to register and explore
-            upcoming events in any city—filtering by city and category. By
-            fetching real-time calendar entries, the app renders interactive
-            charts that surface event counts. With responsive design and
-            performance tuning, Meet delivers a seamless, engaging experience on
-            desktop and mobile alike.
-          </p>
-        </div>
-        <div class="technologies">
-          <h2>Technologies Used</h2>
-          <div class="info-img">
-            <div class="tech-stack">
-              <ul class="tech-stack-list">
-                <li>
-                  <i class="devicon-react-original colored"></i>
-                  React
-                </li>
-                <li>
-                  <i class="devicon-recharts-plain colored"></i>
-                  Recharts
-                </li>
-                <li>
-                  <i class="devicon-google-plain colored"></i>
-                  Google Calendar API
-                </li>
-                <li>
-                  <i class="devicon-google-plain colored"></i>
-                  Google Authentication
-                </li>
-                <li>
-                  <i class="devicon-css3-plain colored"></i>
-                  CSS3
-                </li>
-              </ul>
-            </div>
-
-            <div class="screenshot-img">
-              <img src="./img/MeetUp_2.png" alt="Meet App charts and UI" />
-            </div>
-          </div>
-        </div>
-
-        <div class="case-section content-features">
-          <h2>Features</h2>
-          <ul>
-            <li>OAuth-based Google Authentication for secure sign-in</li>
-            <li>Real-time tech event discovery and search by city</li>
-            <li>Advanced filtering by city and Technology</li>
-            <li>Live data fetching from the Google Calendar API</li>
-            <li>Interactive Recharts visualizations</li>
-            <li>Fully responsive design with performance optimizations</li>
-          </ul>
-        </div>
-        <div class="case-section architecture">
-          <h2>Architecture</h2>
-          <ul>
-            <li><strong>React SPA:</strong> Component‑based UI with hooks.</li>
-            <li>
-              <strong>OAuth 2.0:</strong> Google auth flow and token handling.
-            </li>
-            <li>
-              <strong>Service layer:</strong> Google Calendar API wrapper with
-              caching.
-            </li>
-            <li>
-              <strong>Charts:</strong> Recharts components for interactive
-              visualizations.
-            </li>
-            <li>
-              <strong>Performance:</strong> Debounced inputs and minimized
-              re‑renders.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section technical-challenges">
-          <h2>Technical Challenges</h2>
-          <ul>
-            <li>
-              <strong>OAuth integration:</strong> Securely managing auth tokens
-              and session state.
-            </li>
-            <li>
-              <strong>Rate limits:</strong> Caching and batching to respect API
-              constraints.
-            </li>
-            <li>
-              <strong>Chart performance:</strong> Optimizing renders for large
-              datasets.
-            </li>
-            <li>
-              <strong>Accessibility:</strong> Focus management and ARIA for
-              interactive charts.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section user-problem">
-          <h2>User Problem</h2>
-          <p>
-            Tech enthusiasts often struggle to find and track upcoming events in
-            their city, leading to missed opportunities for networking and
-            learning. The Meet App addresses this challenge by providing a
-            streamlined platform where users can easily discover tech events. By
-            integrating real-time calendar data and interactive visualizations,
-            the app enhances the event discovery experience, making it more
-            engaging and personalized.
-          </p>
-        </div>
-        <div class="purpose">
-          <div class="purpose-content">
-            <h2>Purpose</h2>
-            <p>
-              This application was developed as part of the Full Stack Web
-              Development course at CareerFoundry. Under the expert guidance of
-              a Senior Developer Mentor for overall strategy and a dedicated
-              Tutor for in-depth technical advice, the project was designed to
-              encapsulate best practices and advanced methodologies in modern
-              web development.
-            </p>
-          </div>
-          <div class="purpose-img">
-            <img src="./img/frankfurt_2.jpg" alt="My Flix Case Study" />
-          </div>
-        </div>
-        <div class="accomplishmenst">
-          <div class="accomplishment-img">
-            <img src="./img/businessWorld.jpg" alt="" />
-          </div>
-          <div class="accomplishment-text">
-            <h2>Accomplishments</h2>
-            <p>
-              Delivered a polished, production-ready React single-page
-              application that leverages Recharts for rich data visualizations
-              and the Google Calendar API with OAuth-based Google Authentication
-              for secure user sign-in. It empowers tech enthusiasts explore
-              upcoming events in any city—filtering by city and category. By
-              fetching real-time calendar entries, the app renders interactive
-              charts that surface event counts. With responsive design and
-              performance tuning, Meet delivers a seamless, engaging experience
-              on desktop and mobile alike.
-            </p>
-          </div>
-        </div>
-        <div class="consideration">
-          <div class="accomplishment-text">
-            <h2>Final Consideration</h2>
-            <p>
-              I gained a comprehensive understanding of the multifaceted
-              elements that form a complete application—from the foundational
-              planning and design phases to the technical nuances of assembling
-              each component. This project has significantly bolstered my
-              confidence and competence as a Full Stack Developer.
-            </p>
-          </div>
-          <div class="consideration-img">
-            <img src="./img/franckfurt_1.jpg" alt="" />
-          </div>
-        </div>
-        <!-- <div class="case-pdf">
-          <div class="case-text">
-            <p>Read the full case study here:</p>
-          </div>
-
-          <div class="button-pdf">
-            <a
-              class="btn-pdf"
-              target="_blank"
-              href="./cases/MyFlixCaseStudy.pdf"
-              >Download PDF</a
-            >
-          </div>
-        </div> -->
+    <div class="case-section content-features">
+      <h2>Features</h2>
+      <ul>
+        <li>OAuth-based Google Authentication for secure sign-in</li>
+        <li>Real-time tech event discovery and search by city</li>
+        <li>Advanced filtering by city and Technology</li>
+        <li>Live data fetching from the Google Calendar API</li>
+        <li>Interactive Recharts visualizations</li>
+        <li>Fully responsive design with performance optimizations</li>
+      </ul>
+    </div>
+    <div class="case-section architecture">
+      <h2>Architecture</h2>
+      <ul>
+        <li><strong>React SPA:</strong> Component‑based UI with hooks.</li>
+        <li>
+          <strong>OAuth 2.0:</strong> Google auth flow and token handling.
+        </li>
+        <li>
+          <strong>Service layer:</strong> Google Calendar API wrapper with
+          caching.
+        </li>
+        <li>
+          <strong>Charts:</strong> Recharts components for interactive
+          visualizations.
+        </li>
+        <li>
+          <strong>Performance:</strong> Debounced inputs and minimized
+          re‑renders.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section technical-challenges">
+      <h2>Technical Challenges</h2>
+      <ul>
+        <li>
+          <strong>OAuth integration:</strong> Securely managing auth tokens and
+          session state.
+        </li>
+        <li>
+          <strong>Rate limits:</strong> Caching and batching to respect API
+          constraints.
+        </li>
+        <li>
+          <strong>Chart performance:</strong> Optimizing renders for large
+          datasets.
+        </li>
+        <li>
+          <strong>Accessibility:</strong> Focus management and ARIA for
+          interactive charts.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section user-problem">
+      <h2>User Problem</h2>
+      <p>
+        Tech enthusiasts often struggle to find and track upcoming events in
+        their city, leading to missed opportunities for networking and learning.
+        The Meet App addresses this challenge by providing a streamlined
+        platform where users can easily discover tech events. By integrating
+        real-time calendar data and interactive visualizations, the app enhances
+        the event discovery experience, making it more engaging and
+        personalized.
+      </p>
+    </div>
+    <div class="purpose">
+      <div class="purpose-content">
+        <h2>Purpose</h2>
+        <p>
+          This application was developed as part of the Full Stack Web
+          Development course at CareerFoundry. Under the expert guidance of a
+          Senior Developer Mentor for overall strategy and a dedicated Tutor for
+          in-depth technical advice, the project was designed to encapsulate
+          best practices and advanced methodologies in modern web development.
+        </p>
       </div>
-    </main>
-    <footer class="footer">
-      <div class="container footer-grid">
-        <div class="footer-left">
-          <p>
-            © 2025 Giuseppe Mancini | Full Stack Web Developer | All rights
-            reserved.
-          </p>
-          <div class="social-list">
-            <a
-              class="social-link"
-              href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://github.com/Mancini-Developer80"
-              target="_blank"
-              aria-label="GitHub"
-            >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://twitter.com/yourusername"
-              target="_blank"
-              aria-label="X (Twitter)"
-            >
-              <i class="fab fa-x-twitter"></i>
-            </a>
-          </div>
-        </div>
+      <div class="purpose-img">
+        <img src="{% static 'frankfurt_2.jpg' %}" alt="My Flix Case Study" />
       </div>
-    </footer>
-    <script src="./js/script.js"></script>
-  </body>
-</html>
+    </div>
+    <div class="accomplishmenst">
+      <div class="accomplishment-img">
+        <img src="{% static 'businessWorld.jpg' %}" alt="" />
+      </div>
+      <div class="accomplishment-text">
+        <h2>Accomplishments</h2>
+        <p>
+          Delivered a polished, production-ready React single-page application
+          that leverages Recharts for rich data visualizations and the Google
+          Calendar API with OAuth-based Google Authentication for secure user
+          sign-in. It empowers tech enthusiasts explore upcoming events in any
+          city—filtering by city and category. By fetching real-time calendar
+          entries, the app renders interactive charts that surface event counts.
+          With responsive design and performance tuning, Meet delivers a
+          seamless, engaging experience on desktop and mobile alike.
+        </p>
+      </div>
+    </div>
+    <div class="consideration">
+      <div class="accomplishment-text">
+        <h2>Final Consideration</h2>
+        <p>
+          I gained a comprehensive understanding of the multifaceted elements
+          that form a complete application—from the foundational planning and
+          design phases to the technical nuances of assembling each component.
+          This project has significantly bolstered my confidence and competence
+          as a Full Stack Developer.
+        </p>
+      </div>
+      <div class="consideration-img">
+        <img src="{% static 'franckfurt_1.jpg' %}" alt="" />
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

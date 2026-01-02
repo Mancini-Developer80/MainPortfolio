@@ -1,265 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHDXH71YP9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+{% extends 'base.html' %} {% load static %} {% block title %}Giuseppe Mancini |
+Full Stack Web Developer{% endblock %} {% block body_class %}case-studies
+case-studies-single{% endblock %} {% block content %}
+<main class="case-content">
+  <div class="container">
+    <div class="screenshot-img">
+      <img
+        src="{% static 'MyFlixAngularApp.png' %}"
+        alt="MyFlix Angular app screenshot"
+      />
+    </div>
 
-      gtag("config", "G-PHDXH71YP9");
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Giuseppe Mancini, Full Stack Web Developer in Frankfurt. Specializing in React, Node.js, Angular, MongoDB, Python/Django & UI/UX design to build sleek, dynamic web applications."
-    />
-    <meta name="author" content="Giuseppe Mancini - Full Stack Web Developer" />
-    <meta
-      name="keywords"
-      content="Giuseppe Mancini, Full Stack Developer, Web Development, React, Node.js, Angular, MongoDB, Python, Django, UI/UX, Software Engineer, Frankfurt am Main"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Giuseppe Mancini | Full Stack Web Developer</title>
-  </head>
-
-  <body class="about-page">
-    <header class="header" id="home">
-      <nav class="navbar">
-        <div class="container flex-container">
-          <div class="logo">
-            <a href="index.html" aria-label="Homepage">
-              <img src="./img/SVGdev/SVG/Risorsa 2.svg" alt="Logo" />
-            </a>
-          </div>
-          <div class="main-list-items">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-          <div class="mobile-list-items">
-            <button
-              class="mobile-menu-toggle"
-              aria-label="Open navigation menu"
-              aria-expanded="false"
-              aria-controls="mobile-menu"
-              type="button"
-            >
-              <i class="fas fa-bars fa-2x"></i>
-            </button>
-            <ul class="mobile-menu" id="mobile-menu" aria-hidden="true">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main class="case-studies case-studies-single">
-      <div class="container-single-case">
-        <div class="overview">
-          <h1>My Flix Angular - Overview</h1>
-          <p>
-            A production‑ready Angular application backed by a Node.js/Express
-            API and MongoDB. It showcases framework‑level engineering:
-            component‑driven architecture, RxJS‑based data flows, HTTP
-            interceptors for auth, route guards for protected views, and a
-            mobile‑first UI. Favorites persist client‑side while a REST API
-            powers browsing and detail views.
-          </p>
-        </div>
-        <div class="technologies">
-          <h2>Technologies Used</h2>
-          <div class="info-img">
-            <div class="tech-stack">
-              <ul class="tech-stack-list">
-                <li>
-                  <i class="devicon-angularjs-plain colored"></i>
-                  Angular
-                </li>
-                <li>
-                  <i class="devicon-nodejs-plain-wordmark colored"></i>
-                  Node.js
-                </li>
-                <li>
-                  <i class="devicon-express-original-wordmark colored"></i>
-                  Express
-                </li>
-                <li>
-                  <i class="devicon-mongodb-plain-wordmark colored"></i>
-                  MongoDB
-                </li>
-                <li>
-                  <i class="devicon-css3-plain-wordmark colored"></i>
-                  CSS3
-                </li>
-              </ul>
-            </div>
-
-            <div class="screenshot-img">
-              <img
-                src="./img/MyFlixAngularApp.png"
-                alt="MyFlix Angular app screenshot"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div class="case-section content-features">
-          <h2>Features</h2>
-          <ul>
-            <li>
-              <strong>JWT auth + route guards:</strong> Protected views with
-              token handling via interceptors.
-            </li>
-            <li>
-              <strong>RxJS data flows:</strong> Observables power search, detail
-              fetches, and UI reactivity.
-            </li>
-            <li>
-              <strong>Mobile‑first UI:</strong> Responsive, accessible
-              components optimized for performance.
-            </li>
-            <li>
-              <strong>REST API integration:</strong> Node/Express + MongoDB for
-              movies, genres, directors.
-            </li>
-            <li>
-              <strong>Favorites persistence:</strong> Client‑side storage for
-              watchlists and starred titles.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section architecture">
-          <h2>Architecture</h2>
-          <ul>
-            <li>
-              <strong>Angular modules & components:</strong> Feature‑oriented
-              structure with shared utilities.
-            </li>
-            <li>
-              <strong>Services layer:</strong> Encapsulated HTTP client with
-              interceptors and typed responses.
-            </li>
-            <li>
-              <strong>Routing:</strong> Guarded routes for auth‑required views
-              and lazy detail loading.
-            </li>
-            <li>
-              <strong>Persistence:</strong> LocalStorage abstraction for
-              favorites/watchlists.
-            </li>
-            <li>
-              <strong>Backend:</strong> Express routes, MongoDB models, JWT
-              issuance/verification.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section technical-challenges">
-          <h2>Technical Challenges</h2>
-          <ul>
-            <li>
-              <strong>Token lifecycle:</strong> Handling refresh/expiry with
-              minimal UX disruption.
-            </li>
-            <li>
-              <strong>Reactive composition:</strong> Managing complex stream
-              combinations in RxJS.
-            </li>
-            <li>
-              <strong>Performance:</strong> Avoiding redundant API calls and
-              minimizing reflows.
-            </li>
-            <li>
-              <strong>Accessibility:</strong> Keyboard navigation and ARIA roles
-              for dynamic views.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section user-problem">
-          <h2>User Problem</h2>
-          <p>
-            Users often struggle to find a comprehensive, user-friendly movie
-            database that allows them to easily search for films, view detailed
-            information, and manage their favorite movies in one place. My Flix
-            Angular addresses this need by providing a robust platform for movie
-            discovery and curation.
-          </p>
-        </div>
-        <div class="purpose">
-          <div class="purpose-content">
-            <h2>Purpose</h2>
-            <p>
-              The purpose of My Flix Angular is to create a dynamic, engaging
-              movie database that enhances the user experience through intuitive
-              design and powerful functionality. By leveraging modern web
-              technologies, it aims to provide a seamless platform for movie
-              enthusiasts to explore, discover, and manage their favorite films.
-            </p>
-          </div>
-          <div class="purpose-img">
-            <img src="./img/frankfurt_2.jpg" alt="My Flix Case Study" />
-          </div>
-        </div>
-        <div class="accomplishmenst">
-          <div class="accomplishment-img">
-            <img src="./img/workPlace.jpg" alt="" />
-          </div>
-          <div class="accomplishment-text">
-            <h2>Accomplishments</h2>
-            <p>
-              Successfully developed a fully functional movie database using
-              Angular, Node.js, Express, and MongoDB. Implemented JWT-based user
-              authentication and authorization, enabling secure access to user
-              profiles and personalized features. Created a responsive design
-              that ensures optimal viewing across devices, enhancing user
-              engagement and satisfaction.
-            </p>
-          </div>
-        </div>
-        <div class="consideration">
-          <div class="accomplishment-text">
-            <h2>Final Consideration</h2>
-            <p>
-              My Flix Angular represents a significant achievement in my journey
-              as a Full Stack Web Developer. It showcases my ability to
-              integrate complex technologies into a cohesive, user-friendly
-              application. This project not only highlights my technical skills
-              but also my commitment to delivering high-quality, impactful web
-              solutions that meet real user needs.
-            </p>
-          </div>
-          <div class="consideration-img">
-            <img src="./img/laptopDesk.jpg" alt="" />
-          </div>
-        </div>
-        <!-- <div class="case-pdf">
+    <div class="case-section content-features">
+      <h2>Features</h2>
+      <ul>
+        <li>
+          <strong>JWT auth + route guards:</strong> Protected views with token
+          handling via interceptors.
+        </li>
+        <li>
+          <strong>RxJS data flows:</strong> Observables power search, detail
+          fetches, and UI reactivity.
+        </li>
+        <li>
+          <strong>Mobile‑first UI:</strong> Responsive, accessible components
+          optimized for performance.
+        </li>
+        <li>
+          <strong>REST API integration:</strong> Node/Express + MongoDB for
+          movies, genres, directors.
+        </li>
+        <li>
+          <strong>Favorites persistence:</strong> Client‑side storage for
+          watchlists and starred titles.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section architecture">
+      <h2>Architecture</h2>
+      <ul>
+        <li>
+          <strong>Angular modules & components:</strong> Feature‑oriented
+          structure with shared utilities.
+        </li>
+        <li>
+          <strong>Services layer:</strong> Encapsulated HTTP client with
+          interceptors and typed responses.
+        </li>
+        <li>
+          <strong>Routing:</strong> Guarded routes for auth‑required views and
+          lazy detail loading.
+        </li>
+        <li>
+          <strong>Persistence:</strong> LocalStorage abstraction for
+          favorites/watchlists.
+        </li>
+        <li>
+          <strong>Backend:</strong> Express routes, MongoDB models, JWT
+          issuance/verification.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section technical-challenges">
+      <h2>Technical Challenges</h2>
+      <ul>
+        <li>
+          <strong>Token lifecycle:</strong> Handling refresh/expiry with minimal
+          UX disruption.
+        </li>
+        <li>
+          <strong>Reactive composition:</strong> Managing complex stream
+          combinations in RxJS.
+        </li>
+        <li>
+          <strong>Performance:</strong> Avoiding redundant API calls and
+          minimizing reflows.
+        </li>
+        <li>
+          <strong>Accessibility:</strong> Keyboard navigation and ARIA roles for
+          dynamic views.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section user-problem">
+      <h2>User Problem</h2>
+      <p>
+        Users often struggle to find a comprehensive, user-friendly movie
+        database that allows them to easily search for films, view detailed
+        information, and manage their favorite movies in one place. My Flix
+        Angular addresses this need by providing a robust platform for movie
+        discovery and curation.
+      </p>
+    </div>
+    <div class="purpose">
+      <div class="purpose-content">
+        <h2>Purpose</h2>
+        <p>
+          The purpose of My Flix Angular is to create a dynamic, engaging movie
+          database that enhances the user experience through intuitive design
+          and powerful functionality. By leveraging modern web technologies, it
+          aims to provide a seamless platform for movie enthusiasts to explore,
+          discover, and manage their favorite films.
+        </p>
+      </div>
+      <div class="purpose-img">
+        <img src="{% static 'frankfurt_2.jpg' %}" alt="My Flix Case Study" />
+      </div>
+    </div>
+    <div class="accomplishmenst">
+      <div class="accomplishment-img">
+        <img src="{% static 'workPlace.jpg' %}" alt="" />
+      </div>
+      <div class="accomplishment-text">
+        <h2>Accomplishments</h2>
+        <p>
+          Successfully developed a fully functional movie database using
+          Angular, Node.js, Express, and MongoDB. Implemented JWT-based user
+          authentication and authorization, enabling secure access to user
+          profiles and personalized features. Created a responsive design that
+          ensures optimal viewing across devices, enhancing user engagement and
+          satisfaction.
+        </p>
+      </div>
+    </div>
+    <div class="consideration">
+      <div class="accomplishment-text">
+        <h2>Final Consideration</h2>
+        <p>
+          My Flix Angular represents a significant achievement in my journey as
+          a Full Stack Web Developer. It showcases my ability to integrate
+          complex technologies into a cohesive, user-friendly application. This
+          project not only highlights my technical skills but also my commitment
+          to delivering high-quality, impactful web solutions that meet real
+          user needs.
+        </p>
+      </div>
+      <div class="consideration-img">
+        <img src="{% static 'laptopDesk.jpg' %}" alt="" />
+      </div>
+    </div>
+    <!-- <div class="case-pdf">
           <div class="case-text">
             <p>Read the full case study here:</p>
           </div>
@@ -273,44 +152,6 @@
             >
           </div>
         </div> -->
-      </div>
-    </main>
-    <footer class="footer">
-      <div class="container footer-grid">
-        <div class="footer-left">
-          <p>
-            © 2025 Giuseppe Mancini | Full Stack Web Developer | All rights
-            reserved.
-          </p>
-          <div class="social-list">
-            <a
-              class="social-link"
-              href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://github.com/Mancini-Developer80"
-              target="_blank"
-              aria-label="GitHub"
-            >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://twitter.com/yourusername"
-              target="_blank"
-              aria-label="X (Twitter)"
-            >
-              <i class="fab fa-x-twitter"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script src="./js/script.js"></script>
-  </body>
-</html>
+  </div>
+</main>
+{% endblock %}

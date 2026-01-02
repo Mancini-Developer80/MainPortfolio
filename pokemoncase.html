@@ -1,271 +1,149 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHDXH71YP9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+{% extends 'base.html' %} {% load static %} {% block title %}Giuseppe Mancini |
+Full Stack Web Developer{% endblock %} {% block body_class %}case-studies
+case-studies-single{% endblock %} {% block content %}
+<main class="case-content">
+  <div class="container">
+    <div class="screenshot-img">
+      <img src="{% static 'Pokemon_1.png' %}" alt="Pokemon App UI" />
+    </div>
 
-      gtag("config", "G-PHDXH71YP9");
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Giuseppe Mancini, Full Stack Web Developer in Frankfurt. Specializing in React, Node.js, Angular, MongoDB, Python/Django & UI/UX design to build sleek, dynamic web applications."
-    />
-    <meta name="author" content="Giuseppe Mancini - Full Stack Web Developer" />
-    <meta
-      name="keywords"
-      content="Giuseppe Mancini, Full Stack Developer, Web Development, React, Node.js, Angular, MongoDB, Python, Django, UI/UX, Software Engineer, Frankfurt am Main"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Giuseppe Mancini | Full Stack Web Developer</title>
-  </head>
-
-  <body class="about-page">
-    <header class="header" id="home">
-      <nav class="navbar">
-        <div class="container flex-container">
-          <div class="logo">
-            <a href="index.html" aria-label="Homepage">
-              <img src="./img/SVGdev/SVG/Risorsa 2.svg" alt="Logo" />
-            </a>
-          </div>
-          <div class="main-list-items">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-          <div class="mobile-list-items">
-            <button
-              class="mobile-menu-toggle"
-              aria-label="Open navigation menu"
-              aria-expanded="false"
-              aria-controls="mobile-menu"
-              type="button"
-            >
-              <i class="fas fa-bars fa-2x"></i>
-            </button>
-            <ul class="mobile-menu" id="mobile-menu" aria-hidden="true">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main class="case-studies case-studies-single">
-      <div class="container-single-case">
-        <div class="overview">
-          <h1>Pokemon App - Overview</h1>
-          <p>
-            A performance‑optimized single‑page application built in vanilla
-            JavaScript, HTML5, and CSS3 that integrates the public PokéAPI. The
-            app demonstrates core front‑end engineering: a modular ES6
-            architecture, a dedicated API service layer with robust error
-            handling, centralized state management (search, results, favorites)
-            without frameworks, and mobile‑first UI with lazy‑loaded images for
-            fast rendering.
-          </p>
-        </div>
-        <div class="technologies">
-          <h2>Technologies Used</h2>
-          <div class="info-img">
-            <div class="tech-stack">
-              <ul class="tech-stack-list">
-                <li>
-                  <i class="devicon-javascript-plain colored"></i>
-                  JavaScript (ES6)
-                </li>
-                <li>
-                  <i class="devicon-html5-plain colored"></i>
-                  HTML5
-                </li>
-                <li>
-                  <i class="devicon-css3-plain colored"></i>
-                  CSS3
-                </li>
-                <li>
-                  <i class="devicon-api-plain colored"></i>
-                  PokéAPI
-                </li>
-              </ul>
-            </div>
-            <div class="screenshot-img">
-              <img src="./img/Pokemon_1.png" alt="" />
-            </div>
-          </div>
-        </div>
-
-        <div class="case-section content-features">
-          <h2>Features</h2>
-          <ul>
-            <li>
-              <strong>Mobile‑first layout:</strong> CSS Grid/Flexbox with tuned
-              rendering for smooth interactions on all devices.
-            </li>
-            <li>
-              <strong>Debounced search:</strong> 300ms debounce reduces API
-              calls while keeping typing responsive.
-            </li>
-            <li>
-              <strong>Favorites persistence:</strong> LocalStorage keeps starred
-              Pokémon across sessions.
-            </li>
-            <li>
-              <strong>API service layer:</strong> Encapsulated fetch with
-              loading and error states, plus pagination helpers.
-            </li>
-            <li>
-              <strong>ES6 modules & components:</strong> Reusable utilities and
-              views for scalable organization without frameworks.
-            </li>
-            <li>
-              <strong>Lazy‑loaded images:</strong> IntersectionObserver defers
-              image loading to speed up first paint.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section architecture">
-          <h2>Architecture</h2>
-          <ul>
-            <li>
-              <strong>ES6 Modules:</strong> Separate files for views, services,
-              and helpers.
-            </li>
-            <li>
-              <strong>State Management:</strong> Central state for search,
-              results, favorites updated via pure functions.
-            </li>
-            <li>
-              <strong>API Service:</strong> Promise‑based wrapper around PokéAPI
-              with standardized responses and errors.
-            </li>
-            <li>
-              <strong>Persistence:</strong> LocalStorage abstraction for
-              favorites.
-            </li>
-            <li>
-              <strong>Performance:</strong> IntersectionObserver for lazy
-              images; batched DOM updates.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section technical-challenges">
-          <h2>Technical Challenges</h2>
-          <ul>
-            <li>
-              <strong>Framework‑less composition:</strong> Reusable components
-              and DOM updates without React/Vue.
-            </li>
-            <li>
-              <strong>Debounce & UX balance:</strong> Limiting requests while
-              maintaining a snappy UI.
-            </li>
-            <li>
-              <strong>Pagination & batching:</strong> Efficiently handling
-              larger PokéAPI datasets.
-            </li>
-            <li>
-              <strong>Error handling:</strong> Graceful fallbacks for network
-              failures and rate limits.
-            </li>
-            <li>
-              <strong>Accessibility:</strong> Keyboard navigation and ARIA roles
-              for lists and modals.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section user-problem">
-          <h2>User Problem</h2>
-          <p>
-            Many apps rely on heavyweight frameworks to deliver basic features
-            like search and favorites. This project demonstrates how to build a
-            production‑quality experience in
-            <strong>vanilla JavaScript</strong>, integrating a third‑party API,
-            persisting user preferences, and maintaining fast
-            performance—showcasing core skills that transfer to any modern
-            stack.
-          </p>
-        </div>
-        <div class="purpose">
-          <div class="purpose-content">
-            <h2>Purpose</h2>
-            <p>
-              This application was developed as part of the Full Stack Web
-              Development course at CareerFoundry. Under the expert guidance of
-              a Senior Developer Mentor for overall strategy and a dedicated
-              Tutor for in-depth technical advice, the project was designed to
-              encapsulate best practices and advanced methodologies in modern
-              web development.
-            </p>
-          </div>
-          <div class="purpose-img">
-            <img src="./img/Pokemon_2.png" alt="Pokemon App screenshot" />
-          </div>
-        </div>
-        <div class="accomplishmenst">
-          <div class="accomplishment-img">
-            <img src="./img/Pokemon_1.png" alt="Pokemon App UI" />
-          </div>
-          <div class="accomplishment-text">
-            <h2>Accomplishments</h2>
-            <p>
-              Delivered a polished, production-ready browser app built with
-              vanilla JavaScript (ES6), HTML5, and CSS3 that consumes the public
-              PokéAPI for real-time browsing, searching, and favoriting of
-              Pokémon. It leverages ES6 modules, dynamic DOM manipulation and
-              responsive design—showcasing my advanced front-end expertise in
-              API integration and state management.
-            </p>
-          </div>
-        </div>
-        <div class="consideration">
-          <div class="accomplishment-text">
-            <h2>Final Consideration</h2>
-            <p>
-              This project deepened my mastery of front-end development—from
-              planning and API integration strategies to structuring ES6
-              modules, dynamically manipulating the DOM and crafting a fully
-              responsive UI. Building the Pokémon App sharpened my JavaScript
-              architecture skills, reinforced my ability to deliver engaging
-              user experiences, and boosted my confidence as a front-end
-              developer.
-            </p>
-          </div>
-          <div class="consideration-img">
-            <img src="./img/Pokemon_2.png" alt="Pokemon App code and UI" />
-          </div>
-        </div>
-        <!-- <div class="case-pdf">
+    <div class="case-section content-features">
+      <h2>Features</h2>
+      <ul>
+        <li>
+          <strong>Mobile‑first layout:</strong> CSS Grid/Flexbox with tuned
+          rendering for smooth interactions on all devices.
+        </li>
+        <li>
+          <strong>Debounced search:</strong> 300ms debounce reduces API calls
+          while keeping typing responsive.
+        </li>
+        <li>
+          <strong>Favorites persistence:</strong> LocalStorage keeps starred
+          Pokémon across sessions.
+        </li>
+        <li>
+          <strong>API service layer:</strong> Encapsulated fetch with loading
+          and error states, plus pagination helpers.
+        </li>
+        <li>
+          <strong>ES6 modules & components:</strong> Reusable utilities and
+          views for scalable organization without frameworks.
+        </li>
+        <li>
+          <strong>Lazy‑loaded images:</strong> IntersectionObserver defers image
+          loading to speed up first paint.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section architecture">
+      <h2>Architecture</h2>
+      <ul>
+        <li>
+          <strong>ES6 Modules:</strong> Separate files for views, services, and
+          helpers.
+        </li>
+        <li>
+          <strong>State Management:</strong> Central state for search, results,
+          favorites updated via pure functions.
+        </li>
+        <li>
+          <strong>API Service:</strong> Promise‑based wrapper around PokéAPI
+          with standardized responses and errors.
+        </li>
+        <li>
+          <strong>Persistence:</strong> LocalStorage abstraction for favorites.
+        </li>
+        <li>
+          <strong>Performance:</strong> IntersectionObserver for lazy images;
+          batched DOM updates.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section technical-challenges">
+      <h2>Technical Challenges</h2>
+      <ul>
+        <li>
+          <strong>Framework‑less composition:</strong> Reusable components and
+          DOM updates without React/Vue.
+        </li>
+        <li>
+          <strong>Debounce & UX balance:</strong> Limiting requests while
+          maintaining a snappy UI.
+        </li>
+        <li>
+          <strong>Pagination & batching:</strong> Efficiently handling larger
+          PokéAPI datasets.
+        </li>
+        <li>
+          <strong>Error handling:</strong> Graceful fallbacks for network
+          failures and rate limits.
+        </li>
+        <li>
+          <strong>Accessibility:</strong> Keyboard navigation and ARIA roles for
+          lists and modals.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section user-problem">
+      <h2>User Problem</h2>
+      <p>
+        Many apps rely on heavyweight frameworks to deliver basic features like
+        search and favorites. This project demonstrates how to build a
+        production‑quality experience in
+        <strong>vanilla JavaScript</strong>, integrating a third‑party API,
+        persisting user preferences, and maintaining fast performance—showcasing
+        core skills that transfer to any modern stack.
+      </p>
+    </div>
+    <div class="purpose">
+      <div class="purpose-content">
+        <h2>Purpose</h2>
+        <p>
+          This application was developed as part of the Full Stack Web
+          Development course at CareerFoundry. Under the expert guidance of a
+          Senior Developer Mentor for overall strategy and a dedicated Tutor for
+          in-depth technical advice, the project was designed to encapsulate
+          best practices and advanced methodologies in modern web development.
+        </p>
+      </div>
+      <div class="purpose-img">
+        <img src="{% static 'Pokemon_2.png' %}" alt="Pokemon App screenshot" />
+      </div>
+    </div>
+    <div class="accomplishmenst">
+      <div class="accomplishment-img">
+        <img src="{% static 'Pokemon_1.png' %}" alt="Pokemon App UI" />
+      </div>
+      <div class="accomplishment-text">
+        <h2>Accomplishments</h2>
+        <p>
+          Delivered a polished, production-ready browser app built with vanilla
+          JavaScript (ES6), HTML5, and CSS3 that consumes the public PokéAPI for
+          real-time browsing, searching, and favoriting of Pokémon. It leverages
+          ES6 modules, dynamic DOM manipulation and responsive design—showcasing
+          my advanced front-end expertise in API integration and state
+          management.
+        </p>
+      </div>
+    </div>
+    <div class="consideration">
+      <div class="accomplishment-text">
+        <h2>Final Consideration</h2>
+        <p>
+          This project deepened my mastery of front-end development—from
+          planning and API integration strategies to structuring ES6 modules,
+          dynamically manipulating the DOM and crafting a fully responsive UI.
+          Building the Pokémon App sharpened my JavaScript architecture skills,
+          reinforced my ability to deliver engaging user experiences, and
+          boosted my confidence as a front-end developer.
+        </p>
+      </div>
+      <div class="consideration-img">
+        <img src="{% static 'Pokemon_2.png' %}" alt="Pokemon App code and UI" />
+      </div>
+    </div>
+    <!-- <div class="case-pdf">
           <div class="case-text">
             <p>Read the full case study here:</p>
           </div>
@@ -279,44 +157,6 @@
             >
           </div>
         </div> -->
-      </div>
-    </main>
-    <footer class="footer">
-      <div class="container footer-grid">
-        <div class="footer-left">
-          <p>
-            © 2025 Giuseppe Mancini | Full Stack Web Developer | All rights
-            reserved.
-          </p>
-          <div class="social-list">
-            <a
-              class="social-link"
-              href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://github.com/Mancini-Developer80"
-              target="_blank"
-              aria-label="GitHub"
-            >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://twitter.com/yourusername"
-              target="_blank"
-              aria-label="X (Twitter)"
-            >
-              <i class="fab fa-x-twitter"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-    </footer>
-    <script src="./js/script.js"></script>
-  </body>
-</html>
+  </div>
+</main>
+{% endblock %}

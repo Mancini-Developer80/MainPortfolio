@@ -1,369 +1,203 @@
-<!DOCTYPE html>
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHDXH71YP9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+{% extends 'base.html' %} {% load static %} {% block title %}Giuseppe Mancini |
+Full Stack Web Developer{% endblock %} {% block body_class %}case-studies
+case-studies-single{% endblock %} {% block content %}
+<main class="case-content">
+  <div class="container">
+    <div class="screenshot-img">
+      <img
+        src="{% static 'MediaLibrary.png' %}"
+        alt="Promontolio CMS media library"
+      />
+    </div>
 
-      gtag("config", "G-PHDXH71YP9");
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Giuseppe Mancini, Full Stack Web Developer in Frankfurt. Specializing in React, Node.js, Angular, MongoDB, Python/Django & UI/UX design to build sleek, dynamic web applications."
-    />
-    <meta name="author" content="Giuseppe Mancini - Full Stack Web Developer" />
-    <meta
-      name="keywords"
-      content="Giuseppe Mancini, Full Stack Developer, Web Development, React, Node.js, Angular, MongoDB, Python, Django, UI/UX, Software Engineer, Frankfurt am Main"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Giuseppe Mancini | Full Stack Web Developer</title>
-  </head>
+    <div class="case-section content-features">
+      <h2>Features</h2>
+      <ul>
+        <li>
+          <strong> User authentication and role-based access:</strong> The
+          application implements secure authentication using Passport.js,
+          allowing admins to manage posts and media while regular users can only
+          view published content.
+        </li>
+        <li>
+          <strong> Rich text editor for articles:</strong> Admins can create and
+          edit blog posts using a user-friendly rich text editor, allowing for
+          easy formatting and media embedding. The editor supports various text
+          styles, links, and images to enhance content.
+        </li>
 
-  <body class="about-page">
-    <header class="header" id="home">
-      <nav class="navbar">
-        <div class="container flex-container">
-          <div class="logo">
-            <a href="index.html" aria-label="Homepage">
-              <img src="./img/SVGdev/SVG/Risorsa 2.svg" alt="Logo" />
-            </a>
-          </div>
-          <div class="main-list-items">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-          <div class="mobile-list-items">
-            <button
-              class="mobile-menu-toggle"
-              aria-label="Open navigation menu"
-              aria-expanded="false"
-              aria-controls="mobile-menu"
-              type="button"
-            >
-              <i class="fas fa-bars fa-2x"></i>
-            </button>
-            <ul class="mobile-menu" id="mobile-menu" aria-hidden="true">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <main class="case-studies case-studies-single">
-      <div class="container-single-case">
-        <div class="overview">
-          <h1>Promontolio-blog - Overview</h1>
-          <p>
-            Promontolio Blog is a production-ready full‑stack CMS I built for an
-            Italian olive oil brand using Node.js/Express, MongoDB Atlas,
-            EJS/SASS, Passport.js, Multer/Cloudinary, and Railway; it includes
-            role-based auth, a rich-text editor, media management, an admin
-            dashboard, SEO-friendly structure, and responsive design, and it
-            resolved security and deployment issues while enabling the client to
-            publish content and manage users.
-          </p>
-        </div>
-        <div class="technologies">
-          <h2>Technologies Used</h2>
-          <div class="info-img">
-            <div class="tech-stack">
-              <ul class="tech-stack-list">
-                <li>
-                  <i class="devicon-javascript-plain colored"></i>
-                  JavaScript
-                </li>
-                <li><i class="devicon-nodejs-plain colored"></i> Node.js</li>
-                <li>
-                  <i class="devicon-express-original colored"></i> Express.js
-                </li>
-                <li><i class="devicon-mongodb-plain colored"></i> MongoDB</li>
-                <li><i class="devicon-ejs-plain colored"></i> EJS</li>
-                <li><i class="devicon-sass-original colored"></i> SASS</li>
-                <li>
-                  <i class="devicon-passport-plain colored"></i> Passport.js
-                </li>
-                <li>
-                  <i class="devicon-cloudinary-plain colored"></i> Cloudinary
-                </li>
-                <li><i class="devicon-railway-plain colored"></i>Railway</li>
-              </ul>
-            </div>
-
-            <div class="screenshot-img">
-              <img
-                src="./img/MediaLibrary.png"
-                alt="Promontolio CMS media library"
-              />
-            </div>
-          </div>
-        </div>
-
-        <div class="case-section content-features">
-          <h2>Features</h2>
-          <ul>
-            <li>
-              <strong> User authentication and role-based access:</strong> The
-              application implements secure authentication using Passport.js,
-              allowing admins to manage posts and media while regular users can
-              only view published content.
-            </li>
-            <li>
-              <strong> Rich text editor for articles:</strong> Admins can create
-              and edit blog posts using a user-friendly rich text editor,
-              allowing for easy formatting and media embedding. The editor
-              supports various text styles, links, and images to enhance
-              content.
-            </li>
-
-            <li>
-              <strong> Media upload and management</strong> with Cloudinary:
-              Admins can upload images and videos directly through the admin
-              interface, ensuring efficient media management and delivery. The
-              integration with Cloudinary optimizes media storage and retrieval.
-            </li>
-            <li>
-              <strong>Admin dashboard for content and user management</strong>
-              : The admin dashboard provides a centralized interface for
-              managing blog posts, users, and media assets, streamlining the
-              content management process. Admins can easily approve or reject
-              user comments and manage user roles.
-            </li>
-            <li>
-              <strong>SEO-friendly blog structure</strong>
-              : The application is designed with SEO best practices in mind,
-              including clean URLs, meta tags, and structured data to enhance
-              search engine visibility and improve user experience.
-            </li>
-            <li>
-              <strong>Secure environment variable management</strong>
-              : Sensitive information such as database credentials and API keys
-              are securely managed using environment variables, ensuring the
-              safety of sensitive data and preventing unauthorized access.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section architecture">
-          <h2>Architecture</h2>
-          <ul>
-            <li>
-              <strong>MVC (Express + EJS):</strong> Clear separation of
-              concerns.
-            </li>
-            <li>
-              <strong>Auth:</strong> Passport.js with role‑based access control.
-            </li>
-            <li>
-              <strong>Media:</strong> Cloudinary integration for upload and CDN
-              delivery.
-            </li>
-            <li>
-              <strong>Admin UI:</strong> Server‑rendered templates with SASS
-              components.
-            </li>
-            <li>
-              <strong>Config & security:</strong> Environment variables and
-              hardened routes.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section technical-challenges">
-          <h2>Technical Challenges</h2>
-          <ul>
-            <li>
-              <strong>RBAC design:</strong> Ensuring secure, maintainable role
-              policies.
-            </li>
-            <li>
-              <strong>File handling:</strong> Validations, resizing, and safe
-              delivery via Cloudinary.
-            </li>
-            <li>
-              <strong>SEO concerns:</strong> Slugs, meta, and structured data
-              for visibility.
-            </li>
-            <li>
-              <strong>Deployment:</strong> Environment management and
-              zero‑downtime updates.
-            </li>
-          </ul>
-        </div>
-        <div class="case-section user-problem">
-          <h2>User Problem</h2>
-          <p>
-            The client, an Italian olive oil brand, needed a secure and
-            user-friendly content management system (CMS) to publish and manage
-            their blog content. They required role-based access control to
-            differentiate between admin users who could create and manage posts
-            and regular users who could only view published content.
-            Additionally, they needed a rich text editor for easy content
-            creation, media upload capabilities, and an admin dashboard for
-            efficient content and user management. The CMS also had to be
-            SEO-friendly to enhance the brand's online presence and ensure
-            secure handling of sensitive data.
-          </p>
-        </div>
-        <div class="purpose">
-          <div class="purpose-content">
-            <h2>Purpose</h2>
-            <p>
-              The purpose of developing the Promontolio Blog CMS was to provide
-              the client with a robust and secure platform for managing their
-              blog content efficiently. By implementing role-based access
-              control, a rich text editor, media management, and an admin
-              dashboard, the CMS aimed to streamline the content creation and
-              management process. Additionally, the focus on SEO-friendly design
-              and secure environment variable management ensured that the
-              client's online presence was optimized while safeguarding
-              sensitive data. Overall, the CMS was designed to meet the client's
-              specific needs, enhance their content management capabilities, and
-              support their digital marketing efforts.
-            </p>
-          </div>
-          <div class="purpose-img">
-            <img src="./img/AdminLogin.png" alt="My Flix Case Study" />
-          </div>
-        </div>
-        <div class="accomplishmenst">
-          <div class="accomplishment-img">
-            <img src="./img/paginationblog.png" alt="" />
-          </div>
-          <div class="accomplishment-text">
-            <h2>Accomplishments</h2>
-            <p>
-              Successfully developed a full-stack CMS tailored to the client's
-              needs, incorporating secure user authentication and role-based
-              access control using Passport.js. Implemented a rich text editor
-              for seamless content creation and integrated Cloudinary for
-              efficient media upload and management. Designed an intuitive admin
-              dashboard to streamline content and user management processes.
-              Ensured the application adhered to SEO best practices, enhancing
-              the client's online visibility. Effectively managed sensitive data
-              through secure environment variable handling, resulting in a
-              production-ready CMS that empowered the client to publish and
-              manage their blog content with ease and confidence.
-            </p>
-          </div>
-        </div>
-        <div class="consideration">
-          <div class="accomplishment-text">
-            <h2>Final Consideration</h2>
-            <p>
-              The development of the Promontolio Blog CMS was a rewarding
-              experience that allowed me to apply and expand my skills in
-              full-stack web development. By addressing the client's specific
-              requirements, I was able to create a secure and user-friendly
-              platform that streamlined their content management processes. The
-              integration of various technologies, such as Passport.js for
-              authentication and Cloudinary for media management, provided
-              valuable insights into building scalable and efficient web
-              applications. This project not only enhanced my technical
-              expertise but also reinforced the importance of understanding user
-              needs and delivering solutions that align with business goals.
-              Overall, the Promontolio Blog CMS stands as a testament to my
-              commitment to creating high-quality, production-ready web
-              applications that meet real-world challenges.
-            </p>
-          </div>
-          <div class="consideration-img">
-            <img src="./img/BlogDashboard.png" alt="" />
-          </div>
-        </div>
-        <div class="consideration">
-          <div class="consideration-img">
-            <img src="./img/PostCreationEditor.png" alt="" />
-          </div>
-          <div class="accomplishment-text">
-            <h2>What I’d Improve Next</h2>
-            <p>
-              If I were to improve the Promontolio Blog CMS in the future, I
-              would consider implementing additional features such as a
-              multi-language support system to cater to a broader audience,
-              enhancing the user experience for non-English speakers. I would
-              also explore the integration of advanced analytics tools to
-              provide insights into user engagement and content performance,
-              helping the client make data-driven decisions. Additionally, I
-              would focus on optimizing the application's performance by
-              implementing caching strategies and improving load times. Finally,
-              I would consider adding more customization options for the admin
-              dashboard, allowing users to tailor their experience based on
-              their specific needs and preferences. These improvements would
-              further enhance the CMS's functionality and usability, making it
-              an even more valuable tool for the client.
-            </p>
-          </div>
-        </div>
+        <li>
+          <strong> Media upload and management</strong> with Cloudinary: Admins
+          can upload images and videos directly through the admin interface,
+          ensuring efficient media management and delivery. The integration with
+          Cloudinary optimizes media storage and retrieval.
+        </li>
+        <li>
+          <strong>Admin dashboard for content and user management</strong>
+          : The admin dashboard provides a centralized interface for managing
+          blog posts, users, and media assets, streamlining the content
+          management process. Admins can easily approve or reject user comments
+          and manage user roles.
+        </li>
+        <li>
+          <strong>SEO-friendly blog structure</strong>
+          : The application is designed with SEO best practices in mind,
+          including clean URLs, meta tags, and structured data to enhance search
+          engine visibility and improve user experience.
+        </li>
+        <li>
+          <strong>Secure environment variable management</strong>
+          : Sensitive information such as database credentials and API keys are
+          securely managed using environment variables, ensuring the safety of
+          sensitive data and preventing unauthorized access.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section architecture">
+      <h2>Architecture</h2>
+      <ul>
+        <li>
+          <strong>MVC (Express + EJS):</strong> Clear separation of concerns.
+        </li>
+        <li>
+          <strong>Auth:</strong> Passport.js with role‑based access control.
+        </li>
+        <li>
+          <strong>Media:</strong> Cloudinary integration for upload and CDN
+          delivery.
+        </li>
+        <li>
+          <strong>Admin UI:</strong> Server‑rendered templates with SASS
+          components.
+        </li>
+        <li>
+          <strong>Config & security:</strong> Environment variables and hardened
+          routes.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section technical-challenges">
+      <h2>Technical Challenges</h2>
+      <ul>
+        <li>
+          <strong>RBAC design:</strong> Ensuring secure, maintainable role
+          policies.
+        </li>
+        <li>
+          <strong>File handling:</strong> Validations, resizing, and safe
+          delivery via Cloudinary.
+        </li>
+        <li>
+          <strong>SEO concerns:</strong> Slugs, meta, and structured data for
+          visibility.
+        </li>
+        <li>
+          <strong>Deployment:</strong> Environment management and zero‑downtime
+          updates.
+        </li>
+      </ul>
+    </div>
+    <div class="case-section user-problem">
+      <h2>User Problem</h2>
+      <p>
+        The client, an Italian olive oil brand, needed a secure and
+        user-friendly content management system (CMS) to publish and manage
+        their blog content. They required role-based access control to
+        differentiate between admin users who could create and manage posts and
+        regular users who could only view published content. Additionally, they
+        needed a rich text editor for easy content creation, media upload
+        capabilities, and an admin dashboard for efficient content and user
+        management. The CMS also had to be SEO-friendly to enhance the brand's
+        online presence and ensure secure handling of sensitive data.
+      </p>
+    </div>
+    <div class="purpose">
+      <div class="purpose-content">
+        <h2>Purpose</h2>
+        <p>
+          The purpose of developing the Promontolio Blog CMS was to provide the
+          client with a robust and secure platform for managing their blog
+          content efficiently. By implementing role-based access control, a rich
+          text editor, media management, and an admin dashboard, the CMS aimed
+          to streamline the content creation and management process.
+          Additionally, the focus on SEO-friendly design and secure environment
+          variable management ensured that the client's online presence was
+          optimized while safeguarding sensitive data. Overall, the CMS was
+          designed to meet the client's specific needs, enhance their content
+          management capabilities, and support their digital marketing efforts.
+        </p>
       </div>
-    </main>
-    <footer class="footer">
-      <div class="container footer-grid">
-        <div class="footer-left">
-          <p>
-            © 2025 Giuseppe Mancini | Full Stack Web Developer | All rights
-            reserved.
-          </p>
-          <div class="social-list">
-            <a
-              class="social-link"
-              href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://github.com/Mancini-Developer80"
-              target="_blank"
-              aria-label="GitHub"
-            >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://twitter.com/yourusername"
-              target="_blank"
-              aria-label="X (Twitter)"
-            >
-              <i class="fab fa-x-twitter"></i>
-            </a>
-          </div>
-        </div>
+      <div class="purpose-img">
+        <img src="{% static 'AdminLogin.png' %}" alt="My Flix Case Study" />
       </div>
-    </footer>
-    <script src="./js/script.js"></script>
-  </body>
-</html>
+    </div>
+    <div class="accomplishmenst">
+      <div class="accomplishment-img">
+        <img src="{% static 'paginationblog.png' %}" alt="" />
+      </div>
+      <div class="accomplishment-text">
+        <h2>Accomplishments</h2>
+        <p>
+          Successfully developed a full-stack CMS tailored to the client's
+          needs, incorporating secure user authentication and role-based access
+          control using Passport.js. Implemented a rich text editor for seamless
+          content creation and integrated Cloudinary for efficient media upload
+          and management. Designed an intuitive admin dashboard to streamline
+          content and user management processes. Ensured the application adhered
+          to SEO best practices, enhancing the client's online visibility.
+          Effectively managed sensitive data through secure environment variable
+          handling, resulting in a production-ready CMS that empowered the
+          client to publish and manage their blog content with ease and
+          confidence.
+        </p>
+      </div>
+    </div>
+    <div class="consideration">
+      <div class="accomplishment-text">
+        <h2>Final Consideration</h2>
+        <p>
+          The development of the Promontolio Blog CMS was a rewarding experience
+          that allowed me to apply and expand my skills in full-stack web
+          development. By addressing the client's specific requirements, I was
+          able to create a secure and user-friendly platform that streamlined
+          their content management processes. The integration of various
+          technologies, such as Passport.js for authentication and Cloudinary
+          for media management, provided valuable insights into building
+          scalable and efficient web applications. This project not only
+          enhanced my technical expertise but also reinforced the importance of
+          understanding user needs and delivering solutions that align with
+          business goals. Overall, the Promontolio Blog CMS stands as a
+          testament to my commitment to creating high-quality, production-ready
+          web applications that meet real-world challenges.
+        </p>
+      </div>
+      <div class="consideration-img">
+        <img src="{% static 'BlogDashboard.png' %}" alt="" />
+      </div>
+    </div>
+    <div class="consideration">
+      <div class="consideration-img">
+        <img src="{% static 'PostCreationEditor.png' %}" alt="" />
+      </div>
+      <div class="accomplishment-text">
+        <h2>What I’d Improve Next</h2>
+        <p>
+          If I were to improve the Promontolio Blog CMS in the future, I would
+          consider implementing additional features such as a multi-language
+          support system to cater to a broader audience, enhancing the user
+          experience for non-English speakers. I would also explore the
+          integration of advanced analytics tools to provide insights into user
+          engagement and content performance, helping the client make
+          data-driven decisions. Additionally, I would focus on optimizing the
+          application's performance by implementing caching strategies and
+          improving load times. Finally, I would consider adding more
+          customization options for the admin dashboard, allowing users to
+          tailor their experience based on their specific needs and preferences.
+          These improvements would further enhance the CMS's functionality and
+          usability, making it an even more valuable tool for the client.
+        </p>
+      </div>
+    </div>
+  </div>
+</main>
+{% endblock %}

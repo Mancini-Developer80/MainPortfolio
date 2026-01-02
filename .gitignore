@@ -1,0 +1,43 @@
+# Python / Django
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.log
+.env
+.env.*
+.venv/
+venv/
+ENV/
+
+# Django specific
+media/
+staticfiles/
+*.sqlite3
+db.sqlite3
+
+# Node / Frontend
+node_modules/
+.pnp/
+.pnp.js
+# Sass build caches (if any)
+.sass-cache/
+
+# Build outputs
+dist/
+build/
+coverage/
+*.coverage
+
+# OS / Editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.swp
+
+# Misc
+*.bak
+*.tmp

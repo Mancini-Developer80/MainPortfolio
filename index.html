@@ -1,768 +1,479 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHDXH71YP9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
-
-      gtag("config", "G-PHDXH71YP9");
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Giuseppe Mancini, Full Stack Web Developer in Frankfurt. Specializing in React, Node.js, Angular, MongoDB, Python/Django & UI/UX design to build sleek, dynamic web applications."
-    />
-    <meta name="author" content="Giuseppe Mancini - Full Stack Web Developer" />
-    <meta
-      name="keywords"
-      content="Giuseppe Mancini, Full Stack Developer, Web Development, React, Node.js, Angular, MongoDB, Python, Django, UI/UX, Software Engineer, Frankfurt am Main"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Giuseppe Mancini | Full Stack Web Developer</title>
-  </head>
-
-  <body>
-    <header class="header" id="home">
-      <nav class="navbar">
-        <div class="container flex-container">
-          <div class="logo">
-            <a href="index.html" aria-label="Homepage">
-              <img src="./img/SVGdev/SVG/Risorsa 2.svg" alt="Logo" />
-            </a>
-          </div>
-          <div class="main-list-items">
-            <ul>
-              <li><a href="index.html" aria-current="page">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-          <div class="mobile-list-items">
-            <button
-              class="mobile-menu-toggle"
-              aria-label="Open navigation menu"
-              aria-expanded="false"
-              aria-controls="mobile-menu"
-              type="button"
-            >
-              <i class="fas fa-bars fa-2x"></i>
-            </button>
-            <ul class="mobile-menu" id="mobile-menu" aria-hidden="true">
-              <li><a href="index.html" aria-current="page">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <!-- <li><a href="contact.html">Contact Me</a></li> -->
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-      <div class="hero">
-        <div class="container">
-          <div class="content">
-            <h1>
-              <span class="main-text">MERN & Django Specialist</span>
-              <span class="secondary-text">Full Stack Web Developer</span>
-              <span class="light-text"
-                >Crafting Scalable, User-Centric Web Solutions in Frankfurt am
-                Main</span
-              >
-            </h1>
-
-            <a class="btn btn-contact btn--primary" href="#contact-form"
-              >Contact Me</a
-            >
-            <div class="social-list">
-              <a
-                href="https://github.com/Mancini-Developer80"
-                target="_blank"
-                aria-label="GitHub"
-              >
-                <i class="fab fa-github"></i>
-              </a>
-              <a
-                href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
-                target="_blank"
-                aria-label="LinkedIn"
-              >
-                <i class="fab fa-linkedin-in"></i>
-              </a>
-              <a
-                href="https://twitter.com/yourusername"
-                target="_blank"
-                aria-label="X (Twitter)"
-              >
-                <i class="fab fa-x-twitter"></i>
-              </a>
-            </div>
-          </div>
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Giuseppe Mancini | Full Stack Web Developer{% endblock %}
+{% block body_class %}{% endblock %}
+{% block content %}
+<main>
+  <section class="hero">
+    <div class="container">
+      <div class="content">
+        <h1>
+          <span class="main-text">MERN & Django Specialist</span>
+          <span class="secondary-text">Full Stack Web Developer</span>
+          <span class="light-text"
+            >Crafting Scalable, User-Centric Web Solutions in Frankfurt am
+            Main</span
+          >
+        </h1>
+        <a class="btn btn-contact btn--primary" href="#contact">Contact Me</a>
+        <div class="social-list">
+          <a
+            href="https://github.com/Mancini-Developer80"
+            target="_blank"
+            aria-label="GitHub"
+            ><i class="fab fa-github"></i
+          ></a>
+          <a
+            href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
+            target="_blank"
+            aria-label="LinkedIn"
+            ><i class="fab fa-linkedin-in"></i
+          ></a>
+          <a
+            href="https://twitter.com/yourusername"
+            target="_blank"
+            aria-label="X (Twitter)"
+            ><i class="fab fa-x-twitter"></i
+          ></a>
         </div>
       </div>
-    </header>
-    <section class="about-intro section">
-      <div class="container about-grid">
-        <div class="left-content">
-          <div class="globus-icon">
-            <i class="fas fa-globe"></i>
-          </div>
-          <p>
-            I'm Giuseppe, a Full Stack Developer fluent in the MERN stack and
-            Django framework. I architect responsive, high-performance web
-            applications that turn complex ideas into intuitive user
-            experiences.
-          </p>
-        </div>
-        <div class="right-content">
-          <div class="profile-img-wrapper">
-            <img
-              src="img/PortfolioHero.png"
-              alt="Portrait of Giuseppe Mancini"
-              width="280"
-              height="280"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-      </div>
-    </section>
-    <section class="about-overview section section--roomy">
-      <div class="container about-grid">
-        <div class="left-content">
-          <div class="profile-img-wrapper">
-            <img
-              src="img/globalBusiness.jpg"
-              alt="Giuseppe Mancini at work"
-              width="280"
-              height="280"
-              loading="lazy"
-              decoding="async"
-            />
-          </div>
-        </div>
-        <div class="right-content">
-          <p>
-            With a background in International Relations and hands-on experience
-            in customer service and startup environments, I bring a global
-            perspective and strong user empathy to every project. I specialize
-            in developing secure, scalable, and elegant web platforms that build
-            trust and drive meaningful engagement.
-          </p>
-        </div>
-      </div>
-      <div class="btn-info">
-        <a class="btn btn-moreInfo btn--primary" href="about.html"
-          >Discover my journey</a
-        >
-      </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Skills section moved here, before portfolio -->
-    <section class="skills-icons section section--tight" id="skills">
-      <div class="container">
-        <h2 class="skills-heading">Skills</h2>
-        <p class="skills-description">
-          I specialize in building full-stack web applications using modern
-          technologies like React, Node.js, Express, MongoDB, and Django. My
-          skill set spans both front-end and back-end development, with a strong
-          focus on clean architecture, responsive design, and performance
-          optimization. From crafting intuitive UIs with HTML5, CSS3, and
-          JavaScript to engineering scalable APIs in Python and JavaScript, I
-          deliver secure, maintainable, and user-centric digital solutions.
+  <section class="about-intro section">
+    <div class="container about-grid">
+      <div class="left-content">
+        <div class="globus-icon"><i class="fas fa-globe"></i></div>
+        <p>
+          I'm Giuseppe, a Full Stack Developer fluent in MERN and Django. I
+          architect responsive, high-performance web apps that turn complex
+          ideas into intuitive experiences.
         </p>
-        <ul
-          class="skills-grid grid grid--cols-4 grid--gap-sm"
-          itemscope
-          itemtype="https://schema.org/ItemList"
-        >
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
-              alt="HTML5 logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">HTML5</span>
-            <meta itemprop="position" content="1" />
+      </div>
+      <div class="right-content">
+        <div class="profile-img-wrapper">
+          <img
+            src="{% static 'PortfolioHero.png' %}"
+            alt="Portrait of Giuseppe Mancini"
+            width="280"
+            height="280"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-overview section section--roomy">
+    <div class="container about-grid">
+      <div class="left-content">
+        <div class="profile-img-wrapper">
+          <img
+            src="{% static 'globalBusiness.jpg' %}"
+            alt="Giuseppe Mancini at work"
+            width="280"
+            height="280"
+            loading="lazy"
+            decoding="async"
+          />
+        </div>
+      </div>
+      <div class="right-content">
+        <p>
+          With a global perspective and strong user empathy, I build secure,
+          scalable, and elegant platforms that drive engagement.
+        </p>
+      </div>
+    </div>
+    <div class="btn-info">
+      <a class="btn btn-moreInfo btn--primary" href="{% url 'pages:about' %}"
+        >Discover my journey</a
+      >
+    </div>
+  </section>
+
+  <section class="skills-icons section section--tight" id="skills">
+    <div class="container">
+      <h2 class="skills-heading">Skills</h2>
+      <ul class="skills-grid grid grid--cols-4 grid--gap-sm">
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"
+            alt="HTML5"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">HTML5</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
+            alt="CSS3"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">CSS3</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
+            alt="JavaScript"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">JavaScript</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
+            alt="TypeScript"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">TypeScript</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"
+            alt="Node.js"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">Node.js</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
+            alt="React"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">React</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg"
+            alt="Angular"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">Angular</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
+            alt="Bootstrap"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">Bootstrap</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg"
+            alt="MongoDB"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">MongoDB</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
+            alt="Python"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">Python</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg"
+            alt="Django"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">Django</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
+            alt="Figma"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">Figma</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg"
+            alt="Illustrator"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">Illustrator</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
+            alt="Photoshop"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">Photoshop</span>
+        </li>
+        <li class="skill-icon flex-skill">
+          <img
+            src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xd/xd-original.svg"
+            alt="Adobe XD"
+            width="90"
+            height="90"
+            loading="lazy"
+            decoding="async"
+          /><span class="skill">Adobe XD</span>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="projects-section section" id="portfolio">
+    <h2 class="projects-heading">Featured Projects</h2>
+    <div
+      class="projects projects-grid grid"
+      role="list"
+      aria-label="Featured projects"
+      id="projects-list"
+    >
+      <div
+        class="project project-3 card card--project"
+        role="listitem"
+        data-tech="react"
+      >
+        <img
+          class="card__media"
+          src="{% static 'myFlix.png' %}"
+          alt="My Flix React Screenshot"
+          loading="lazy"
+          decoding="async"
+          width="800"
+          height="220"
+        />
+        <div class="project-info card__body">
+          <h3 class="project-heading card__title">My Flix</h3>
+          <p class="project-description card__text">
+            A RESTful API built with Node.js and Express using an innovative
+            modular approach.
+          </p>
+          <div class="btn-group card__actions">
+            <a
+              href="https://lively-genie-620dd9.netlify.app/"
+              target="_blank"
+              class="btn btn-project btn--primary"
+              >View Project</a
+            >
+            <a
+              href="https://github.com/Mancini-Developer80/myFlix-client"
+              target="_blank"
+              class="btn btn-github btn--dark"
+              >Repository</a
+            >
+            <a href="{% url 'pages:myflix-case' %}" class="btn btn--secondary"
+              >Case Study</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="project project-6 card card--project"
+        role="listitem"
+        data-tech="react typescript node"
+      >
+        <img
+          class="card__media"
+          src="{% static 'chartDashboard.png' %}"
+          alt="Job Tracker App Screenshot"
+          loading="lazy"
+          decoding="async"
+          width="800"
+          height="220"
+        />
+        <div class="project-info card__body">
+          <h3 class="project-heading card__title">Job Tracker</h3>
+          <p class="project-description card__text">
+            Full-stack job tracker with auth, analytics, and dark mode.
+          </p>
+          <div class="btn-group card__actions">
+            <a
+              href="https://jobtrackerapp80.netlify.app/"
+              target="_blank"
+              class="btn btn-project btn--primary"
+              >View Project</a
+            >
+            <a
+              href="https://github.com/Mancini-Developer80/Job-Tracker"
+              target="_blank"
+              class="btn btn-github btn--dark"
+              >Repository</a
+            >
+            <a
+              href="{% url 'pages:jobtracker-case' %}"
+              class="btn btn--secondary"
+              >Case Study</a
+            >
+          </div>
+        </div>
+      </div>
+      <div
+        class="project project-7 card card--project"
+        role="listitem"
+        data-tech="django python bootstrap"
+      >
+        <img
+          class="card__media"
+          src="{% static 'PortfolioHero.png' %}"
+          alt="Portfolio Website Screenshot"
+          loading="lazy"
+          decoding="async"
+          width="800"
+          height="220"
+        />
+        <div class="project-info card__body">
+          <h3 class="project-heading card__title">Portfolio Website</h3>
+          <p class="project-description card__text">
+            Modern portfolio built with Django, featuring dynamic content, blog
+            integration, and responsive design.
+          </p>
+          <div class="btn-group card__actions">
+            <a href="/" class="btn btn-project btn--primary">View Project</a>
+            <a
+              href="https://github.com/Mancini-Developer80/MainPortfolio"
+              target="_blank"
+              class="btn btn-github btn--dark"
+              >Repository</a
+            >
+            <a
+              href="{% url 'pages:promontolio-case' %}"
+              class="btn btn--secondary"
+              >Case Study</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="cluster cluster--center" style="margin-top: 1rem">
+      <a href="{% url 'pages:projects' %}" class="btn btn--primary"
+        >More projects here</a
+      >
+    </div>
+  </section>
+
+  <section class="contact contact-modern" id="contact">
+    <div class="container contact-modern-grid">
+      <div class="contact-info">
+        <h2 class="contact-title">Let's Connect</h2>
+        <p class="contact-subtitle">
+          Have a project in mind or just want to say hi? Fill out the form or
+          reach out directly!
+        </p>
+        <ul class="contact-links">
+          <li>
+            <i class="fas fa-envelope"></i
+            ><a href="mailto:giuseppe.mancini80@gmail.com"
+              >giuseppe.mancini80@gmail.com</a
+            >
           </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg"
-              alt="CSS3 logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">CSS3</span>
-            <meta itemprop="position" content="2" />
+          <li>
+            <i class="fab fa-linkedin"></i
+            ><a
+              href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
+              target="_blank"
+              >LinkedIn Profile</a
+            >
           </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg"
-              alt="JavaScript logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">JavaScript</span>
-            <meta itemprop="position" content="3" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original-wordmark.svg"
-              alt="Node.js logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">Node.js</span>
-            <meta itemprop="position" content="4" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg"
-              alt="React logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">React</span>
-            <meta itemprop="position" content="5" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"
-              alt="Vue logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">Vue.js</span>
-            <meta itemprop="position" content="6" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/angular/angular-original.svg"
-              alt="Angular logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">Angular</span>
-            <meta itemprop="position" content="7" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/typescript/typescript-original.svg"
-              alt="Typescript logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">TypeScript</span>
-            <meta itemprop="position" content="8" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original-wordmark.svg"
-              alt="MongoDB logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">MongoDB</span>
-            <meta itemprop="position" content="9" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/bootstrap/bootstrap-original.svg"
-              alt="Bootstrap logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">Bootstrap</span>
-            <meta itemprop="position" content="10" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg"
-              alt="Python logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">Python</span>
-            <meta itemprop="position" content="11" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/django/django-plain.svg"
-              alt="Django logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">Django</span>
-            <meta itemprop="position" content="12" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg"
-              alt="Figma logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">Figma</span>
-            <meta itemprop="position" content="13" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/illustrator/illustrator-plain.svg"
-              alt="Illustrator logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">Illustrator</span>
-            <meta itemprop="position" content="14" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/photoshop/photoshop-original.svg"
-              alt="Photoshop logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">Photoshop</span>
-            <meta itemprop="position" content="15" />
-          </li>
-          <li
-            class="skill-icon flex-skill"
-            itemprop="itemListElement"
-            itemscope
-            itemtype="https://schema.org/ListItem"
-          >
-            <img
-              src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/xd/xd-original.svg"
-              alt="Adobe XD logo"
-              itemprop="image"
-              width="90"
-              height="90"
-              loading="lazy"
-              decoding="async"
-            />
-            <span class="skill" itemprop="name">Adobe XD</span>
-            <meta itemprop="position" content="16" />
+          <li>
+            <i class="fab fa-github"></i
+            ><a href="https://github.com/Mancini-Developer80" target="_blank"
+              >GitHub Profile</a
+            >
           </li>
         </ul>
       </div>
-      <!-- Fixed arrow-up button -->
-      <a
-        href="#home"
-        aria-label="Back to top"
-        class="arrow-up-fixed"
-        id="arrowUpBtn"
+      <form
+        id="contact-form"
+        class="contact-form-modern"
+        action="https://formspree.io/f/mgvwqkww"
+        method="POST"
       >
-        <i class="fa-solid fa-arrow-up"></i>
-      </a>
-    </section>
-    <section class="portfolio section" id="portfolio">
-      <h2 class="portfolio-heading">Featured Projects</h2>
-      <div
-        class="projects projects-grid grid"
-        role="list"
-        aria-label="Featured projects"
-        id="projects-list"
-      >
-        <div
-          class="project project-3 card card--project"
-          role="listitem"
-          data-tech="react"
-        >
-          <img
-            class="card__media"
-            src="img/myFlix.png"
-            alt="My Flix React Screenshot"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="220"
-          />
-          <div class="project-info card__body">
-            <h3 class="project-heading card__title">My Flix</h3>
-            <p class="project-description card__text">
-              A RESTful API built with Node.js and Express using an innovative
-              modular approach. The myFlix-App API delivers movie, director, and
-              genre data while reliably managing user profiles and favorites.
-            </p>
-            <div class="btn-group card__actions">
-              <a
-                href="https://lively-genie-620dd9.netlify.app/"
-                target="_blank"
-                class="btn btn-project btn--primary"
-                >View Project</a
-              >
-              <a
-                href="https://github.com/Mancini-Developer80/myFlix-client"
-                target="_blank"
-                class="btn btn-github btn--dark"
-                >Repository</a
-              >
-              <a href="myflixcase.html" class="btn btn--secondary"
-                >Case Study</a
-              >
-            </div>
+        <div class="form-group input-icon">
+          <label for="subject">Subject</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              required
+              autocomplete="off"
+            />
           </div>
         </div>
-        <div
-          class="project project-6 card card--project"
-          role="listitem"
-          data-tech="react typescript node"
-        >
-          <img
-            class="card__media"
-            src="img/chartDashboard.png"
-            alt="Job Tracker App Screenshot"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="220"
-          />
-          <div class="project-info card__body">
-            <h3 class="project-heading card__title">Job Tracker</h3>
-            <p class="project-description card__text">
-              Full-stack job tracker with auth, role-based permissions and audit
-              logging, custom fields, notes, tags, analytics, import/export
-              (CSV/Excel/PDF) and dark mode. Built with React, TypeScript,
-              Express & MongoDB.
-            </p>
-            <div class="btn-group card__actions">
-              <a
-                href="https://jobtrackerapp80.netlify.app/"
-                target="_blank"
-                class="btn btn-project btn--primary"
-                >View Project</a
-              >
-              <a
-                href="https://github.com/Mancini-Developer80/Job-Tracker"
-                target="_blank"
-                class="btn btn-github btn--dark"
-                >Repository</a
-              >
-              <a href="jobtracker.html" class="btn btn--secondary"
-                >Case Study</a
-              >
-            </div>
+        <div class="form-group input-icon">
+          <label for="name">Name</label>
+          <div class="input-wrapper">
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              autocomplete="name"
+            />
           </div>
         </div>
-        <div
-          class="project project-7 card card--project"
-          role="listitem"
-          data-tech="django"
-        >
-          <img
-            class="card__media"
-            src="img/globalBusiness.jpg"
-            alt="Django Project placeholder"
-            loading="lazy"
-            decoding="async"
-            width="800"
-            height="220"
-          />
-          <div class="project-info card__body">
-            <h3 class="project-heading card__title">Django Project</h3>
-            <p class="project-description card__text">
-              Coming soon: a Django-based application showcasing robust back-end
-              architecture, secure auth, and clean admin workflows.
-            </p>
-            <div class="btn-group card__actions">
-              <a
-                class="btn btn--ghost"
-                aria-disabled="true"
-                role="button"
-                tabindex="-1"
-                >Coming Soon</a
-              >
-            </div>
+        <div class="form-group input-icon">
+          <label for="email">Email</label>
+          <div class="input-wrapper">
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              autocomplete="email"
+            />
           </div>
         </div>
-      </div>
-      <div class="cluster cluster--center" style="margin-top: 1rem">
-        <a href="projects.html" class="btn btn--primary">More projects here</a>
-      </div>
-    </section>
-
-    <!-- Contact Section (copied from contact.html) placed after projects and before footer -->
-    <section class="contact contact-modern" id="contact">
-      <div class="container contact-modern-grid">
-        <div class="contact-info">
-          <h2 class="contact-title">Let's Connect</h2>
-          <p class="contact-subtitle">
-            Have a project in mind or just want to say hi? Fill out the form or
-            reach out directly!
-          </p>
-          <ul class="contact-links">
-            <li>
-              <i class="fas fa-envelope"></i>
-              <a href="mailto:giuseppe.mancini80@gmail.com"
-                >giuseppe.mancini80@gmail.com</a
-              >
-            </li>
-            <li>
-              <i class="fab fa-linkedin"></i>
-              <a
-                href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
-                target="_blank"
-                >LinkedIn</a
-              >
-            </li>
-            <li>
-              <i class="fab fa-github"></i>
-              <a href="https://github.com/Mancini-Developer80" target="_blank"
-                >GitHub</a
-              >
-            </li>
-            <li>
-              <i class="fab fa-x-twitter"></i>
-              <a href="https://twitter.com/yourusername" target="_blank"
-                >X (Twitter)</a
-              >
-            </li>
-          </ul>
-        </div>
-        <form
-          id="contact-form"
-          class="contact-form-modern"
-          action="https://formspree.io/f/xeokqzja"
-          method="POST"
-          autocomplete="on"
-        >
-          <div class="form-group input-icon">
-            <label for="name">Name</label>
-            <div class="input-wrapper">
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                autocomplete="name"
-              />
-            </div>
-          </div>
-          <div class="form-group input-icon">
-            <label for="email">Email</label>
-            <div class="input-wrapper">
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                autocomplete="email"
-              />
-            </div>
-          </div>
-          <div class="form-group input-icon">
-            <label for="message">Message</label>
-            <div class="input-wrapper">
-              <textarea
-                id="message"
-                name="message"
-                rows="5"
-                required
-                autocomplete="off"
-              ></textarea>
-            </div>
-          </div>
-          <button type="submit" class="btn btn-contact btn-contact-modern">
-            Send Message
-          </button>
-        </form>
-        <div id="form-message" style="display: none"></div>
-      </div>
-    </section>
-
-    <footer class="footer">
-      <div class="container footer-grid">
-        <div class="footer-left">
-          <p>
-            © 2025 Giuseppe Mancini | Full Stack Web Developer | All rights
-            reserved.
-          </p>
-          <div class="social-list">
-            <a
-              class="social-link"
-              href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
-              target="_blank"
-              aria-label="LinkedIn"
-            >
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://github.com/Mancini-Developer80"
-              target="_blank"
-              aria-label="GitHub"
-            >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://twitter.com/yourusername"
-              target="_blank"
-              aria-label="X (Twitter)"
-            >
-              <i class="fab fa-x-twitter"></i>
-            </a>
+        <div class="form-group input-icon">
+          <label for="message">Message</label>
+          <div class="input-wrapper">
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              autocomplete="off"
+            ></textarea>
           </div>
         </div>
-      </div>
-    </footer>
-    <script src="./js/script.js"></script>
-    <script>
-      // Show/hide arrow-up button on scroll
-      const arrowUpBtn = document.getElementById("arrowUpBtn");
-      window.addEventListener("scroll", function () {
-        if (window.scrollY > 300) {
-          arrowUpBtn.style.opacity = "1";
-          arrowUpBtn.style.pointerEvents = "auto";
-        } else {
-          arrowUpBtn.style.opacity = "0";
-          arrowUpBtn.style.pointerEvents = "none";
-        }
-      });
-    </script>
-  </body>
-</html>
+        <button type="submit" class="btn btn-contact btn-contact-modern">
+          Send Message
+        </button>
+      </form>
+      <div id="form-message" style="display: none"></div>
+    </div>
+  </section>
+</main>
+{% endblock %}

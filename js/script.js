@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const mobileMenu = document.getElementById("mobile-menu");
   const form = document.getElementById("contact-form");
   const messageDiv = document.getElementById("form-message");
+  const arrowUp = document.querySelector(".arrow-up-fixed");
 
   // Track mobile menu state
   let mobileMenuOpen = false;
@@ -16,6 +17,14 @@ document.addEventListener("DOMContentLoaded", function () {
         navbar.classList.add("active");
       } else {
         navbar.classList.remove("active");
+      }
+    }
+    // Toggle back-to-top arrow visibility
+    if (arrowUp) {
+      if (window.scrollY > 300) {
+        arrowUp.classList.add("show");
+      } else {
+        arrowUp.classList.remove("show");
       }
     }
   });
@@ -56,6 +65,15 @@ document.addEventListener("DOMContentLoaded", function () {
           navbar.classList.remove("active");
         }
       }
+    });
+  }
+
+  // Smooth scroll to top on arrow click
+  if (arrowUp) {
+    arrowUp.addEventListener("click", function (e) {
+      // If href contains a hash, let default behavior handle focus shift; still animate scroll
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 

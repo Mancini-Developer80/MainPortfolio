@@ -1,0 +1,35 @@
+/* Overrides to ensure background images resolve via absolute static paths */
+.hero {
+  background-image: url("/static/rahul-mishra-1200.jpg") !important;
+}
+@media (max-width: 600px) {
+  .hero {
+    background-image: url("/static/HeroMobileBg.jpg") !important;
+  }
+}
+.about {
+  background-image: url("/static/laptopDesk.jpg") !important;
+}
+.about-overview {
+  background-image: url("/static/laptopDesk.jpg") !important;
+}
+.about-page .about-section {
+  background-image: url("/static/laptopDesk.jpg") !important;
+}
+.case-studies {
+  background-image: url("/static/workPlace.jpg") !important;
+}
+.case-studies-page .case-studies-section {
+  background-image: url("/static/workPlace.jpg") !important;
+}
+.contact::before {
+  background: url("/static/businessWorld.jpg") center center/cover no-repeat !important;
+}
+
+/* Featured Projects cards now inherit default styles from Projects page - no overrides needed */
+
+/* Back-to-top arrow: visible when .show is applied */
+.arrow-up-fixed.show {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}

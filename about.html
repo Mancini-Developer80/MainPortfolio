@@ -1,491 +1,368 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHDXH71YP9"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+<!-- prettier-ignore -->
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Giuseppe Mancini | Full Stack Web Developer{% endblock %}
+{% block body_class %}about-page{% endblock %}
+{% block content %}
+<section class="about-section">
+  <div class="about-section-container about-section-container-version">
+    <h3 class="about-section-title">About Me</h3>
 
-      gtag("config", "G-PHDXH71YP9");
-    </script>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta
-      name="description"
-      content="Giuseppe Mancini, Full Stack Web Developer in Frankfurt. Specializing in React, Node.js, Angular, MongoDB, Python/Django & UI/UX design to build sleek, dynamic web applications."
-    />
-    <meta name="author" content="Giuseppe Mancini - Full Stack Web Developer" />
-    <meta
-      name="keywords"
-      content="Giuseppe Mancini, Full Stack Developer, Web Development, React, Node.js, Angular, MongoDB, Python, Django, UI/UX, Software Engineer, Frankfurt am Main"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
-    <link rel="icon" href="./img/favicon.ico" type="image/x-icon" />
-    <link rel="stylesheet" href="./css/style.css" />
-    <title>Giuseppe Mancini | Full Stack Web Developer</title>
-  </head>
+    <div class="about-intro-content">
+      <p class="intro-item">
+        <span class="intro-icon" aria-hidden="true">
+          <i class="fas fa-code"></i>
+        </span>
+        <span class="intro-text">
+          I'm a <strong>full‑stack web developer</strong> who builds
+          <strong>clean, scalable, and intuitive digital experiences</strong>.
+          My work blends strong technical foundations with a creative mindset
+          shaped by my background in
+          <strong
+            >international relations, design, and multilingual
+            communication</strong
+          >.
+        </span>
+      </p>
 
-  <body class="about-page">
-    <header class="header" id="home">
-      <nav class="navbar">
-        <div class="container flex-container">
-          <div class="logo">
-            <a href="index.html" aria-label="Homepage">
-              <img src="./img/SVGdev/SVG/Risorsa 2.svg" alt="Logo" />
-            </a>
-          </div>
-          <div class="main-list-items">
-            <ul>
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-          <div class="mobile-list-items">
-            <button
-              class="mobile-menu-toggle"
-              aria-label="Open navigation menu"
-              aria-expanded="false"
-              aria-controls="mobile-menu"
-              type="button"
-            >
-              <i class="fas fa-bars fa-2x"></i>
-            </button>
-            <ul class="mobile-menu" id="mobile-menu" aria-hidden="true">
-              <li><a href="index.html">Home</a></li>
-              <li><a href="about.html">About Me</a></li>
-              <li><a href="projects.html">Projects</a></li>
-              <li><a href="blog.html" class="blog-link">Blog</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
-    <section class="about-section">
-      <div class="about-section-container about-section-container-version">
-        <h3 class="about-section-title">About Me</h3>
+      <p class="intro-item">
+        <span class="intro-icon" aria-hidden="true">
+          <i class="fas fa-lightbulb"></i>
+        </span>
+        <span class="intro-text">
+          I enjoy turning complex ideas into elegant solutions — whether it's a
+          full‑stack application, a refined UI, or a well‑structured API.
+        </span>
+      </p>
 
-        <div class="about-intro-content">
-          <p class="intro-item">
-            <span class="intro-icon" aria-hidden="true">
-              <i class="fas fa-code"></i>
-            </span>
-            <span class="intro-text">
-              I'm a <strong>full‑stack web developer</strong> who builds
-              <strong>clean, scalable, and intuitive digital experiences</strong
-              >. My work blends strong technical foundations with a creative
-              mindset shaped by my background in
-              <strong
-                >international relations, design, and multilingual
-                communication</strong
-              >.
-            </span>
-          </p>
+      <p class="intro-item">
+        <span class="intro-icon" aria-hidden="true">
+          <i class="fab fa-python"></i>
+        </span>
+        <span class="intro-text">
+          I recently completed a <strong>Django-based project</strong> that
+          showcases my backend versatility, including authentication, admin
+          customization, security best practices, and deployment
+          problem-solving.
+        </span>
+      </p>
+    </div>
 
-          <p class="intro-item">
-            <span class="intro-icon" aria-hidden="true">
-              <i class="fas fa-lightbulb"></i>
-            </span>
-            <span class="intro-text">
-              I enjoy turning complex ideas into elegant solutions — whether
-              it's a full‑stack application, a refined UI, or a well‑structured
-              API.
-            </span>
-          </p>
-
-          <p class="intro-item">
-            <span class="intro-icon" aria-hidden="true">
-              <i class="fab fa-python"></i>
-            </span>
-            <span class="intro-text">
-              I recently completed a <strong>Django-based project</strong> that
-              showcases my backend versatility, including authentication, admin
-              customization, security best practices, and deployment
-              problem-solving.
-            </span>
-          </p>
-        </div>
-
-        <div class="stack stack--lg" aria-label="Additional About Sections">
-          <section class="section section--tight" aria-labelledby="what-i-do">
-            <h3 id="what-i-do" class="about-section-title">What I Do</h3>
-            <div class="about-section-content stack stack--md">
-              <p>
-                I build full-stack web applications with a strong focus on
-                backend architecture, API design, and responsive UI. Here's a
-                snapshot of my technical toolkit:
-              </p>
-
-              <div class="tech-grid">
-                <div class="tech-category tech-category--frontend">
-                  <h4 class="tech-category-title">Frontend</h4>
-                  <div class="tech-items">
-                    <span class="tech-item tech-item--primary">React</span>
-                    <span class="tech-item">Next.js</span>
-                    <span class="tech-item">Angular</span>
-                    <span class="tech-item tech-item--primary">TypeScript</span>
-                  </div>
-                </div>
-
-                <div class="tech-category tech-category--backend">
-                  <h4 class="tech-category-title">Backend</h4>
-                  <div class="tech-items">
-                    <span class="tech-item tech-item--primary">Node.js</span>
-                    <span class="tech-item">Express</span>
-                    <span class="tech-item">Python</span>
-                    <span class="tech-item tech-item--primary">Django</span>
-                  </div>
-                </div>
-
-                <div class="tech-category tech-category--data">
-                  <h4 class="tech-category-title">Data & APIs</h4>
-                  <div class="tech-items">
-                    <span class="tech-item">MongoDB</span>
-                    <span class="tech-item tech-item--primary">PostgreSQL</span>
-                    <span class="tech-item">REST APIs</span>
-                    <span class="tech-item">Authentication</span>
-                  </div>
-                </div>
-
-                <div class="tech-category tech-category--tools">
-                  <h4 class="tech-category-title">Tools</h4>
-                  <div class="tech-items">
-                    <span class="tech-item tech-item--primary">Git</span>
-                    <span class="tech-item">Docker</span>
-                    <span class="tech-item">Figma</span>
-                    <span class="tech-item">CI/CD</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section>
-
-          <section class="section section--tight" aria-labelledby="how-i-work">
-            <h3 id="how-i-work" class="about-section-title">How I Work</h3>
-            <div class="about-section-content stack stack--sm">
-              <p>
-                My development style blends structure, creativity, and
-                curiosity. I focus on writing clean code, designing scalable
-                systems, and continuously improving through feedback and
-                iteration.
-              </p>
-              <ul role="list" class="work-approach-list">
-                <li role="listitem">
-                  <i class="fas fa-code work-approach-icon"></i>
-                  <strong>Clean code</strong> with reusable components
-                </li>
-                <li role="listitem">
-                  <i class="fas fa-project-diagram work-approach-icon"></i>
-                  <strong>Scalable API design</strong> with long‑term clarity
-                </li>
-                <li role="listitem">
-                  <i class="fas fa-user-friends work-approach-icon"></i>
-                  <strong>UX‑first mindset</strong> for intuitive interfaces
-                </li>
-                <li role="listitem">
-                  <i class="fas fa-graduation-cap work-approach-icon"></i>
-                  <strong>Fast learner</strong>, quick to master new tools
-                </li>
-                <li role="listitem">
-                  <i class="fas fa-puzzle-piece work-approach-icon"></i>
-                  <strong>Problem solver</strong> through research and iteration
-                </li>
-              </ul>
-              <p>
-                I thrive in collaborative environments where thoughtful
-                architecture, clear communication, and continuous learning are
-                valued.
-              </p>
-            </div>
-          </section>
-
-          <section
-            class="section section--tight"
-            aria-labelledby="selected-projects"
-          >
-            <h3 id="selected-projects" class="about-section-title">
-              Selected Projects
-            </h3>
-            <div class="about-section-content stack stack--md">
-              <div class="project-card stack stack--sm">
-                <p><strong>Full‑Stack MERN Applications</strong></p>
-                <p>
-                  I’ve developed multiple full‑stack applications using React,
-                  Node.js, Express, and MongoDB, with a strong focus on:
-                </p>
-                <ul role="list" class="project-features-list">
-                  <li role="listitem">
-                    <i class="fas fa-shield-alt project-icon"></i> Secure
-                    authentication and authorization
-                  </li>
-                  <li role="listitem">
-                    <i class="fas fa-chart-line project-icon"></i> Interactive
-                    dashboards and data visualization
-                  </li>
-                  <li role="listitem">
-                    <i class="fas fa-plug project-icon"></i> Analytics features
-                    and API integrations
-                  </li>
-                  <li role="listitem">
-                    <i class="fas fa-desktop project-icon"></i> Clean,
-                    responsive UI built with modern frontend patterns
-                  </li>
-                </ul>
-                <p>
-                  These projects highlight my ability to design scalable
-                  architectures, build reusable components, and deliver smooth
-                  user experiences across devices.
-                </p>
-              </div>
-              <div class="project-card stack stack--sm">
-                <p>
-                  <strong
-                    ><i class="fab fa-python" style="color: #3776ab"></i> Python
-                    & Django Projects</strong
-                  >
-                </p>
-                <p>
-                  I've built a complete Django application that showcases
-                  backend versatility and production readiness. Key features
-                  include:
-                </p>
-                <ul role="list" class="project-features-list">
-                  <li role="listitem">
-                    <i class="fas fa-lock project-icon"></i> Robust
-                    authentication and session management
-                  </li>
-                  <li role="listitem">
-                    <i class="fas fa-tools project-icon"></i> Custom admin
-                    interfaces for efficient data handling
-                  </li>
-                  <li role="listitem">
-                    <i class="fas fa-shield-alt project-icon"></i> Secure API
-                    endpoints and permission logic
-                  </li>
-                  <li role="listitem">
-                    <i class="fas fa-rocket project-icon"></i> Deployment
-                    configuration and troubleshooting
-                  </li>
-                  <li role="listitem">
-                    <i class="fas fa-code project-icon"></i> Clean, maintainable
-                    backend architecture
-                  </li>
-                </ul>
-                <p>
-                  This project reflects my ability to solve backend challenges,
-                  implement security best practices, and deliver scalable,
-                  real-world solutions.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section
-            class="section section--tight about-beyond"
-            aria-labelledby="beyond-code"
-          >
-            <h3 id="beyond-code" class="about-section-title">Beyond Code</h3>
-            <div class="about-beyond-grid">
-              <div class="beyond-item">
-                <div class="beyond-header">
-                  <span class="beyond-icon" aria-hidden="true">
-                    <i class="fas fa-language"></i>
-                  </span>
-                  <h4 class="beyond-title">
-                    Multilingual & Global Perspective
-                  </h4>
-                </div>
-                <p class="beyond-text">
-                  I'm <strong>multilingual</strong> — fluent in Italian, German,
-                  and English — and thrive in
-                  <strong>international environments</strong>. My background in
-                  <strong>international relations</strong> taught clear
-                  communication, critical thinking, and cross‑cultural
-                  collaboration — strengths I apply when building user‑centric
-                  products with diverse teams.
-                </p>
-              </div>
-
-              <div class="beyond-item">
-                <div class="beyond-header">
-                  <span class="beyond-icon" aria-hidden="true">
-                    <i class="fas fa-palette"></i>
-                  </span>
-                  <h4 class="beyond-title">UI/UX Mindset</h4>
-                </div>
-                <p class="beyond-text">
-                  I'm passionate about <strong>UI/UX</strong>. I approach every
-                  feature with the end user in mind, balancing technical
-                  constraints with user needs to create intuitive, delightful
-                  experiences.
-                </p>
-              </div>
-
-              <div class="beyond-item">
-                <div class="beyond-header">
-                  <span class="beyond-icon" aria-hidden="true">
-                    <i class="fas fa-lightbulb"></i>
-                  </span>
-                  <h4 class="beyond-title">Entrepreneurship & SaaS</h4>
-                </div>
-                <p class="beyond-text">
-                  I explore <strong>SaaS ideas</strong> and product strategy —
-                  from problem discovery and market validation to designing
-                  solutions people actually want.
-                </p>
-              </div>
-
-              <div class="beyond-item">
-                <div class="beyond-header">
-                  <span class="beyond-icon" aria-hidden="true">
-                    <i class="fas fa-robot"></i>
-                  </span>
-                  <h4 class="beyond-title">Pragmatic Use of AI</h4>
-                </div>
-                <p class="beyond-text">
-                  I leverage <strong>AI tools strategically</strong> to
-                  accelerate research and prototyping while maintaining critical
-                  judgment on what to build and why.
-                </p>
-              </div>
-            </div>
-          </section>
-
-          <section
-            class="section section--tight"
-            aria-labelledby="what-im-looking-for"
-          >
-            <h3 id="what-im-looking-for" class="about-section-title">
-              What I’m Looking For
-            </h3>
-            <div class="about-section-content">
-              <p>
-                I’m actively seeking full‑stack or backend developer roles in
-                Germany or across the EU. I’m especially interested in teams
-                working with:
-              </p>
-              <ul role="list" class="tech-interest-list">
-                <li role="listitem">
-                  <i class="fab fa-react tech-interest-icon"></i>
-                  Modern JavaScript frameworks
-                </li>
-                <li role="listitem">
-                  <i class="fab fa-python tech-interest-icon"></i>
-                  Python/Django backends
-                </li>
-                <li role="listitem">
-                  <i class="fas fa-project-diagram tech-interest-icon"></i>
-                  Scalable architectures
-                </li>
-                <li role="listitem">
-                  <i class="fas fa-plug tech-interest-icon"></i>
-                  API‑driven products
-                </li>
-                <li role="listitem">
-                  <i class="fas fa-cloud tech-interest-icon"></i>
-                  SaaS platforms
-                </li>
-              </ul>
-              <p>
-                I’m ready to contribute, grow, and take on challenges that push
-                my skills forward.
-              </p>
-            </div>
-          </section>
-
-          <section
-            class="section section--tight"
-            aria-labelledby="lets-connect"
-          >
-            <h3 id="lets-connect" class="about-section-title">Let’s Connect</h3>
-            <div class="about-section-content stack stack--sm">
-              <p>
-                If you’re looking for a developer who combines technical skill
-                with creativity, adaptability, and a strong learning mindset,
-                feel free to reach out.
-              </p>
-              <div
-                class="cluster cluster--center"
-                role="group"
-                aria-label="Contact actions"
-              >
-                <a
-                  class="btn btn--primary btn--large"
-                  href="index.html#contact"
-                >
-                  <i class="fas fa-envelope"></i>
-                  Get in Touch
-                </a>
-                <a
-                  class="btn btn--primary btn--large"
-                  href="./resume/GiuseppeManciniFullStackWebDeveloper.pdf"
-                  target="_blank"
-                  download="GiuseppeManciniFullStackDeveloper.pdf"
-                >
-                  <i class="fas fa-file-pdf"></i>
-                  Download My Resume
-                </a>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    </section>
-    <footer class="footer">
-      <div class="container footer-grid">
-        <div class="footer-left">
+    <div class="stack stack--lg" aria-label="Additional About Sections">
+      <section class="section section--tight" aria-labelledby="what-i-do">
+        <h3 id="what-i-do" class="about-section-title">What I Do</h3>
+        <div class="about-section-content stack stack--md">
           <p>
-            © 2025 Giuseppe Mancini | Full Stack Web Developer | All rights
-            reserved.
+            I build full-stack web applications with a strong focus on backend
+            architecture, API design, and responsive UI. Here's a snapshot of my
+            technical toolkit:
           </p>
-          <div class="social-list">
+
+          <div class="tech-grid">
+            <div class="tech-category tech-category--frontend">
+              <h4 class="tech-category-title">Frontend</h4>
+              <div class="tech-items">
+                <span class="tech-item tech-item--primary">React</span>
+                <span class="tech-item">Next.js</span>
+                <span class="tech-item">Angular</span>
+                <span class="tech-item tech-item--primary">TypeScript</span>
+              </div>
+            </div>
+
+            <div class="tech-category tech-category--backend">
+              <h4 class="tech-category-title">Backend</h4>
+              <div class="tech-items">
+                <span class="tech-item tech-item--primary">Node.js</span>
+                <span class="tech-item">Express</span>
+                <span class="tech-item">Python</span>
+                <span class="tech-item tech-item--primary">Django</span>
+              </div>
+            </div>
+
+            <div class="tech-category tech-category--data">
+              <h4 class="tech-category-title">Data & APIs</h4>
+              <div class="tech-items">
+                <span class="tech-item">MongoDB</span>
+                <span class="tech-item tech-item--primary">PostgreSQL</span>
+                <span class="tech-item">REST APIs</span>
+                <span class="tech-item">Authentication</span>
+              </div>
+            </div>
+
+            <div class="tech-category tech-category--tools">
+              <h4 class="tech-category-title">Tools</h4>
+              <div class="tech-items">
+                <span class="tech-item tech-item--primary">Git</span>
+                <span class="tech-item">Docker</span>
+                <span class="tech-item">Figma</span>
+                <span class="tech-item">CI/CD</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="how-i-work">
+        <h3 id="how-i-work" class="about-section-title">How I Work</h3>
+        <div class="about-section-content stack stack--sm">
+          <p>
+            My development style blends structure, creativity, and curiosity. I
+            focus on writing clean code, designing scalable systems, and
+            continuously improving through feedback and iteration.
+          </p>
+          <ul role="list" class="work-approach-list">
+            <li role="listitem">
+              <i class="fas fa-code work-approach-icon"></i>
+              <strong>Clean code</strong> with reusable components
+            </li>
+            <li role="listitem">
+              <i class="fas fa-project-diagram work-approach-icon"></i>
+              <strong>Scalable API design</strong> with long‑term clarity
+            </li>
+            <li role="listitem">
+              <i class="fas fa-user-friends work-approach-icon"></i>
+              <strong>UX‑first mindset</strong> for intuitive interfaces
+            </li>
+            <li role="listitem">
+              <i class="fas fa-graduation-cap work-approach-icon"></i>
+              <strong>Fast learner</strong>, quick to master new tools
+            </li>
+            <li role="listitem">
+              <i class="fas fa-puzzle-piece work-approach-icon"></i>
+              <strong>Problem solver</strong> through research and iteration
+            </li>
+          </ul>
+          <p>
+            I thrive in collaborative environments where thoughtful
+            architecture, clear communication, and continuous learning are
+            valued.
+          </p>
+        </div>
+      </section>
+
+      <section
+        class="section section--tight"
+        aria-labelledby="selected-projects"
+      >
+        <h3 id="selected-projects" class="about-section-title">
+          Selected Projects
+        </h3>
+        <div class="about-section-content stack stack--md">
+          <div class="project-card stack stack--sm">
+            <p><strong>Full‑Stack MERN Applications</strong></p>
+            <p>
+              I’ve developed multiple full‑stack applications using React,
+              Node.js, Express, and MongoDB, with a strong focus on:
+            </p>
+            <ul role="list" class="project-features-list">
+              <li role="listitem">
+                <i class="fas fa-shield-alt project-icon"></i> Secure
+                authentication and authorization
+              </li>
+              <li role="listitem">
+                <i class="fas fa-chart-line project-icon"></i> Interactive
+                dashboards and data visualization
+              </li>
+              <li role="listitem">
+                <i class="fas fa-plug project-icon"></i> Analytics features and
+                API integrations
+              </li>
+              <li role="listitem">
+                <i class="fas fa-desktop project-icon"></i> Clean, responsive UI
+                built with modern frontend patterns
+              </li>
+            </ul>
+            <p>
+              These projects highlight my ability to design scalable
+              architectures, build reusable components, and deliver smooth user
+              experiences across devices.
+            </p>
+          </div>
+          <div class="project-card stack stack--sm">
+            <p>
+              <strong
+                ><i class="fab fa-python" style="color: #3776ab"></i> Python &
+                Django Projects</strong
+              >
+            </p>
+            <p>
+              I've built a complete Django application that showcases backend
+              versatility and production readiness. Key features include:
+            </p>
+            <ul role="list" class="project-features-list">
+              <li role="listitem">
+                <i class="fas fa-lock project-icon"></i> Robust authentication
+                and session management
+              </li>
+              <li role="listitem">
+                <i class="fas fa-tools project-icon"></i> Custom admin
+                interfaces for efficient data handling
+              </li>
+              <li role="listitem">
+                <i class="fas fa-shield-alt project-icon"></i> Secure API
+                endpoints and permission logic
+              </li>
+              <li role="listitem">
+                <i class="fas fa-rocket project-icon"></i> Deployment
+                configuration and troubleshooting
+              </li>
+              <li role="listitem">
+                <i class="fas fa-code project-icon"></i> Clean, maintainable
+                backend architecture
+              </li>
+            </ul>
+            <p>
+              This project reflects my ability to solve backend challenges,
+              implement security best practices, and deliver scalable,
+              real-world solutions.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section--tight about-beyond"
+        aria-labelledby="beyond-code"
+      >
+        <h3 id="beyond-code" class="about-section-title">Beyond Code</h3>
+        <div class="about-beyond-grid">
+          <div class="beyond-item">
+            <div class="beyond-header">
+              <span class="beyond-icon" aria-hidden="true">
+                <i class="fas fa-language"></i>
+              </span>
+              <h4 class="beyond-title">Multilingual & Global Perspective</h4>
+            </div>
+            <p class="beyond-text">
+              I'm <strong>multilingual</strong> — fluent in Italian, German, and
+              English — and thrive in
+              <strong>international environments</strong>. My background in
+              <strong>international relations</strong> taught clear
+              communication, critical thinking, and cross‑cultural collaboration
+              — strengths I apply when building user‑centric products with
+              diverse teams.
+            </p>
+          </div>
+
+          <div class="beyond-item">
+            <div class="beyond-header">
+              <span class="beyond-icon" aria-hidden="true">
+                <i class="fas fa-palette"></i>
+              </span>
+              <h4 class="beyond-title">UI/UX Mindset</h4>
+            </div>
+            <p class="beyond-text">
+              I'm passionate about <strong>UI/UX</strong>. I approach every
+              feature with the end user in mind, balancing technical constraints
+              with user needs to create intuitive, delightful experiences.
+            </p>
+          </div>
+
+          <div class="beyond-item">
+            <div class="beyond-header">
+              <span class="beyond-icon" aria-hidden="true">
+                <i class="fas fa-lightbulb"></i>
+              </span>
+              <h4 class="beyond-title">Entrepreneurship & SaaS</h4>
+            </div>
+            <p class="beyond-text">
+              I explore <strong>SaaS ideas</strong> and product strategy — from
+              problem discovery and market validation to designing solutions
+              people actually want.
+            </p>
+          </div>
+
+          <div class="beyond-item">
+            <div class="beyond-header">
+              <span class="beyond-icon" aria-hidden="true">
+                <i class="fas fa-robot"></i>
+              </span>
+              <h4 class="beyond-title">Pragmatic Use of AI</h4>
+            </div>
+            <p class="beyond-text">
+              I leverage <strong>AI tools strategically</strong> to accelerate
+              research and prototyping while maintaining critical judgment on
+              what to build and why.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="section section--tight"
+        aria-labelledby="what-im-looking-for"
+      >
+        <h3 id="what-im-looking-for" class="about-section-title">
+          What I’m Looking For
+        </h3>
+        <div class="about-section-content">
+          <p>
+            I’m actively seeking full‑stack or backend developer roles in
+            Germany or across the EU. I’m especially interested in teams working
+            with:
+          </p>
+          <ul role="list" class="tech-interest-list">
+            <li role="listitem">
+              <i class="fab fa-react tech-interest-icon"></i>
+              Modern JavaScript frameworks
+            </li>
+            <li role="listitem">
+              <i class="fab fa-python tech-interest-icon"></i>
+              Python/Django backends
+            </li>
+            <li role="listitem">
+              <i class="fas fa-project-diagram tech-interest-icon"></i>
+              Scalable architectures
+            </li>
+            <li role="listitem">
+              <i class="fas fa-plug tech-interest-icon"></i>
+              API‑driven products
+            </li>
+            <li role="listitem">
+              <i class="fas fa-cloud tech-interest-icon"></i>
+              SaaS platforms
+            </li>
+          </ul>
+          <p>
+            I’m ready to contribute, grow, and take on challenges that push my
+            skills forward.
+          </p>
+        </div>
+      </section>
+
+      <section class="section section--tight" aria-labelledby="lets-connect">
+        <h3 id="lets-connect" class="about-section-title">Let’s Connect</h3>
+        <div class="about-section-content stack stack--sm">
+          <p>
+            If you’re looking for a developer who combines technical skill with
+            creativity, adaptability, and a strong learning mindset, feel free
+            to reach out.
+          </p>
+          <div
+            class="cluster cluster--center"
+            role="group"
+            aria-label="Contact actions"
+          >
             <a
-              class="social-link"
-              href="https://www.linkedin.com/in/giuseppe-mancini-developer/"
-              target="_blank"
-              aria-label="LinkedIn"
+              class="btn btn--primary btn--large"
+              href="{% url 'pages:home' %}#contact-form"
             >
-              <i class="fab fa-linkedin"></i>
+              <i class="fas fa-envelope"></i>
+              Get in Touch
             </a>
             <a
-              class="social-link"
-              href="https://github.com/Mancini-Developer80"
+              class="btn btn--primary btn--large"
+              href="./resume/GiuseppeManciniFullStackWebDeveloper.pdf"
               target="_blank"
-              aria-label="GitHub"
+              download="GiuseppeManciniFullStackDeveloper.pdf"
             >
-              <i class="fab fa-github"></i>
-            </a>
-            <a
-              class="social-link"
-              href="https://twitter.com/yourusername"
-              target="_blank"
-              aria-label="X (Twitter)"
-            >
-              <i class="fab fa-x-twitter"></i>
+              <i class="fas fa-file-pdf"></i>
+              Download My Resume
             </a>
           </div>
         </div>
-      </div>
-    </footer>
-    <script src="./js/script.js"></script>
-  </body>
-</html>
+      </section>
+    </div>
+  </div>
+</section>
+{% endblock %}
