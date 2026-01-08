@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: RenderPortfolio
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn portfolio.wsgi:application
+    pythonVersion: 3.12.3
