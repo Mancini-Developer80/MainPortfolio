@@ -31,7 +31,8 @@ DEBUG = False
 
 ALLOWED_HOSTS = ["giuseppemancini.dev",
                  "www.giuseppemancini.dev", 
-                 "giuseppemancini.onrender.com"
+                 "giuseppemancini.onrender.com",
+                 "portfolio-j2jx.onrender.com"
                  ]
 
 
