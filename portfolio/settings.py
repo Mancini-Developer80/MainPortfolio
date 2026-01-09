@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
 import os
+import re
 import dj_database_url
 import cloudinary
 import cloudinary.uploader
@@ -19,12 +20,7 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Parse Cloudinary URL early
-import re
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
-
+# Parse Cloudinary URL and configure
 cloudinary_url = os.environ.get('CLOUDINARY_URL', '')
 if cloudinary_url:
     match = re.match(r'cloudinary://(\d+):([^@]+)@(.+)', cloudinary_url)
@@ -43,6 +39,13 @@ if cloudinary_url:
             secure=True
         )
         print(f"✓ Cloudinary configured: {cloud_name}")
+else:
+    # Fallback if CLOUDINARY_URL not set
+    CLOUDINARY_STORAGE = {
+        'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', ''),
+        'API_KEY': os.environ.get('CLOUDINARY_API_KEY', ''),
+        'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', ''),
+    }
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
