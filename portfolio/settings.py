@@ -21,6 +21,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Parse Cloudinary URL early
 import re
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
 cloudinary_url = os.environ.get('CLOUDINARY_URL', '')
 if cloudinary_url:
     match = re.match(r'cloudinary://(\d+):([^@]+)@(.+)', cloudinary_url)
@@ -31,6 +35,14 @@ if cloudinary_url:
             'API_KEY': api_key,
             'API_SECRET': api_secret,
         }
+        # Configure cloudinary library
+        cloudinary.config(
+            cloud_name=cloud_name,
+            api_key=api_key,
+            api_secret=api_secret,
+            secure=True
+        )
+        print(f"✓ Cloudinary configured: {cloud_name}")
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
