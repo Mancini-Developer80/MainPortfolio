@@ -3,6 +3,7 @@ from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.auth.models import User
 from ckeditor.fields import RichTextField
+from cloudinary.models import CloudinaryField
 
 
 class Tag(models.Model):
@@ -37,7 +38,7 @@ class BlogPost(models.Model):
     # Content
     excerpt = models.TextField(max_length=300, help_text='Short description for card previews (max 300 chars)')
     content = RichTextField(help_text='Full blog post content with rich text formatting')
-    featured_image = models.ImageField(upload_to='blog/images/', blank=True, null=True, help_text='Main image for the post')
+    featured_image = CloudinaryField('image', blank=True, null=True, help_text='Main image for the post')
     
     # Organization
     tags = models.ManyToManyField(Tag, blank=True, related_name='posts')

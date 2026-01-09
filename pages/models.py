@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 from django.utils.text import slugify
+from cloudinary.models import CloudinaryField
 
 class Technology(models.Model):
     name = models.CharField(max_length=50)
@@ -33,7 +34,7 @@ class CaseStudy(models.Model):
     final_consideration = models.TextField(blank=True, null=True, help_text="Final thoughts and lessons learned")
     
     technologies = models.ManyToManyField(Technology, related_name='case_studies')
-    image = models.ImageField(upload_to='case_studies/', blank=True, null=True)
+    image = CloudinaryField('image', blank=True, null=True)
     live_url = models.URLField(blank=True, null=True)
     github_url = models.URLField(blank=True, null=True)
     order = models.IntegerField(default=0, help_text="Display order (lower numbers appear first)")
