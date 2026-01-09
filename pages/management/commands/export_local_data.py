@@ -2,6 +2,11 @@ from django.core.management.base import BaseCommand
 from pages.models import CaseStudy
 from blog.models import BlogPost
 import json
+import sys
+import io
+
+# Force UTF-8 output
+sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 
 class Command(BaseCommand):
