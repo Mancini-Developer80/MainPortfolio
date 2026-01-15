@@ -89,11 +89,17 @@
       role="listitem"
       data-tech="{{ case_study.get_tech_classes }}"
     >
-      {% if case_study.image %}
+      {% if case_study.image and case_study.image.url %}
       <img
         class="card__media"
         src="{{ case_study.image.url }}"
         alt="{{ case_study.title }} Screenshot"
+      >
+      {% else %}
+      <img
+        class="card__media"
+        src="{% static 'img/placeholder.png' %}"
+        alt="No image"
         loading="lazy"
         decoding="async"
         width="800"

@@ -8,10 +8,15 @@
     <article class="blog-post">
         <div class="blog-post__hero">
             <!-- prettier-ignore -->
-            {% if post.featured_image %}
+            {% if post.featured_image and post.featured_image.url %}
             <div class="hero-image fade-in-scroll">
                 <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
             </div>
+            {% else %}
+            <div class="hero-image fade-in-scroll">
+                <img src="{% static 'img/placeholder.png' %}" alt="No image">
+            </div>
+            {% endif %}
             <!-- prettier-ignore -->
             {% endif %}
             <div class="container">
@@ -104,10 +109,15 @@
                     {% for related_post in related_posts %}
                     <article class="related-card">
                         <!-- prettier-ignore -->
-                        {% if related_post.featured_image %}
+                        {% if related_post.featured_image and related_post.featured_image.url %}
                         <div class="related-card__image">
                             <img src="{{ related_post.featured_image.url }}" alt="{{ related_post.title }}">
                         </div>
+                        {% else %}
+                        <div class="related-card__image">
+                            <img src="{% static 'img/placeholder.png' %}" alt="No image">
+                        </div>
+                        {% endif %}
                         <!-- prettier-ignore -->
                         {% endif %}
                         <div class="related-card__content">

@@ -51,16 +51,19 @@ else:
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
 #SE CURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = os.environ.get("SECRET_KEY", "sviluppo-chiave-segreta-1234567890")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["giuseppemancini.dev",
-                 "www.giuseppemancini.dev", 
-                 "giuseppemancini.onrender.com",
-                 "portfolio-j2jx.onrender.com"
-                 ]
+ALLOWED_HOSTS = [
+    "giuseppemancini.dev",
+    "www.giuseppemancini.dev",
+    "giuseppemancini.onrender.com",
+    "portfolio-j2jx.onrender.com",
+    "localhost",
+    "127.0.0.1",
+]
 
 
 # Application definition
@@ -201,22 +204,22 @@ CKEDITOR_CONFIGS = {
 }
 
 CKEDITOR_UPLOAD_PATH = "uploads/"
-# Email Configuration
-# For development, emails will be printed to console
-# For production, configure these with your email provider settings
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Development only
 
-# Production email settings (uncomment and configure for deployment):
-# EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-# EMAIL_HOST = 'smtp.gmail.com'  # or your email provider
-# EMAIL_PORT = 587
-# EMAIL_USE_TLS = True
-# EMAIL_HOST_USER = 'your-email@gmail.com'
-# EMAIL_HOST_PASSWORD = 'your-app-password'
+# Email Configuration
+import sys
+if 'runserver' in sys.argv or DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtp.zoho.com'
+    EMAIL_PORT = 587
+    EMAIL_USE_TLS = True
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
 # Email addresses
-DEFAULT_FROM_EMAIL = 'noreply@giuseppemancini.com'  # Sender for auto-reply emails
-CONTACT_EMAIL = 'giuseppe@example.com'  # Admin email to receive contact form notifications
+DEFAULT_FROM_EMAIL = os.environ.get('EMAIL_HOST_USER', 'noreply@giuseppemancini.com')
+CONTACT_EMAIL = os.environ.get('EMAIL_HOST_USER', 'giuseppe@example.com')
 
 
 
@@ -225,9 +228,9 @@ CONTACT_EMAIL = 'giuseppe@example.com'  # Admin email to receive contact form no
 # Format: cloudinary://api_key:api_secret@cloud_name
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
-if CLOUDINARY_URL:
+if not DEBUG and CLOUDINARY_URL:
     # django-cloudinary-storage will automatically use CLOUDINARY_URL
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 else:
-    # Fallback to local storage for development
+    # In sviluppo locale o se Cloudinary non è configurato, usa lo storage locale
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'

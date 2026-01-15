@@ -6,8 +6,8 @@
 >
   <img
     class="card__media"
-    src="{{ project.image.url }}"
-    alt="{{ project.title }} Screenshot"
+    src="{{ project.image.url if project.image and project.image.url else static('img/placeholder.png') }}"
+    alt="{{ project.title if project.image and project.image.url else 'No image' }}"
     loading="lazy"
     decoding="async"
     width="800"

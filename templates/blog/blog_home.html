@@ -41,14 +41,20 @@
                 {% for post in featured_posts %}
                 <article class="featured-card fade-in-scroll">
                     <!-- prettier-ignore -->
-                    {% if post.featured_image %}
+                    {% if post.featured_image and post.featured_image.url %}
                     <div class="featured-card__image">
                         <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
                         <span class="featured-badge">
                             <i class="fas fa-star"></i> Featured
                         </span>
                     </div>
-                    <!-- prettier-ignore -->
+                    {% else %}
+                    <div class="featured-card__image">
+                        <img src="{% static 'img/placeholder.png' %}" alt="No image">
+                        <span class="featured-badge">
+                            <i class="fas fa-star"></i> Featured
+                        </span>
+                    </div>
                     {% endif %}
                     <div class="featured-card__content">
                         <div class="post-meta">
@@ -113,18 +119,19 @@
                 {% for post in posts %}
                 <article class="blog-card fade-in-scroll">
                     <!-- prettier-ignore -->
-                    {% if post.featured_image %}
+                    {% if post.featured_image and post.featured_image.url %}
                     <div class="blog-card__image">
                         <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
-                        <!-- prettier-ignore -->
                         {% if post.is_featured %}
                         <span class="featured-badge-small">
                             <i class="fas fa-star"></i>
                         </span>
-                        <!-- prettier-ignore -->
                         {% endif %}
                     </div>
-                    <!-- prettier-ignore -->
+                    {% else %}
+                    <div class="blog-card__image">
+                        <img src="{% static 'img/placeholder.png' %}" alt="No image">
+                    </div>
                     {% endif %}
                     <div class="blog-card__content">
                         <div class="post-meta">
