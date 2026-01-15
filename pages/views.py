@@ -40,8 +40,8 @@ def home(request):
 						print(f"FROM: {settings.DEFAULT_FROM_EMAIL}")
 						print(f"TO: {settings.CONTACT_EMAIL}")
 						
-admin_subject = f'Messaggio da {name} - {subject}'
-					admin_message = f"""
+						admin_subject = f'Messaggio da {name} - {subject}'
+						admin_message = f"""
 Nuovo messaggio dal form di contatto:
 
 Da: {name}
@@ -54,13 +54,13 @@ Messaggio:
 ---
 Ricevuto il: {submission.submitted_at.strftime('%d/%m/%Y alle %H:%M:%S')}
 """
-					send_mail(
-						admin_subject,
-						admin_message,
-						settings.DEFAULT_FROM_EMAIL,  # Mittente: info@giuseppemancini.dev
-						[settings.CONTACT_EMAIL],  # Destinatario: info@giuseppemancini.dev
-						fail_silently=False,
-						reply_to=[email],  # Reply-To: email dell'utente
+						send_mail(
+							admin_subject,
+							admin_message,
+							settings.DEFAULT_FROM_EMAIL,  # Mittente: info@giuseppemancini.dev
+							[settings.CONTACT_EMAIL],  # Destinatario: info@giuseppemancini.dev
+							fail_silently=False,
+							reply_to=[email],  # Reply-To: email dell'utente
 						)
 						
 						# Send auto-reply to submitter
