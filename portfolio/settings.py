@@ -54,7 +54,7 @@ else:
 SECRET_KEY = os.environ.get("SECRET_KEY", "sviluppo-chiave-segreta-1234567890")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
     "giuseppemancini.dev",
