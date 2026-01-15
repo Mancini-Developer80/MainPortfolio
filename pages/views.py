@@ -40,25 +40,27 @@ def home(request):
 						print(f"FROM: {settings.DEFAULT_FROM_EMAIL}")
 						print(f"TO: {settings.CONTACT_EMAIL}")
 						
-						admin_subject = f'New Contact Form Submission: {subject}'
-						admin_message = f"""
-New contact form submission received:
+admin_subject = f'Messaggio da {name} - {subject}'
+					admin_message = f"""
+Nuovo messaggio dal form di contatto:
 
-From: {name} ({email})
-Subject: {subject}
+Da: {name}
+Email: {email}
+Oggetto: {subject}
 
-Message:
+Messaggio:
 {message}
 
 ---
-Submitted at: {submission.submitted_at.strftime('%Y-%m-%d %H:%M:%S')}
+Ricevuto il: {submission.submitted_at.strftime('%d/%m/%Y alle %H:%M:%S')}
 """
-						send_mail(
-							admin_subject,
-							admin_message,
-							settings.DEFAULT_FROM_EMAIL,
-							[settings.CONTACT_EMAIL],
-							fail_silently=False,
+					send_mail(
+						admin_subject,
+						admin_message,
+						settings.DEFAULT_FROM_EMAIL,  # Mittente: info@giuseppemancini.dev
+						[settings.CONTACT_EMAIL],  # Destinatario: info@giuseppemancini.dev
+						fail_silently=False,
+						reply_to=[email],  # Reply-To: email dell'utente
 						)
 						
 						# Send auto-reply to submitter

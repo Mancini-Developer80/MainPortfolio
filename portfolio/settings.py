@@ -218,7 +218,7 @@ else:
     EMAIL_USE_TLS = False # Disabilitiamo TLS perché usiamo SSL sulla 465
     EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'info@giuseppemancini.dev')
     EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-    EMAIL_TIMEOUT = 30
+    EMAIL_TIMEOUT = 10
 
 # Email addresses - must match the authenticated email
 DEFAULT_FROM_EMAIL = 'info@giuseppemancini.dev'
