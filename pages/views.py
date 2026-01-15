@@ -31,6 +31,13 @@ def home(request):
 			# Only attempt to send email if we're not in DEBUG mode
 			if not settings.DEBUG:
 				try:
+					print(f"DEBUG is False, attempting to send emails...")
+					print(f"EMAIL_HOST: {getattr(settings, 'EMAIL_HOST', 'NOT SET')}")
+					print(f"EMAIL_HOST_USER: {getattr(settings, 'EMAIL_HOST_USER', 'NOT SET')}")
+					print(f"EMAIL_HOST_PASSWORD: {'SET' if getattr(settings, 'EMAIL_HOST_PASSWORD', None) else 'NOT SET'}")
+					print(f"DEFAULT_FROM_EMAIL: {settings.DEFAULT_FROM_EMAIL}")
+					print(f"CONTACT_EMAIL: {settings.CONTACT_EMAIL}")
+					
 					if hasattr(settings, 'EMAIL_HOST') and settings.EMAIL_HOST:
 						admin_subject = f'New Contact Form Submission: {subject}'
 						admin_message = f"""
@@ -46,6 +53,7 @@ Message:
 Submitted at: {submission.submitted_at.strftime('%Y-%m-%d %H:%M:%S')}
 View in admin: {request.build_absolute_uri('/admin/pages/contactsubmission/')}
 """
+						print(f"Sending admin notification to: {settings.CONTACT_EMAIL}")
 						send_mail(
 							admin_subject,
 							admin_message,
@@ -53,6 +61,7 @@ View in admin: {request.build_absolute_uri('/admin/pages/contactsubmission/')}
 							[settings.CONTACT_EMAIL],
 							fail_silently=False,
 						)
+						print(f"Admin email sent successfully!")
 						
 						# Send auto-reply to submitter
 						reply_subject = f'Thank you for contacting me - {subject}'
@@ -71,6 +80,7 @@ Full Stack Web Developer
 ---
 This is an automated response. Please do not reply to this email.
 """
+						print(f"Sending auto-reply to: {email}")
 						send_mail(
 							reply_subject,
 							reply_message,
@@ -78,12 +88,18 @@ This is an automated response. Please do not reply to this email.
 							[email],
 							fail_silently=False,
 						)
+						print(f"Auto-reply email sent successfully!")
 				except Exception as email_error:
 					# Log email error but don't fail the submission
 					import traceback
-					print(f"Email sending failed: {email_error}")
+					print(f"EMAIL SENDING FAILED!")
+					print(f"Error type: {type(email_error).__name__}")
+					print(f"Error message: {email_error}")
+					print(f"Full traceback:")
 					print(traceback.format_exc())
 					# Continue to show success message since submission was saved
+			else:
+				print(f"DEBUG is True, skipping email sending (emails would print to console)")
 			
 			messages.success(request, 'Thank you for your message! I will get back to you soon.')
 			return redirect('pages:home')
