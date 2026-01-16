@@ -168,7 +168,8 @@ STATICFILES_DIRS = [
     BASE_DIR / 'css',
     BASE_DIR / 'js',
     BASE_DIR / 'img',
-    BASE_DIR / 'pdf',
+    BASE_DIR / 'resume',
+    
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 if DEBUG:
