@@ -1,13 +1,10 @@
-<!-- prettier-ignore -->
 {% extends 'base_blog.html' %}
 {% load static %}
 
-<!-- prettier-ignore -->
 {% block content %}
 <main class="blog-detail-page">
     <article class="blog-post">
         <div class="blog-post__hero">
-            <!-- prettier-ignore -->
             {% if post.featured_image and post.featured_image.url %}
             <div class="hero-image fade-in-scroll">
                 <img src="{{ post.featured_image.url }}" alt="{{ post.title }}">
@@ -16,16 +13,14 @@
             <div class="hero-image fade-in-scroll">
                 <img src="{% static 'img/placeholder.png' %}" alt="No image">
             </div>
-                {% endif %}
-                <!-- prettier-ignore -->
+            {% endif %}
+            
             <div class="container">
                 <div class="hero-content fade-in-scroll">
-                    <!-- prettier-ignore -->
                     {% if post.is_featured %}
                     <span class="featured-badge-large">
                         <i class="fas fa-star"></i> Featured Post
                     </span>
-                    <!-- prettier-ignore -->
                     {% endif %}
                     <h1>{{ post.title }}</h1>
                     <div class="post-meta-large">
@@ -41,13 +36,11 @@
                             <i class="far fa-eye"></i>
                             <span>{{ post.views_count }} views</span>
                         </div>
-                        <!-- prettier-ignore -->
                         {% if post.author %}
                         <div class="meta-item">
                             <i class="far fa-user"></i>
                             <span>{{ post.author.get_full_name|default:post.author.username }}</span>
                         </div>
-                        <!-- prettier-ignore -->
                         {% endif %}
                     </div>
                 </div>
@@ -57,57 +50,45 @@
         <div class="container">
             <div class="blog-post__content fade-in-scroll">
                 <div class="content-wrapper">
-                    <!-- prettier-ignore -->
                     {% if post.excerpt %}
                     <div class="post-excerpt">
                         <p>{{ post.excerpt }}</p>
                     </div>
-                    <!-- prettier-ignore -->
                     {% endif %}
 
                     <div class="post-body">
                         {{ post.content|safe }}
                     </div>
 
-                    <!-- prettier-ignore -->
                     {% if post.tags.all %}
                     <div class="post-tags-section">
-                        <h3>
-                            <i class="fas fa-tags"></i> Tags
-                        </h3>
+                        <h3><i class="fas fa-tags"></i> Tags</h3>
                         <div class="tags-list">
-                            <!-- prettier-ignore -->
                             {% for tag in post.tags.all %}
                             <a href="{% url 'blog:tag_posts' tag.slug %}" class="tag-badge-large">
                                 #{{ tag.name }}
                             </a>
-                            <!-- prettier-ignore -->
                             {% endfor %}
                         </div>
                     </div>
-                    <!-- prettier-ignore -->
                     {% endif %}
 
                     <div class="post-actions">
                         <a href="{% url 'blog:home' %}" class="btn-back">
-                            <i class="fas fa-arrow-left"></i>
-                            Back to Blog
+                            <i class="fas fa-arrow-left"></i> Back to Blog
                         </a>
                     </div>
                 </div>
             </div>
 
-            <!-- prettier-ignore -->
             {% if related_posts %}
             <div class="related-posts fade-in-scroll">
                 <h2 class="section-title">
                     <i class="fas fa-lightbulb"></i> Related Posts
                 </h2>
                 <div class="related-grid">
-                    <!-- prettier-ignore -->
                     {% for related_post in related_posts %}
                     <article class="related-card">
-                        <!-- prettier-ignore -->
                         {% if related_post.featured_image and related_post.featured_image.url %}
                         <div class="related-card__image">
                             <img src="{{ related_post.featured_image.url }}" alt="{{ related_post.title }}">
@@ -117,44 +98,29 @@
                             <img src="{% static 'img/placeholder.png' %}" alt="No image">
                         </div>
                         {% endif %}
-                        <!-- prettier-ignore -->
-                        {% endif %}
+                        
                         <div class="related-card__content">
                             <h3>{{ related_post.title }}</h3>
                             <p>{{ related_post.excerpt|truncatewords:15 }}</p>
                             <div class="post-meta-small">
-                                <span>
-                                    <i class="far fa-calendar"></i>
-                                    {{ related_post.published_at|date:"M d, Y" }}
-                                </span>
-                                <span>
-                                    <i class="far fa-clock"></i>
-                                    {{ related_post.get_reading_time }}
-                                </span>
+                                <span><i class="far fa-calendar"></i> {{ related_post.published_at|date:"M d, Y" }}</span>
+                                <span><i class="far fa-clock"></i> {{ related_post.get_reading_time }}</span>
                             </div>
                             <a href="{% url 'blog:detail' related_post.slug %}" class="btn-read-more-small">
-                                Read More
-                                <i class="fas fa-arrow-right"></i>
+                                Read More <i class="fas fa-arrow-right"></i>
                             </a>
                         </div>
                     </article>
-                    <!-- prettier-ignore -->
                     {% endfor %}
                 </div>
             </div>
-            <!-- prettier-ignore -->
             {% endif %}
         </div>
     </article>
 </main>
 
 <script>
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px"
-    };
-
+    const observerOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
     const observer = new IntersectionObserver(function(entries) {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
@@ -167,5 +133,4 @@
         observer.observe(element);
     });
 </script>
-<!-- prettier-ignore -->
 {% endblock %}
