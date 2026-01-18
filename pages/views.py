@@ -84,6 +84,7 @@ def projects(request):
 	case_studies = CaseStudy.objects.all().order_by('order')
 	return render(request, 'pages/projects.html', {'case_studies': case_studies})
 
+# Sezione da migliorare
 def about(request):
 	return render(request, 'pages/about.html')
 
