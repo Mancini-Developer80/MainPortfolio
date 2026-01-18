@@ -1,5 +1,7 @@
 # Django Full-Stack Professional Portfolio & CMS
 
+![Django CI](https://github.com/Mancini-Developer80/MainPortfolio/actions/workflows/django_tests.yml/badge.svg)
+
 ![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Sass](https://img.shields.io/badge/Sass-CC6699?style=for-the-badge&logo=sass&logoColor=white)
