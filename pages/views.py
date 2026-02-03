@@ -10,25 +10,30 @@ resend.api_key = os.environ.get('RESEND_API_KEY')
 
 def home(request):
     if request.method == 'POST':
-        # 1. HONEYPOT CHECK - Se il campo è compilato, è un bot.
-        # Restituiamo un redirect silenzioso senza dare errori (per non "istruire" il bot)
+        # 1. HONEYPOT CHECK
         if request.POST.get('hp_field'):
+            # Se è un bot, facciamo finta di aver avuto successo così smette di insistere
             return redirect('pages:home')
 
-        # Get form data
-        subject = request.POST.get('subject', '').strip()
-        name = request.POST.get('name', '').strip()
-        email = request.POST.get('email', '').strip()
+        # 2. DATA EXTRACTION & TRUNCATION (Anti-Overflow)
+        # Tronchiamo a 200/250 caratteri PRIMA di qualsiasi operazione
+        subject = request.POST.get('subject', '').strip()[:200]
+        name = request.POST.get('name', '').strip()[:200]
+        email = request.POST.get('email', '').strip()[:250]
         message = request.POST.get('message', '').strip()
         
+        # 3. ANTI-SPAM LOGIC
+        # Se i dati originali sono assurdamente lunghi, è un attacco: scartiamo senza errori
+        if len(request.POST.get('subject', '')) > 1000 or len(request.POST.get('name', '')) > 1000:
+            return redirect('pages:home')
+
         # Validate required fields
         if not all([subject, name, email, message]):
             messages.error(request, 'All fields are required.')
             return redirect('pages:home')
         
         try:
-            # 2. Salva nel database
-            # Ricorda: devi avere eseguito le migrazioni con max_length=255!
+            # 4. Salva nel database (con dati già troncati e sicuri)
             submission = ContactSubmission.objects.create(
                 subject=subject,
                 name=name,
@@ -36,7 +41,7 @@ def home(request):
                 message=message
             )
             
-            # 3. Invio email (Resend) - Solo in produzione
+            # 5. Invio email (Resend) - Solo in produzione
             if not settings.DEBUG:
                 try:
                     # Email per te
@@ -75,7 +80,7 @@ def home(request):
             return redirect('pages:home')
             
         except Exception as e:
-            # Qui è dove PostgreSQL lanciava l'errore "value too long"
+            # Con il troncamento sopra, questo errore non dovrebbe più presentarsi
             print(f"FORM ERROR: {e}")
             messages.error(request, 'An error occurred. Please try again later.')
             return redirect('pages:home')
