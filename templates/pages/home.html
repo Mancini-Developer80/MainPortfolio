@@ -391,6 +391,9 @@
         action="{% url 'pages:home' %}#contact"
       >
         {% csrf_token %}
+        <div style="display:none;">
+          <input type="text" name="hp_field" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-group input-icon">
           <label for="subject">Subject</label>
           <div class="input-wrapper">

@@ -10,6 +10,11 @@ resend.api_key = os.environ.get('RESEND_API_KEY')
 
 def home(request):
     if request.method == 'POST':
+        # 1. HONEYPOT CHECK - Se il campo è compilato, è un bot.
+        # Restituiamo un redirect silenzioso senza dare errori (per non "istruire" il bot)
+        if request.POST.get('hp_field'):
+            return redirect('pages:home')
+
         # Get form data
         subject = request.POST.get('subject', '').strip()
         name = request.POST.get('name', '').strip()
@@ -19,10 +24,11 @@ def home(request):
         # Validate required fields
         if not all([subject, name, email, message]):
             messages.error(request, 'All fields are required.')
-            return render(request, 'pages/home.html')
+            return redirect('pages:home')
         
         try:
-            # 1. Salva nel database (sempre utile come backup)
+            # 2. Salva nel database
+            # Ricorda: devi avere eseguito le migrazioni con max_length=255!
             submission = ContactSubmission.objects.create(
                 subject=subject,
                 name=name,
@@ -30,11 +36,10 @@ def home(request):
                 message=message
             )
             
-            # 2. Invia le email tramite Resend (solo se non siamo in DEBUG o se vogliamo testarlo)
-            # Nota: In produzione su Render, DEBUG sarà False
+            # 3. Invio email (Resend) - Solo in produzione
             if not settings.DEBUG:
                 try:
-                    # Email per te (Admin)
+                    # Email per te
                     resend.Emails.send({
                         "from": "Portfolio <info@giuseppemancini.dev>",
                         "to": ["info@giuseppemancini.dev"],
@@ -63,20 +68,19 @@ def home(request):
                             <p>Best regards,<br>Giuseppe Mancini<br>Full Stack Web Developer</p>
                         """
                     })
-                    print("Emails sent successfully via Resend")
                 except Exception as email_error:
-                    # Se l'email fallisce, logghiamo l'errore ma non blocchiamo l'utente
                     print(f"RESEND ERROR: {email_error}")
 
             messages.success(request, 'Thank you! Your message has been sent successfully.')
             return redirect('pages:home')
             
         except Exception as e:
+            # Qui è dove PostgreSQL lanciava l'errore "value too long"
             print(f"FORM ERROR: {e}")
             messages.error(request, 'An error occurred. Please try again later.')
             return redirect('pages:home')
     
-    # GET request: mostra gli studi di caso
+    # GET request
     featured_case_studies = CaseStudy.objects.filter(is_featured=True).order_by('order')[:3]
     return render(request, 'pages/home.html', {'case_studies': featured_case_studies})
 
@@ -87,9 +91,6 @@ def projects(request):
 # Sezione da migliorare
 def about(request):
 	return render(request, 'pages/about.html')
-
-def contact(request):
-	return render(request, 'pages/contact.html')
 
 def case_study_detail(request, slug):
 	case_study = get_object_or_404(CaseStudy, slug=slug)

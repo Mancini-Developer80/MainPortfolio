@@ -71,8 +71,8 @@ class ContactSubmission(models.Model):
         ('responded', 'Responded'),
     ]
     
-    subject = models.CharField(max_length=200)
-    name = models.CharField(max_length=100)
+    subject = models.CharField(max_length=255)
+    name = models.CharField(max_length=255)
     email = models.EmailField()
     message = models.TextField()
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='unread')
