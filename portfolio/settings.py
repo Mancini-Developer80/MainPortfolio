@@ -47,24 +47,26 @@ else:
         'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', ''),
     }
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
 
-#SE CURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get("SECRET_KEY", "sviluppo-chiave-segreta-1234567890")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = os.environ.get('RENDER') is None
 
-ALLOWED_HOSTS = [
+ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+
+# Se siamo su Render, aggiungiamo il dominio dinamico che ci fornisce Render
+RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
+if RENDER_EXTERNAL_HOSTNAME:
+    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+
+# Aggiungi qui i tuoi domini custom definitivi
+ALLOWED_HOSTS.extend([
     "giuseppemancini.dev",
     "www.giuseppemancini.dev",
     "giuseppemancini.onrender.com",
     "portfolio-j2jx.onrender.com",
-    "localhost",
-    "127.0.0.1",
-]
-
+])
 
 # Application definition
 
@@ -172,9 +174,11 @@ STATICFILES_DIRS = [
     
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# CORREZIONE: In sviluppo, usa il backend standard senza compressione
 if DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-    WHITENOISE_USE_FINDERS = True
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+    WHITENOISE_USE_FINDERS = False
 else:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 

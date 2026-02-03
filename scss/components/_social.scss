@@ -17,7 +17,10 @@
   height: 58px;
   box-shadow: 0 2px 12px rgba(57, 125, 226, 0.1);
   color: #fff;
-  transition: background 0.3s, transform 0.2s, box-shadow 0.2s;
+  transition:
+    background 0.3s,
+    transform 0.2s,
+    box-shadow 0.2s;
 }
 
 .social-link i,
@@ -43,4 +46,24 @@
 }
 .social-link--sm i {
   font-size: 1.6rem;
+}
+
+/* CORREZIONE: Surface Duo (540px) - Icone social ridotte */
+@media (min-width: 431px) and (max-width: 767px) {
+  .social-link,
+  .social-list a[aria-label] {
+    width: 46px;
+    height: 46px;
+  }
+
+  .social-link i,
+  .social-list a[aria-label] i {
+    font-size: 1.6rem;
+  }
+
+  .social-list {
+    gap: 0.65rem;
+    flex-wrap: wrap;
+    max-width: 90%;
+  }
 }
