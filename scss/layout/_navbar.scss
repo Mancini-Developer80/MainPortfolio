@@ -18,7 +18,11 @@
   right: 0;
   width: 100%;
   z-index: 100;
-  transition: background 0.4s, box-shadow 0.4s, border-bottom 0.4s, top 0.4s;
+  transition:
+    background 0.4s,
+    box-shadow 0.4s,
+    border-bottom 0.4s,
+    top 0.4s;
 }
 
 .navbar.active,
@@ -27,7 +31,9 @@
   background: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 4px 24px rgba(57, 125, 226, 0.15), 0 2px 0 #60efff;
+  box-shadow:
+    0 4px 24px rgba(57, 125, 226, 0.15),
+    0 2px 0 #60efff;
   border-bottom: 2px solid #60efff;
   top: 0;
   left: 0;
@@ -50,7 +56,9 @@
   color: var(--text-color);
   padding: 0.6em 1.2em;
   border-radius: 0.5em;
-  transition: color 0.3s, background 0.3s;
+  transition:
+    color 0.3s,
+    background 0.3s;
   overflow: hidden;
   z-index: 1;
 }
@@ -137,7 +145,10 @@
   box-shadow: 0 2px 12px rgba(57, 125, 226, 0.18);
   opacity: 0;
   pointer-events: none;
-  transition: opacity 0.3s, background 0.3s, transform 0.2s;
+  transition:
+    opacity 0.3s,
+    background 0.3s,
+    transform 0.2s;
 }
 
 .arrow-up-fixed:hover {
@@ -212,7 +223,9 @@
   color: #fff;
   padding: 0.7em 1em;
   border-radius: 0.5em;
-  transition: background 0.2s, color 0.2s;
+  transition:
+    background 0.2s,
+    color 0.2s;
   display: inline-block;
   font-size: 1.15rem;
   font-weight: 500;
@@ -251,6 +264,26 @@
   color: #222c3c;
   border-color: rgba(96, 239, 255, 0.6);
   transform: scale(1.05);
+}
+
+/* CORREZIONE: Tablet iPad Pro (1024px) e Surface Pro 7 (912px) - Navbar visibile */
+@media (min-width: 768px) and (max-width: 1280px) {
+  .navbar {
+    z-index: 9999;
+    position: fixed;
+    transform: translateZ(0);
+    top: 2rem;
+  }
+
+  .navbar.active {
+    z-index: 9999;
+    position: fixed;
+    transform: translateZ(0);
+    top: 0;
+    padding: 0.8rem 2rem;
+    height: auto;
+    min-height: 65px;
+  }
 }
 
 @media (max-width: 992px) {
@@ -324,7 +357,9 @@
     opacity: 0;
     pointer-events: none;
     max-height: 0;
-    transition: opacity 0.3s, max-height 0.3s;
+    transition:
+      opacity 0.3s,
+      max-height 0.3s;
     z-index: 9999;
   }
 

@@ -68,16 +68,6 @@ ALLOWED_HOSTS.extend([
     "portfolio-j2jx.onrender.com",
 ])
 
-# ALLOWED_HOSTS = [
-#     "giuseppemancini.dev",
-#     "www.giuseppemancini.dev",
-#     "giuseppemancini.onrender.com",
-#     "portfolio-j2jx.onrender.com",
-#     "localhost",
-#     "127.0.0.1",
-# ]
-
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -184,9 +174,11 @@ STATICFILES_DIRS = [
     
 ]
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# CORREZIONE: In sviluppo, usa il backend standard senza compressione
 if DEBUG:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
-    WHITENOISE_USE_FINDERS = True
+    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+    WHITENOISE_USE_FINDERS = False
 else:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 

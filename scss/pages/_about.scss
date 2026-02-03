@@ -1404,3 +1404,21 @@
     padding: 1.5rem 0;
   }
 }
+
+/* CORREZIONE: Surface Duo (540px) - Riduzione skills icons */
+@media (min-width: 431px) and (max-width: 767px) {
+  .skills-icons img {
+    width: 50px;
+    max-width: 50px;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    gap: 0.8rem;
+    padding: 0 0.5rem;
+  }
+
+  .skills-icons {
+    padding: 2rem 1rem;
+  }
+}
