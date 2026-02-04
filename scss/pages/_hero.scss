@@ -116,9 +116,6 @@
   margin-top: 5rem;
 }
 
-/* Old image-based social styles removed; using .social-link component */
-
-/* CORREZIONE: Smartphone 412-430px (iPhone 14 Pro Max, Pixel 7, S20 Ultra, A51/71) */
 @media (min-width: 401px) and (max-width: 430px) {
   .content .main-text {
     font-size: 1.4rem;

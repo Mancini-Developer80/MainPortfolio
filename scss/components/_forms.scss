@@ -76,6 +76,12 @@
   }
 }
 
+.cf-turnstile {
+  display: flex;
+  justify-content: center; /* Se vuoi centrarlo */
+  margin: 10px 0;
+}
+
 @keyframes slideInRight {
   from {
     transform: translateX(100%);
@@ -211,7 +217,9 @@
   margin-top: 0.1rem;
   margin-bottom: 0.1rem;
   box-shadow: 0 1px 4px rgba(57, 125, 226, 0.04);
-  transition: box-shadow 0.2s, border 0.2s;
+  transition:
+    box-shadow 0.2s,
+    border 0.2s;
 }
 
 .input-icon input:focus,
@@ -328,7 +336,9 @@
   font-family: inherit;
   background: #f8fdff;
   color: #222c3c;
-  transition: border 0.2s, box-shadow 0.2s;
+  transition:
+    border 0.2s,
+    box-shadow 0.2s;
   outline: none;
   resize: none;
 }
@@ -361,7 +371,9 @@
   font-size: 1.15rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
   box-shadow: 0 2px 12px rgba(57, 125, 226, 0.08);
 }
 

@@ -1,4 +1,5 @@
 import os
+import requests
 import resend
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
@@ -8,86 +9,99 @@ from .models import ContactSubmission, CaseStudy
 # Configura l'API Key (assicurati che sia impostata su Render)
 resend.api_key = os.environ.get('RESEND_API_KEY')
 
+def verify_turnstile(token):
+    """Verifica il token con l'API di Cloudflare."""
+    if not token:
+        return False
+    url = "https://challenges.cloudflare.com/turnstile/v0/siteverify"
+    data = {
+        'secret': settings.TURNSTILE_SECRET_KEY,
+        'response': token,
+    }
+    try:
+        response = requests.post(url, data=data, timeout=5)
+        return response.json().get('success', False)
+    except Exception:
+        return False
+
 def home(request):
     if request.method == 'POST':
-        # 1. HONEYPOT CHECK
+        # 1. TURNSTILE CHECK (Nuova difesa primaria)
+        token = request.POST.get('cf-turnstile-response')
+        if not verify_turnstile(token):
+            # Se fallisce la verifica bot, reindirizziamo senza salvare nulla
+            return redirect('pages:home')
+
+        # 2. HONEYPOT CHECK (Difesa secondaria legacy)
         if request.POST.get('hp_field'):
-            # Se è un bot, facciamo finta di aver avuto successo così smette di insistere
             return redirect('pages:home')
 
-        # 2. DATA EXTRACTION & TRUNCATION (Anti-Overflow)
-        # Tronchiamo a 200/250 caratteri PRIMA di qualsiasi operazione
-        subject = request.POST.get('subject', '').strip()[:200]
-        name = request.POST.get('name', '').strip()[:200]
+        # 3. DATA EXTRACTION & TRUNCATION
+        subject_raw = request.POST.get('subject', '').strip()
+        name_raw = request.POST.get('name', '').strip()
         email = request.POST.get('email', '').strip()[:250]
-        message = request.POST.get('message', '').strip()
+        message_raw = request.POST.get('message', '').strip()
+
+        # Tronchiamo per il DB (Anti-Overflow)
+        subject = subject_raw[:200]
+        name = name_raw[:200]
         
-        # 3. ANTI-SPAM LOGIC
-        # Se i dati originali sono assurdamente lunghi, è un attacco: scartiamo senza errori
-        if len(request.POST.get('subject', '')) > 1000 or len(request.POST.get('name', '')) > 1000:
+        # 4. ANTI-SPAM ATTACK (Se l'input è assurdamente lungo scartiamo)
+        if len(subject_raw) > 1000 or len(name_raw) > 1000:
             return redirect('pages:home')
 
-        # Validate required fields
-        if not all([subject, name, email, message]):
+        if not all([subject, name, email, message_raw]):
             messages.error(request, 'All fields are required.')
             return redirect('pages:home')
         
         try:
-            # 4. Salva nel database (con dati già troncati e sicuri)
+            # 5. SALVATAGGIO NEL DB (Tronchiamo anche il messaggio per il DB)
             submission = ContactSubmission.objects.create(
                 subject=subject,
                 name=name,
                 email=email,
-                message=message
+                message=message_raw[:1000] # Limite prudenziale per il DB
             )
             
-            # 5. Invio email (Resend) - Solo in produzione
-            if not settings.DEBUG:
+            # 6. SILENZIATORE EMAIL (Logica da Architect)
+            # Inviamo email solo se il messaggio originale non è sospettosamente lungo (>2000 char)
+            # e solo se non siamo in DEBUG.
+            if not settings.DEBUG and len(message_raw) < 2000:
                 try:
                     # Email per te
                     resend.Emails.send({
                         "from": "Portfolio <info@giuseppemancini.dev>",
                         "to": ["info@giuseppemancini.dev"],
-                        "subject": f"Nuovo messaggio da {name}: {subject}",
+                        "subject": f"New message: {subject}",
                         "reply_to": email,
-                        "html": f"""
-                            <p><strong>Da:</strong> {name} ({email})</p>
-                            <p><strong>Oggetto:</strong> {subject}</p>
-                            <p><strong>Messaggio:</strong></p>
-                            <p>{message}</p>
-                            <hr>
-                            <p>Ricevuto il: {submission.submitted_at.strftime('%d/%m/%Y %H:%M')}</p>
-                        """
+                        "html": f"<p><strong>From:</strong> {name}</p><p>{message_raw[:2000]}</p>"
                     })
                     
                     # Auto-reply per l'utente
                     resend.Emails.send({
                         "from": "Giuseppe Mancini <info@giuseppemancini.dev>",
                         "to": [email],
-                        "subject": f"Thank you for reaching out - {subject}",
-                        "html": f"""
-                            <p>Hi {name},</p>
-                            <p>Thank you for contacting me. I have received your message and I will get back to you as soon as possible.</p>
-                            <p><strong>Your message:</strong><br>"{message}"</p>
-                            <br>
-                            <p>Best regards,<br>Giuseppe Mancini<br>Full Stack Web Developer</p>
-                        """
+                        "subject": f"Receipt: {subject}",
+                        "html": f"<p>Hi {name}, I've received your message.</p>"
                     })
                 except Exception as email_error:
                     print(f"RESEND ERROR: {email_error}")
 
-            messages.success(request, 'Thank you! Your message has been sent successfully.')
+            messages.success(request, 'Thank you! Your message has been sent.')
             return redirect('pages:home')
             
         except Exception as e:
-            # Con il troncamento sopra, questo errore non dovrebbe più presentarsi
             print(f"FORM ERROR: {e}")
-            messages.error(request, 'An error occurred. Please try again later.')
+            messages.error(request, 'An error occurred.')
             return redirect('pages:home')
     
     # GET request
     featured_case_studies = CaseStudy.objects.filter(is_featured=True).order_by('order')[:3]
-    return render(request, 'pages/home.html', {'case_studies': featured_case_studies})
+    context = {
+        'case_studies': featured_case_studies,
+        'TURNSTILE_SITE_KEY': settings.TURNSTILE_SITE_KEY  # Passiamo la chiave al template
+    }
+    return render(request, 'pages/home.html', context)
 
 def projects(request):
 	case_studies = CaseStudy.objects.all().order_by('order')

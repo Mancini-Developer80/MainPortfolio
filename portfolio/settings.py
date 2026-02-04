@@ -6,11 +6,16 @@ import cloudinary
 import cloudinary.uploader
 import cloudinary.api
 from pathlib import Path
+import environ
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 TESTING = 'test' in sys.argv or 'test_coverage' in sys.argv
+
+env = environ.Env()
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # Parse Cloudinary URL and configure
 cloudinary_url = os.environ.get('CLOUDINARY_URL', '')
@@ -243,3 +248,8 @@ if not DEBUG and CLOUDINARY_URL:
 else:
     # In sviluppo locale o se Cloudinary non è configurato, usa lo storage locale
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+
+
+# Cloudflare Turnstile Configuration
+TURNSTILE_SITE_KEY = os.environ.get('TURNSTILE_SITE_KEY', '')
+TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY', '')
