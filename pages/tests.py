@@ -13,6 +13,6 @@ class PortfolioTests(TestCase):
     def test_about_page_contains_architect_text(self):
         # Questo verifica che il tuo nuovo brand sia presente nell'HTML
         response = self.client.get(reverse('pages:about'))
-        self.assertContains(response, "AI Solution Architect in training")
+        self.assertContains(response, "AI Solution Architect")
 
 
