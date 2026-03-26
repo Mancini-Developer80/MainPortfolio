@@ -1,17 +1,17 @@
 /* Overrides to ensure background images resolve via absolute static paths */
 .hero {
-  background-image: url("/static/rahul-mishra-1200.jpg") !important;
+  background-image: url("/img/ai-solution-architect-gcp-cloud-infrastructure-frankfurt.webp") !important;
 }
 @media (max-width: 600px) {
   .hero {
-    background-image: url("/static/HeroMobileBg.jpg") !important;
+    background-image: url("/img/ai-solution-architect-gcp-cloud-infrastructure-frankfurt_mobile.webp") !important;
   }
 }
 .about {
   background-image: url("/static/laptopDesk.jpg") !important;
 }
 .about-overview {
-  background-image: url("/static/laptopDesk.jpg") !important;
+  background-image: url("/img/ai-agentic-workflows-rag-systems-gcp-architect-frankfurt.webp") !important;
 }
 .about-page .about-section {
   background-image: url("/static/laptopDesk.jpg") !important;
