@@ -56,9 +56,29 @@ else:
 SECRET_KEY = os.environ.get("SECRET_KEY", "sviluppo-chiave-segreta-1234567890")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('RENDER') is None
+DEBUG = os.environ.get('DEBUG', 'False') == 'True'
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+# Recuperiamo eventuali host extra dalle variabili d'ambiente (GCP Console)
+env_hosts = os.environ.get("ALLOWED_HOSTS", "").split(",")
+
+ALLOWED_HOSTS = [
+    'localhost', 
+    '127.0.0.1', 
+    'giuseppemancini.dev', 
+    'www.giuseppemancini.dev',
+    '.run.app',         # Wildcard generico per Cloud Run (copre ogni regione)
+    '.onrender.com'
+]
+
+# Uniamo gli host di default con quelli passati via ambiente
+if env_hosts[0]: # Se la stringa non è vuota
+    ALLOWED_HOSTS.extend(env_hosts)
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://giuseppemancini.dev',
+    'https://www.giuseppemancini.dev',
+    'https://*.run.app' # Copre europe-west3.run.app e altri
+]
 
 # Se siamo su Render, aggiungiamo il dominio dinamico che ci fornisce Render
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
@@ -253,3 +273,6 @@ else:
 # Cloudflare Turnstile Configuration
 TURNSTILE_SITE_KEY = os.environ.get('TURNSTILE_SITE_KEY', '')
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY', '')
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SECURE_SSL_REDIRECT = not DEBUG
