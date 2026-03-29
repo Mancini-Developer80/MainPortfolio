@@ -1,4 +1,3 @@
-<!-- prettier-ignore -->
 {% extends 'base.html' %}
 {% load static %}
 {% block title %}Giuseppe Mancini | AI Solution Architect{% endblock %}
@@ -8,33 +7,29 @@
 <section class="about-enterprise">
   <div class="about-enterprise-wrapper">
     
-    <!-- HERO SECTION -->
     <div class="about-hero fade-in-scroll">
       <h1 class="about-hero-title">AI Solution Architect</h1>
       <p class="about-hero-subtitle">Building autonomous, scalable systems on Google Cloud Platform</p>
     </div>
 
-    <!-- INTRO: WHO I AM (EXPANDED) -->
     <section class="about-intro-expanded fade-in-scroll">
       <div class="intro-paragraphs">
         <p class="intro-paragraph">
-          I'm a <strong>Full-Stack Developer & AI Solution Architect</strong> dedicated to building <strong>autonomous, scalable, and intelligent digital systems</strong>. My approach bridges robust technical engineering with a strategic mindset shaped by my background in <strong>international relations and global communication</strong>—allowing me to design AI solutions that are not only powerful but also ethically and culturally aligned.
+            I am a <strong>Full-Stack Engineer & AI Solution Architect</strong> specialized in designing <strong>autonomous, scalable, and agentic digital ecosystems</strong>. My engineering approach is uniquely informed by a background in <strong>International Relations</strong>, enabling me to bridge the gap between complex technical architectures and the <strong>ethical, cultural, and strategic</strong> requirements of global organizations.
         </p>
 
         <p class="intro-paragraph">
-          I thrive on architecting solutions for complex challenges — moving beyond standard applications to build <strong>AI-native infrastructures</strong>, <strong>agentic workflows</strong>, and <strong>high-performance RAG pipelines</strong> that turn unstructured data into strategic assets.
+            I focus on transforming traditional software into <strong>AI-native infrastructure</strong>. I don't just build apps; I architect <strong>high-performance RAG pipelines</strong> and <strong>Agentic Workflows</strong> that leverage <strong>Vector Databases (pgvector)</strong> to turn unstructured data into actionable, strategic intelligence.
         </p>
 
         <p class="intro-paragraph">
-          I recently evolved this platform into a <strong>production-ready Django CMS</strong>. By architecting a modular <strong>MVT structure</strong> with a <strong>PostgreSQL backend</strong>, I've implemented a streamlined <strong>Git-based automated deployment</strong> on Render. This infrastructure is the scalable foundation I'm now using to integrate <strong>vector-search and AI-agentic workflows</strong>.
+            This platform is a live showcase of <strong>Serverless Architecture on Google Cloud (GCP)</strong>. It leverages <strong>Cloud Run</strong> for elastic container orchestration, integrated with a <strong>Supabase (PostgreSQL)</strong> backend for robust data persistence and <strong>Vector Search capabilities</strong>. Managed via a professional <strong>GitHub Actions CI/CD pipeline</strong>, it demonstrates a modern, <strong>Cloud-native approach</strong> to scalable web deployment.
         </p>
       </div>
     </section>
 
-    <!-- TWO-COLUMN LAYOUT: Timeline + Cards -->
     <div class="about-content-grid">
       
-      <!-- LEFT: Evolution Timeline -->
       <aside class="about-timeline fade-in-scroll">
         <h2 class="timeline-title">
           <i class="fas fa-history" aria-hidden="true"></i>
@@ -72,52 +67,52 @@
         </div>
       </aside>
 
-      <!-- RIGHT: Core Competencies -->
       <div class="about-cards-container">
         
-        <!-- Card 1: Who I Am -->
         <article class="about-card glass-card fade-in-scroll">
           <div class="card-header">
             <div class="card-icon-wrapper">
-              <i class="fas fa-code card-icon"></i>
+              <i class="fas fa-terminal card-icon"></i>
             </div>
-            <h3 class="card-title">Who I Am</h3>
+            <h3 class="card-title">Profile & Strategy</h3>
           </div>
-          <p class="card-content">
-            I'm a <strong>Full-Stack Developer & AI Solution Architect</strong> with deep expertise in building <strong>autonomous, scalable systems</strong>. My background in <strong>international relations</strong> and fluency in <strong>Italian, German, English</strong> shape an ethical, culturally-aware approach to AI design in global markets.
-          </p>
+          <div class="card-content">
+            <p>
+                I am a <strong>Full-Stack Engineer & AI Solution Architect</strong> focused on <strong>Serverless Cloud ecosystems</strong>. My background in <strong>International Relations</strong>, combined with fluency in <strong>English, German, and Italian</strong>, allows me to design AI solutions that are technically robust, ethically aligned, and tailored for <strong>cross-border global markets</strong>.
+            </p>
+            <p>
+                My mission is to bridge the gap between high-level diplomatic strategy and deep-tech execution, ensuring that <strong>Autonomous Agents</strong> and <strong>RAG pipelines</strong> serve real-world business objectives within a secure, <strong>GCP-native infrastructure</strong>.
+            </p>
+          </div>
         </article>
 
-        <!-- Card 2: What I Build -->
         <article class="about-card glass-card fade-in-scroll">
-          <div class="card-header">
-            <div class="card-icon-wrapper">
-              <i class="fas fa-lightbulb card-icon"></i>
+            <div class="card-header">
+                <div class="card-icon-wrapper">
+                    <i class="fas fa-lightbulb card-icon"></i>
+                </div>
+                <h3 class="card-title">What I Build</h3>
             </div>
-            <h3 class="card-title">What I Build</h3>
-          </div>
-          <p class="card-content">
-            <strong>AI-native infrastructures</strong>, <strong>agentic workflows</strong>, and <strong>high-performance RAG pipelines</strong> that transform unstructured data into strategic assets on Google Cloud. I focus on identifying high-value problems where Agentic AI can automate business logic and create sustainable competitive advantages.
-          </p>
+            <p class="card-content">
+                I architect <strong>AI-native infrastructures</strong>, <strong>Agentic Workflows</strong>, and <strong>high-performance RAG pipelines</strong> that transform unstructured data into strategic assets. My focus is on identifying high-value bottlenecks where <strong>Agentic AI</strong> can automate complex business logic, creating sustainable competitive advantages through <strong>intelligent automation</strong>.
+            </p>
         </article>
 
-        <!-- Card 3: My Foundation -->
         <article class="about-card glass-card fade-in-scroll">
-          <div class="card-header">
-            <div class="card-icon-wrapper">
-              <i class="fab fa-python card-icon"></i>
+            <div class="card-header">
+                <div class="card-icon-wrapper">
+                    <i class="fas fa-layer-group card-icon"></i> 
+                </div>
+                <h3 class="card-title">Technical Foundation</h3>
             </div>
-            <h3 class="card-title">My Foundation</h3>
-          </div>
-          <p class="card-content">
-            This portfolio is a <strong>production-ready Django CMS</strong> with modular <strong>MVT architecture</strong>, <strong>PostgreSQL vectorDB</strong>, secure <strong>CSRF protection</strong>, dual-SMTP pipelines, and automated <strong>Git-based deployment</strong> on Render with custom DNS and SSL.
-          </p>
+            <p class="card-content">
+                This platform is a <strong>production-ready Django CMS</strong> leveraging a modular <strong>MVT architecture</strong>. It is orchestrated on <strong>Google Cloud (Cloud Run)</strong> using a <strong>Serverless containerized approach</strong>. The stack features a <strong>PostgreSQL VectorDB (Supabase)</strong>, dual-SMTP mail pipelines, and a professional <strong>CI/CD workflow via GitHub Actions</strong> with automated SSL and DNS management.
+            </p>
         </article>
 
       </div>
     </div>
 
-    <!-- WHAT I DO SECTION (DETAILED) -->
     <section class="what-i-do-section fade-in-scroll">
       <h2 class="section-title with-icon">
         <i class="fas fa-tools" aria-hidden="true"></i>
@@ -125,10 +120,9 @@
       </h2>
       
       <p class="section-intro">
-        I engineer <strong>AI-ready full-stack applications</strong> with a focus on robust backend architectures, secure API design, and scalable cloud deployments. Here is a snapshot of my evolving technical toolkit, bridging traditional web development with <strong>Agentic AI workflows</strong>:
+        I engineer <strong>AI-ready full-stack applications</strong> with a focus on robust backend architectures, secure API design, and scalable cloud deployments. Here is a snapshot of my technical toolkit, bridging traditional web development with <strong>Agentic AI orchestration</strong>:
       </p>
 
-      <!-- Tech Stack Table -->
       <div class="tech-comparison-grid">
         <div class="tech-column">
           <h3 class="tech-column-title">Frontend</h3>
@@ -146,7 +140,7 @@
             <li><strong>Django 5.x</strong> <span class="badge-primary">Primary</span></li>
             <li><strong>Node.js</strong> <span class="badge-primary">Primary</span></li>
             <li>Python</li>
-            <li>Gemini / LLMs</li>
+            <li>Gemini 1.5 Pro / LLMs</li>
           </ul>
         </div>
 
@@ -154,25 +148,24 @@
           <h3 class="tech-column-title">Data & Vector Search</h3>
           <ul class="tech-list">
             <li><strong>PostgreSQL</strong> <span class="badge-primary">Primary</span></li>
-            <li>pgvector</li>
-            <li>MongoDB</li>
-            <li>REST APIs</li>
+            <li><strong>pgvector</strong> <span class="badge-primary">Primary</span></li>
+            <li>Supabase / Cloud SQL</li>
+            <li>REST & GraphQL APIs</li>
           </ul>
         </div>
 
         <div class="tech-column">
           <h3 class="tech-column-title">Cloud & DevOps</h3>
           <ul class="tech-list">
-            <li><strong>Docker</strong> <span class="badge-primary">Primary</span></li>
-            <li>Google Cloud (GCP)</li>
-            <li>Git / Render</li>
-            <li>CI/CD Foundations</li>
+            <li><strong>Google Cloud (GCP)</strong> <span class="badge-primary">Focus</span></li>
+            <li><strong>Cloud Run / Docker</strong></li>
+            <li>GitHub Actions CI/CD</li>
+            <li>Artifact Registry</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <!-- HOW I WORK SECTION (DETAILED) -->
     <section class="how-i-work-detailed fade-in-scroll">
       <h2 class="section-title with-icon">
         <i class="fas fa-cogs" aria-hidden="true"></i>
@@ -205,7 +198,7 @@
             <div class="principle-number">03</div>
             <h3 class="principle-title">Modern DevOps Culture</h3>
           </div>
-          <p class="principle-description">Prioritizing containerization (Docker) and automated deployments that enable rapid iteration and production confidence.</p>
+          <p class="principle-description">Prioritizing containerization (Docker) and automated deployments on GCP that enable rapid iteration and production confidence.</p>
         </div>
 
         <div class="principle-card-detailed glass-card">
@@ -213,7 +206,7 @@
             <div class="principle-number">04</div>
             <h3 class="principle-title">Continuous Evolution</h3>
           </div>
-          <p class="principle-description">Actively mastering the Google Cloud AI (118) path and staying ahead of emerging technologies in the AI landscape.</p>
+          <p class="principle-description">Actively mastering the Google Cloud AI path and staying ahead of emerging technologies in the Agentic AI landscape.</p>
         </div>
 
         <div class="principle-card-detailed glass-card">
@@ -221,7 +214,7 @@
             <div class="principle-number">05</div>
             <h3 class="principle-title">Security & Performance</h3>
           </div>
-          <p class="principle-description">Enforcing best practices for data integrity, API speed, CSRF protection, and secure environment management.</p>
+          <p class="principle-description">Enforcing best practices for data integrity, API speed, CSRF protection, and secure Secrets Management on Cloud SQL.</p>
         </div>
       </div>
 
@@ -230,15 +223,13 @@
       </p>
     </section>
 
-    <!-- SELECTED PROJECTS SECTION -->
-    <section class="selected-projects fade-in-scroll">
+    <!-- <section class="selected-projects fade-in-scroll">
       <h2 class="section-title with-icon">
         <i class="fas fa-project-diagram" aria-hidden="true"></i>
         Selected Projects & R&D
       </h2>
 
       <div class="projects-grid">
-        <!-- Project 1 -->
         <article class="project-card glass-card">
           <div class="project-icon">
             <i class="fas fa-robot"></i>
@@ -249,46 +240,43 @@
           </p>
           <ul class="project-features">
             <li><strong>Vector Search:</strong> Implementing semantic retrieval using <strong>pgvector</strong> for efficient similarity matching.</li>
-            <li><strong>LLM Orchestration:</strong> Integrating <strong>Gemini CLI</strong> for complex reasoning tasks beyond simple retrieval.</li>
-            <li><strong>Agentic Logic:</strong> Designing autonomous workflows to process unstructured historical data with minimal human intervention.</li>
+            <li><strong>LLM Orchestration:</strong> Integrating <strong>Gemini 1.5 Pro</strong> for complex reasoning tasks beyond simple retrieval.</li>
+            <li><strong>Agentic Logic:</strong> Designing autonomous workflows to process unstructured historical data with zero human intervention.</li>
           </ul>
         </article>
 
-        <!-- Project 2 -->
         <article class="project-card glass-card">
           <div class="project-icon">
-            <i class="fab fa-python"></i>
+            <i class="fas fa-cloud"></i>
           </div>
-          <h3 class="project-title">Scalable Backend Architectures (Django)</h3>
+          <h3 class="project-title">Serverless Cloud Architecture (GCP)</h3>
           <p class="project-description">
-            I built a production-grade <strong>Django CMS</strong> (this portfolio) to demonstrate backend versatility and data integrity:
+            This portfolio is a <strong>production-grade Django CMS</strong> deployed using a modern serverless approach on Google Cloud:
           </p>
           <ul class="project-features">
-            <li><strong>Relational Data Modeling:</strong> Complex MVT patterns with PostgreSQL and normalized database schemas.</li>
-            <li><strong>Security First:</strong> CSRF protection, secure environment management, and dual-SMTP pipelines for reliability.</li>
-            <li><strong>Cloud Deployment:</strong> Automated delivery on Render with custom DNS configuration and SSL certificates.</li>
+            <li><strong>Containerization:</strong> Orchestrated via <strong>Cloud Run</strong> for elastic scaling and high availability.</li>
+            <li><strong>CI/CD Pipeline:</strong> Fully automated deployments via <strong>GitHub Actions</strong> to Artifact Registry.</li>
+            <li><strong>Security:</strong> Enforced CSRF protection, secure Secrets Management, and dual-SMTP pipelines.</li>
           </ul>
         </article>
 
-        <!-- Project 3 -->
         <article class="project-card glass-card">
           <div class="project-icon">
             <i class="fas fa-layer-group"></i>
           </div>
-          <h3 class="project-title">Full-Stack MERN Applications</h3>
+          <h3 class="project-title">Full-Stack MERN Ecosystems</h3>
           <p class="project-description">
-            Foundation in the MERN stack focused on building responsive, high-performance interfaces and real-time data handling:
+            Foundation in building responsive, high-performance interfaces and real-time data handling for SaaS applications:
           </p>
           <ul class="project-features">
-            <li><strong>Reactive UIs:</strong> State management and reusable component architecture in React with modern patterns.</li>
-            <li><strong>RESTful APIs:</strong> Engineering secure Node.js/Express backends with JWT authentication and rate limiting.</li>
-            <li><strong>Real-time Communication:</strong> WebSocket integration for live updates and collaborative features.</li>
+            <li><strong>Reactive UIs:</strong> Advanced state management and reusable component architecture in React.</li>
+            <li><strong>Scalable APIs:</strong> Secure Node.js backends with JWT authentication and rate limiting.</li>
+            <li><strong>Real-time:</strong> WebSocket integration for live updates and collaborative enterprise features.</li>
           </ul>
         </article>
       </div>
-    </section>
+    </section> -->
 
-    <!-- BEYOND CODE SECTION -->
     <section class="beyond-code fade-in-scroll">
       <h2 class="section-title with-icon">
         <i class="fas fa-star" aria-hidden="true"></i>
@@ -338,7 +326,6 @@
       </div>
     </section>
 
-    <!-- WHAT I'M LOOKING FOR SECTION -->
     <section class="looking-for fade-in-scroll">
       <h2 class="section-title with-icon">
         <i class="fas fa-compass" aria-hidden="true"></i>

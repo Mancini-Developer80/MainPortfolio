@@ -140,7 +140,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         threshold: 0.3, // Trigger when 30% of the element is visible
-      }
+      },
     );
     observer.observe(left);
     observer.observe(right);
@@ -163,7 +163,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         threshold: 0.3,
-      }
+      },
     );
     if (secondLeft) observer2.observe(secondLeft);
     if (secondRight) observer2.observe(secondRight);
@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         threshold: 0.15, // Trigger a bit earlier for smoother entry
-      }
+      },
     );
     projectCards.forEach((card) => projectObserver.observe(card));
   }
@@ -206,10 +206,30 @@ document.addEventListener("DOMContentLoaded", function () {
       },
       {
         threshold: 0.3,
-      }
+      },
     );
     if (skillsHeading) skillsObserver.observe(skillsHeading);
     if (skillsDescription) skillsObserver.observe(skillsDescription);
+  }
+
+  // Generic IntersectionObserver for fade-in-scroll elements (bidirectional)
+  const fadeInElements = document.querySelectorAll(".fade-in-scroll");
+  if (fadeInElements.length) {
+    const fadeInObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          } else {
+            entry.target.classList.remove("visible");
+          }
+        });
+      },
+      {
+        threshold: 0.15,
+      },
+    );
+    fadeInElements.forEach((element) => fadeInObserver.observe(element));
   }
 
   // Portfolio filters: quick project subset by tech

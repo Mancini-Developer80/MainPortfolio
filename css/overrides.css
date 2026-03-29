@@ -23,7 +23,7 @@
   background-image: url("/static/workPlace.jpg") !important;
 }
 .contact::before {
-  background: url("/static/businessWorld.jpg") center center/cover no-repeat !important;
+  background: url("/static/franckfurt_1.webp") center center/cover no-repeat !important;
 }
 
 /* Featured Projects cards now inherit default styles from Projects page - no overrides needed */

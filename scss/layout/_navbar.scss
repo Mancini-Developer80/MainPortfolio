@@ -11,7 +11,7 @@
 .navbar {
   background-color: transparent;
   color: var(--text-color);
-  padding: 2rem 3rem;
+  padding: 2rem 4rem;
   position: fixed;
   top: 2rem;
   left: 0;
@@ -163,6 +163,16 @@
   padding: 2rem 0;
 }
 
+.logo {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center;
+}
+
+.logo:hover,
+.logo:focus {
+  transform: scale(1.08) rotate(3deg);
+}
+
 .mobile-list-items {
   display: none;
   position: relative;
@@ -211,12 +221,19 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-100%);
+  transition:
+    opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobile-list-items.open .mobile-menu {
   opacity: 1;
   pointer-events: auto;
   max-height: none;
+  transform: translateX(0);
 }
 
 .mobile-menu a {
@@ -361,8 +378,10 @@
     opacity: 0;
     pointer-events: none;
     max-height: 0;
+    transform: translateX(-100%);
     transition:
-      opacity 0.3s,
+      opacity 0.3s cubic-bezier(0.4, 0, 0.2, 1),
+      transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
       max-height 0.3s;
     z-index: 9999;
   }
@@ -371,6 +390,7 @@
     opacity: 1;
     pointer-events: auto;
     max-height: 100vh;
+    transform: translateX(0);
   }
 }
 

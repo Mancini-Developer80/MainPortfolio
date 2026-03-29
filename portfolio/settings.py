@@ -8,93 +8,66 @@ import cloudinary.api
 from pathlib import Path
 import environ
 
-
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+# --- 1. PATHS & ENV CONFIG ---
 BASE_DIR = Path(__file__).resolve().parent.parent
+
+env = environ.Env()
+# Carica il file .env se esiste
+environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 TESTING = 'test' in sys.argv or 'test_coverage' in sys.argv
 
-env = environ.Env()
-environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
+# --- 2. SECURITY CONFIG ---
+# Ripristiniamo la logica dinamica per Cloud Run
+DEBUG = env.bool('DEBUG', default=False) 
 
-# Parse Cloudinary URL and configure
-cloudinary_url = os.environ.get('CLOUDINARY_URL', '')
-if TESTING:
-    # Configurazione dummy per i test: così il test non si blocca mai
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': 'test_cloud',
-        'API_KEY': '12345',
-        'API_SECRET': 'abcde',
-    }
-    print("ℹ️ Running in TEST mode: Cloudinary dummy config loaded.")
+# AGGIUNGI QUESTE RIGHE DI STAMPA PER VEDERE COSA SUCCEDE NEL TERMINALE
+print("--- DIAGNOSTICA AVVIO ---")
+print(f"Directory di base: {BASE_DIR}")
+print(f"File .env trovato: {os.path.exists(os.path.join(BASE_DIR, '.env'))}")
+print(f"Valore DEBUG caricato: {DEBUG}")
+print("--------------------------")
 
-elif cloudinary_url:
-    # Tua logica originale per produzione/sviluppo reale
-    match = re.match(r'cloudinary://(\d+):([^@]+)@(.+)', cloudinary_url)
-    if match:
-        api_key, api_secret, cloud_name = match.groups()
-        CLOUDINARY_STORAGE = {
-            'CLOUD_NAME': cloud_name,
-            'API_KEY': api_key,
-            'API_SECRET': api_secret,
-        }
-        cloudinary.config(
-            cloud_name=cloud_name,
-            api_key=api_key,
-            api_secret=api_secret,
-            secure=True
-        )
-else:
-    # Fallback originale
-    CLOUDINARY_STORAGE = {
-        'CLOUD_NAME': os.environ.get('CLOUDINARY_CLOUD_NAME', ''),
-        'API_KEY': os.environ.get('CLOUDINARY_API_KEY', ''),
-        'API_SECRET': os.environ.get('CLOUDINARY_API_SECRET', ''),
-    }
+# Solo per debug nel terminale locale, puoi decommentare la riga sotto se serve
+# print(f"--- DEBUG MODE: {DEBUG} ---")
 
+SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-local-dev-key-12345")
 
-SECRET_KEY = os.environ.get("SECRET_KEY", "sviluppo-chiave-segreta-1234567890")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
-
-# Recuperiamo eventuali host extra dalle variabili d'ambiente (GCP Console)
-env_hosts = os.environ.get("ALLOWED_HOSTS", "").split(",")
-
+# --- 3. DOMAIN CONFIG (NO RENDER) ---
 ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1', 
     'giuseppemancini.dev', 
     'www.giuseppemancini.dev',
-    '.run.app',         # Wildcard generico per Cloud Run (copre ogni regione)
-    '.onrender.com'
+    '.run.app', 
 ]
 
-# Uniamo gli host di default con quelli passati via ambiente
-if env_hosts[0]: # Se la stringa non è vuota
+env_hosts = os.environ.get("ALLOWED_HOSTS", "").split(",")
+if env_hosts and env_hosts[0]:
     ALLOWED_HOSTS.extend(env_hosts)
 
 CSRF_TRUSTED_ORIGINS = [
     'https://giuseppemancini.dev',
     'https://www.giuseppemancini.dev',
-    'https://*.run.app' # Copre europe-west3.run.app e altri
+    'https://*.run.app'
 ]
 
-# Se siamo su Render, aggiungiamo il dominio dinamico che ci fornisce Render
-RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
-if RENDER_EXTERNAL_HOSTNAME:
-    ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+# --- 4. SSL & PROXY LOGIC ---
+if not DEBUG:
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True
+    SESSION_COOKIE_SECURE = True
+    CSRF_COOKIE_SECURE = True
+    SECURE_HSTS_SECONDS = 31536000
+    SECURE_HSTS_INCLUDE_SUBDOMAINS = True
+    SECURE_HSTS_PRELOAD = True
+else:
+    # Disattiva tutto in locale per evitare il blocco che stai vedendo
+    SECURE_SSL_REDIRECT = False
+    SESSION_COOKIE_SECURE = False
+    CSRF_COOKIE_SECURE = False
 
-# Aggiungi qui i tuoi domini custom definitivi
-ALLOWED_HOSTS.extend([
-    "giuseppemancini.dev",
-    "www.giuseppemancini.dev",
-    "giuseppemancini.onrender.com",
-    "portfolio-j2jx.onrender.com",
-])
-
-# Application definition
-
+# --- 5. APP & MIDDLEWARE ---
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -103,14 +76,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary',
+    'cloudinary_storage',
     'ckeditor',
     'blog',
     'pages',
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    # Enable WhiteNoise only in production; in dev, Django serves static
+    'django.middleware.security.SecurityMiddleware', # REINSERITO
     *([] if DEBUG else ['whitenoise.middleware.WhiteNoiseMiddleware']),
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -139,10 +112,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-
+# --- 6. DATABASE ---
 DATABASES = {
     'default': dj_database_url.config(
         default=os.environ.get("DATABASE_URL", f"sqlite:///{BASE_DIR / 'db.sqlite3'}"),
@@ -151,71 +121,40 @@ DATABASES = {
     )
 }
 
-# For production, require SSL
 if not DEBUG and 'sqlite' not in DATABASES['default']['ENGINE']:
     DATABASES['default']['OPTIONS'] = {'sslmode': 'require'}
 
-
-# Password validation
-# https://docs.djangoproject.com/en/5.2/ref/settings/#auth-password-validators
-
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
-
-
-# Internationalization
-# https://docs.djangoproject.com/en/5.2/topics/i18n/
-
-LANGUAGE_CODE = 'en-us'
-
-TIME_ZONE = 'UTC'
-
-USE_I18N = True
-
-USE_TZ = True
-
-
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.2/howto/static-files/
-
+# --- 7. STATIC & MEDIA ---
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'css',
-    BASE_DIR / 'js',
-    BASE_DIR / 'img',
-    BASE_DIR / 'resume',
-    
-]
+STATICFILES_DIRS = [BASE_DIR / 'css', BASE_DIR / 'js', BASE_DIR / 'img', BASE_DIR / 'resume']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# CORREZIONE: In sviluppo, usa il backend standard senza compressione
 if DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-    WHITENOISE_USE_FINDERS = False
 else:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'
+# Cloudinary
+CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
+if not DEBUG and CLOUDINARY_URL:
+    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+else:
+    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
+# --- 8. EMAIL (ZOHO EU) ---
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_HOST = 'smtppro.zoho.eu'
+    EMAIL_PORT = 465
+    EMAIL_USE_SSL = True
+    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'info@giuseppemancini.dev')
+    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_FROM_EMAIL = 'info@giuseppemancini.dev'
 
-# CKEditor Configuration
+# --- 9. EXTRA (CKEDITOR & TURNSTILE) ---
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
@@ -233,46 +172,8 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': ','.join(['codesnippet']),
     }
 }
-
 CKEDITOR_UPLOAD_PATH = "uploads/"
 
-# Email Configuration
-# In development (DEBUG=True), emails are printed to console
-# In production (DEBUG=False), use SMTP with Zoho EU
-if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-else:
-    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-    EMAIL_HOST = 'smtppro.zoho.eu'
-    EMAIL_PORT = 465  
-    EMAIL_USE_SSL = True  
-    EMAIL_USE_TLS = False 
-    EMAIL_HOST_USER = os.environ.get('EMAIL_HOST_USER', 'info@giuseppemancini.dev')
-    EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD')
-    EMAIL_TIMEOUT = 10
-
-# Email addresses - must match the authenticated email
-DEFAULT_FROM_EMAIL = 'info@giuseppemancini.dev'
-CONTACT_EMAIL = 'info@giuseppemancini.dev'
-
-
-
-
-# Cloudinary configuration using CLOUDINARY_URL
-# Format: cloudinary://api_key:api_secret@cloud_name
-CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-
-if not DEBUG and CLOUDINARY_URL:
-    # django-cloudinary-storage will automatically use CLOUDINARY_URL
-    DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
-else:
-    # In sviluppo locale o se Cloudinary non è configurato, usa lo storage locale
-    DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
-
-
-# Cloudflare Turnstile Configuration
 TURNSTILE_SITE_KEY = os.environ.get('TURNSTILE_SITE_KEY', '')
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY', '')
-
-SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
-SECURE_SSL_REDIRECT = not DEBUG
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'

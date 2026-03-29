@@ -79,6 +79,26 @@
   border-color: #397de2;
 }
 
+.btn--outline {
+  background: transparent;
+  color: #60efff;
+  border: 2px solid #60efff;
+  box-shadow: 0 2px 12px rgba(96, 239, 255, 0.15);
+  transition:
+    background 0.2s,
+    color 0.2s,
+    box-shadow 0.2s,
+    border-color 0.2s;
+}
+
+.btn--outline:hover,
+.btn--outline:focus {
+  background: rgba(96, 239, 255, 0.12);
+  color: #fff;
+  border-color: #fff;
+  box-shadow: 0 4px 16px rgba(96, 239, 255, 0.3);
+}
+
 .btn--dark {
   background: #222c3c;
   color: #fff;

@@ -1,5 +1,14 @@
-{% extends 'base_blog.html' %}
-{% load static %}
+{% extends 'base.html' %} {% load static %}
+
+{% block title %}{{ post.title }} | Giuseppe Mancini Blog{% endblock %}
+
+{% block meta_description %}{{ post.excerpt|default:"Leggi l'ultimo articolo di Giuseppe Mancini su AI, Cloud e Sviluppo Web."|truncatechars:160 }}{% endblock %}
+
+{% block og_title %}{{ post.title }}{% endblock %}
+{% block og_description %}{{ post.excerpt|truncatechars:200 }}{% endblock %}
+{% if post.featured_image %}
+    {% block og_image %}{{ post.featured_image.url }}{% endblock %}
+{% endif %}
 
 {% block content %}
 <main class="blog-detail-page">

@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
-  <head>
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-PHDXH71YP9"
-    ></script>
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PHDXH71YP9"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
+      function gtag() { dataLayer.push(arguments); }
       gtag("js", new Date());
       gtag("config", "G-PHDXH71YP9");
     </script>
@@ -19,53 +14,73 @@
 
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <title>
-      {% block title %}Giuseppe Mancini | AI Solution Architect & Full Stack Engineer{% endblock %}
-    </title>
-    <meta
-      name="description"
-      content="Giuseppe Mancini: AI Solution Architect & Full Stack Developer in Frankfurt. Engineering Agentic Workflows, RAG systems, and scalable web apps with Django, React, and Google Cloud (GCP)."
-    />
+    <meta name="robots" content="index, follow" />
     <meta name="author" content="Giuseppe Mancini" />
-    <meta
-      name="keywords"
-      content="Giuseppe Mancini, AI Solution Architect, Full Stack Developer Frankfurt, Agentic AI, RAG, pgvector, Django AI, Google Cloud AI, GCP, MERN, Python Engineer, Frankfurt am Main, Software Architecture"
-    />
+
+    <title>{% block title %}Giuseppe Mancini | AI Solution Architect & Full Stack Engineer{% endblock %}</title>
+    <meta name="description" content="{% block meta_description %}Giuseppe Mancini: AI Solution Architect & Full Stack Developer in Frankfurt. Engineering Agentic Workflows, RAG systems, and scalable web apps.{% endblock %}" />
+    <meta name="keywords" content="Giuseppe Mancini, AI Solution Architect, Full Stack Developer Frankfurt, Agentic AI, RAG, pgvector, Django AI, Google Cloud AI, GCP, MERN, Python Engineer, Frankfurt am Main, Software Architecture" />
+
+    <link rel="canonical" href="https://www.giuseppemancini.dev{{ request.path }}" />
 
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="Giuseppe Mancini | AI Solution Architect & Full Stack Dev" />
-    <meta property="og:description" content="Architecting the transition from traditional Web Apps to Autonomous Agentic Workflows in Frankfurt." />
-    <meta property="og:url" content="https://www.giuseppemancini.dev" />
-    <meta property="og:image" content="{% static 'images/og-preview.jpg' %}" /> <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-      crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"
-    />
+    <meta property="og:url" content="https://www.giuseppemancini.dev{{ request.path }}" />
+    <meta property="og:title" content="{% block og_title %}Giuseppe Mancini | AI Solution Architect & Full Stack Dev{% endblock %}" />
+    <meta property="og:description" content="{% block og_description %}Architecting the transition from traditional Web Apps to Autonomous Agentic Workflows in Frankfurt.{% endblock %}" />
+    <meta property="og:image" content="{% static 'images/og-preview.jpg' %}" />
 
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://www.giuseppemancini.dev{{ request.path }}" />
+    <meta name="twitter:title" content="{% block twitter_title %}Giuseppe Mancini | AI Architect{% endblock %}" />
+    <meta name="twitter:description" content="{% block twitter_description %}Engineering Agentic Workflows & Scalable Web Apps in Frankfurt.{% endblock %}" />
+    <meta name="twitter:image" content="{% static 'images/og-preview.jpg' %}" />
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Giuseppe Mancini",
+      "jobTitle": "AI Solution Architect & Full Stack Engineer",
+      "url": "https://www.giuseppemancini.dev",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Frankfurt am Main",
+        "addressCountry": "DE"
+      },
+      "sameAs": [
+        "https://github.com/Mancini-Developer80",
+        "https://linkedin.com/in/giuseppe-mancini-developer/"
+      ],
+      "knowsAbout": ["AI Agentic Workflows", "RAG Systems", "Google Cloud Platform", "Django", "React", "Python"]
+    }
+    </script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" />
+    
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
-    <link rel="stylesheet" href="{% static 'style.css' %}?v=126" />
-    <link rel="stylesheet" href="{% static 'overrides.css' %}?v=126" />
+    
+    <link rel="stylesheet" href="{% static 'style.css' %}?v=139" />
+    <link rel="stylesheet" href="{% static 'overrides.css' %}?v=139" />
 
     {% block extra_head %}{% endblock %}
-  </head>
+</head>
 
-  <body class="{% block body_class %}{% endblock %}">
-    {% include 'partials/_navbar.html' %}
+<body class="{% block body_class %}{% if is_blog_page %}blog-page-body{% endif %}{% endblock %}">
     
+    {% if is_blog_page %}
+        {% include 'partials/_navbar_blog.html' %}
+    {% else %}
+        {% include 'partials/_navbar.html' %}
+    {% endif %}
     
-      {% block content %}{% endblock %}
-    
+    <main>
+        {% block content %}{% endblock %}
+    </main>
     
     {% include 'partials/_footer.html' %}
     
     <script src="{% static 'script.js' %}?v=2"></script>
     {% block extra_js %}{% endblock %}
-  </body>
+</body>
 </html>

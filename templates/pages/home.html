@@ -314,6 +314,19 @@
               </div>
               <span class="skill-label">Next.js</span>
             </li>
+            <li class="skill-item">
+              <div class="skill-icon-wrapper">
+                <img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/vuejs/vuejs-original.svg"
+                  alt="Vue.js"
+                  width="64"
+                  height="64"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <span class="skill-label">Vue.js</span>
+            </li>
           </ul>
         </div>
       </div>
@@ -356,6 +369,15 @@
           <p class="project-description card__text">
             {{ case_study.short_description }}
           </p>
+          
+          {% if case_study.technologies.all %}
+          <div class="project-tech-tags">
+            {% for tech in case_study.technologies.all %}
+            <span class="tech-tag">{{ tech.name }}</span>
+            {% endfor %}
+          </div>
+          {% endif %}
+          
           <div class="btn-group card__actions">
             {% if case_study.live_url %}
             <a

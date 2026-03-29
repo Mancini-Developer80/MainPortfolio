@@ -5,90 +5,101 @@
 {% block body_class %}projects-page{% endblock %}
 {% block content %}
 
-<section class="projects-section section" id="projects">
-  <h2 class="projects-heading">All Projects</h2>
-  <div
-    class="projects-filters cluster cluster--center"
-    aria-label="Filter projects"
-  >
-    <button
-      class="btn btn--primary"
-      type="button"
-      data-filter="all"
-      aria-pressed="true"
-    >
-      All
-    </button>
-    <button
-      class="btn btn--secondary"
-      type="button"
-      data-filter="react"
-      aria-pressed="false"
-    >
-      React
-    </button>
-    <button
-      class="btn btn--secondary"
-      type="button"
-      data-filter="angular"
-      aria-pressed="false"
-    >
-      Angular
-    </button>
-    <button
-      class="btn btn--secondary"
-      type="button"
-      data-filter="node"
-      aria-pressed="false"
-    >
-      Node
-    </button>
-    <button
-      class="btn btn--secondary"
-      type="button"
-      data-filter="django"
-      aria-pressed="false"
-    >
-      Django
-    </button>
-    <button
-      class="btn btn--secondary"
-      type="button"
-      data-filter="bootstrap"
-      aria-pressed="false"
-    >
-      Bootstrap
-    </button>
-    <button
-      class="btn btn--secondary"
-      type="button"
-      data-filter="other"
-      aria-pressed="false"
-    >
-      Other
-    </button>
-  </div>
-  <div
-    class="projects-meta"
-    aria-atomic="true"
-    style="text-align: center; margin: 0.8rem 0 0.4rem 0"
-  >
-    <span id="projects-count">Showing all projects</span>
-  </div>
+<main class="projects-page-main">
+  <section class="projects-section section" id="projects">
+    <div class="projects-section-header fade-in-scroll">
+      <h2 class="projects-heading">
+        <i class="fas fa-code-branch" aria-hidden="true"></i>
+        Projects & Case Studies
+      </h2>
+      <p class="projects-subtitle">Explore production-ready applications built with modern technologies. Filter by technology below.</p>
+    </div>
 
-  <div
-    class="projects projects-grid grid"
-    role="list"
-    aria-label="Projects"
-    id="projects-gallery"
-  >
-    {% for case_study in case_studies %}
-    <!-- {{ case_study.title }} -->
+    <div class="projects-filters-wrapper fade-in-scroll">
+      <div
+        class="projects-filters cluster cluster--center"
+        role="group"
+        aria-label="Filter projects by technology"
+      >
+        <button
+          class="btn btn--primary"
+          type="button"
+          data-filter="all"
+          aria-pressed="true"
+        >
+          All Projects
+        </button>
+        <button
+          class="btn btn--secondary"
+          type="button"
+          data-filter="react"
+          aria-pressed="false"
+        >
+          <i class="fab fa-react" aria-hidden="true"></i> React
+        </button>
+        <button
+          class="btn btn--secondary"
+          type="button"
+          data-filter="angular"
+          aria-pressed="false"
+        >
+          <i class="fab fa-angular" aria-hidden="true"></i> Angular
+        </button>
+        <button
+          class="btn btn--secondary"
+          type="button"
+          data-filter="node"
+          aria-pressed="false"
+        >
+          <i class="fab fa-node-js" aria-hidden="true"></i> Node
+        </button>
+        <button
+          class="btn btn--secondary"
+          type="button"
+          data-filter="django"
+          aria-pressed="false"
+        >
+          <i class="fab fa-python" aria-hidden="true"></i> Django
+        </button>
+        <button
+          class="btn btn--secondary"
+          type="button"
+          data-filter="bootstrap"
+          aria-pressed="false"
+        >
+          Bootstrap
+        </button>
+        <button
+          class="btn btn--secondary"
+          type="button"
+          data-filter="other"
+          aria-pressed="false"
+        >
+          Other
+        </button>
+      </div>
+    </div>
+
     <div
-      class="project card card--project"
-      role="listitem"
-      data-tech="{{ case_study.get_tech_classes }}"
+      class="projects-meta fade-in-scroll"
+      aria-atomic="true"
+      aria-live="polite"
     >
+      <span id="projects-count">Showing all projects</span>
+    </div>
+
+    <div
+      class="projects projects-grid grid"
+      role="list"
+      aria-label="Projects"
+      id="projects-gallery"
+    >
+      {% for case_study in case_studies %}
+      <div
+        class="project card card--project"
+        role="listitem"
+        data-tech="{{ case_study.get_tech_classes }}"
+      >
       {% if case_study.image and case_study.image.url %}
       <img
         class="card__media"
@@ -111,6 +122,15 @@
         <p class="project-description card__text">
           {{ case_study.short_description }}
         </p>
+
+        {% if case_study.technologies.all %}
+        <div class="project-tech-tags">
+          {% for tech in case_study.technologies.all %}
+          <span class="tech-tag">{{ tech.name }}</span>
+          {% endfor %}
+        </div>
+        {% endif %}
+        
         <div class="btn-group card__actions">
           {% if case_study.live_url %}
           <a
@@ -141,5 +161,6 @@
     {% endfor %}
   </div>
 </section>
+</main>
 
 {% endblock %}
