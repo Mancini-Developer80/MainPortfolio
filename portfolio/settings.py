@@ -73,7 +73,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # Posizione corretta e sintassi pulita
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Posizione corretta
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -119,12 +119,12 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'css', BASE_DIR / 'js', BASE_DIR / 'img', BASE_DIR / 'resume']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Gestione Statici con WhiteNoise (Admin compresa)
+# Gestione Statici con WhiteNoise
 if DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 else:
-    # ManifestStorage permette a WhiteNoise di mappare correttamente i file dell'admin
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    # MODIFICA: Usiamo la versione senza Manifest per maggiore resilienza nei path dell'admin
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 # CONFIGURAZIONE MEDIA (CLOUDINARY)
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
