@@ -14,7 +14,8 @@ ENV/
 
 # Django specific
 media/
-staticfiles/
+staticfiles/**/*.map
+staticfiles/admin/
 *.sqlite3
 db.sqlite3
 
