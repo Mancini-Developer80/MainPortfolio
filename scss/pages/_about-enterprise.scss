@@ -945,6 +945,71 @@ $color-backdrop: rgba(20, 28, 44, 0.92);
   }
 }
 
+/* CV DOWNLOAD SECTION */
+.cv-download-section {
+  margin-bottom: 5rem;
+
+  .cv-download-container {
+    padding: 3rem 2.5rem;
+    background: rgba(64, 224, 208, 0.08);
+    border: 1px solid rgba(100, 255, 218, 0.25);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background: rgba(64, 224, 208, 0.12);
+      border-color: rgba(100, 255, 218, 0.4);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(100, 255, 218, 0.15);
+    }
+  }
+
+  .cv-download-content {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .cv-download-title {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: $color-white;
+    margin: 0;
+    background: linear-gradient(135deg, $color-white 0%, $color-cyan 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.5px;
+  }
+
+  .cv-download-description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: $color-white-85;
+    margin: 0;
+    max-width: 500px;
+
+    strong {
+      color: $color-cyan;
+      font-weight: 600;
+    }
+  }
+
+  .cv-download-btn {
+    font-size: 1.05rem;
+    padding: 1rem 2rem;
+    gap: 0.8rem;
+
+    i {
+      font-size: 1.2rem;
+    }
+  }
+}
+
 /* RESPONSIVE MEDIA QUERIES */
 @media (max-width: 1024px) {
   .about-enterprise-wrapper {
@@ -1173,6 +1238,26 @@ $color-backdrop: rgba(20, 28, 44, 0.92);
 
     .interest-description {
       font-size: 0.92rem;
+    }
+  }
+
+  /* CV DOWNLOAD SECTION - 1024px */
+  .cv-download-section {
+    margin-bottom: 4.5rem;
+
+    .cv-download-container {
+      padding: 2.8rem 2.2rem;
+      border-radius: 1.4rem;
+    }
+
+    .cv-download-description {
+      font-size: 0.99rem;
+      margin: 0;
+    }
+
+    .cv-download-btn {
+      font-size: 1rem;
+      padding: 0.9rem 1.8rem;
     }
   }
 }
@@ -1498,6 +1583,25 @@ $color-backdrop: rgba(20, 28, 44, 0.92);
 
     .interest-description {
       font-size: 0.9rem;
+    }
+  }
+
+  /* CV DOWNLOAD SECTION - 768px */
+  .cv-download-section {
+    margin-bottom: 4rem;
+
+    .cv-download-container {
+      padding: 2.5rem 2rem;
+      border-radius: 1.3rem;
+    }
+
+    .cv-download-description {
+      font-size: 0.98rem;
+    }
+
+    .cv-download-btn {
+      font-size: 0.99rem;
+      padding: 0.85rem 1.6rem;
     }
   }
 }
@@ -1844,6 +1948,27 @@ $color-backdrop: rgba(20, 28, 44, 0.92);
 
     .interest-description {
       font-size: 0.85rem;
+    }
+  }
+
+  /* CV DOWNLOAD SECTION - MOBILE */
+  .cv-download-section {
+    margin-bottom: 2.5rem;
+
+    .cv-download-container {
+      padding: 1.5rem 1rem;
+    }
+
+    .cv-download-description {
+      font-size: 0.95rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .cv-download-btn {
+      width: 100%;
+      font-size: 1rem;
+      padding: 0.9rem 1.2rem;
     }
   }
 }
