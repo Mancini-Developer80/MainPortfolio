@@ -8,7 +8,6 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
-# Carica il file .env se esiste
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 TESTING = 'test' in sys.argv or 'test_coverage' in sys.argv
@@ -58,9 +57,8 @@ else:
     CSRF_COOKIE_SECURE = False
 
 # --- 5. APP & MIDDLEWARE ---
-# ORDINE CRUCIALE: Cloudinary storage deve precedere staticfiles
 INSTALLED_APPS = [
-    'cloudinary_storage',
+    'cloudinary_storage', # Deve stare sopra staticfiles
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -75,7 +73,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    *([('whitenoise.middleware.WhiteNoiseMiddleware')] if not DEBUG else []),
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Posizione corretta e sintassi pulita
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -96,7 +94,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
-                'django.template.context_processors.media', # Aggiunto per le immagini
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -121,26 +119,24 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'css', BASE_DIR / 'js', BASE_DIR / 'img', BASE_DIR / 'resume']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# WhiteNoise per i file statici
+# Gestione Statici con WhiteNoise (Admin compresa)
 if DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 else:
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+    # ManifestStorage permette a WhiteNoise di mappare correttamente i file dell'admin
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# --- CONFIGURAZIONE MEDIA (CLOUDINARY) ---
-# Cloudinary usa questa variabile se presente nel sistema
+# CONFIGURAZIONE MEDIA (CLOUDINARY)
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
 
 if not DEBUG:
-    # Produzione: Cloudinary gestisce tutto
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 else:
-    # Locale: Salvataggio su disco
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
     MEDIA_URL = '/media/'
     MEDIA_ROOT = BASE_DIR / 'media'
 
-# --- 8. EMAIL (ZOHO EU) ---
+# --- 8. EMAIL ---
 if DEBUG:
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 else:
@@ -153,7 +149,7 @@ else:
 
 DEFAULT_FROM_EMAIL = 'info@giuseppemancini.dev'
 
-# --- 9. EXTRA (CKEDITOR & TURNSTILE) ---
+# --- 9. EXTRA ---
 CKEDITOR_CONFIGS = {
     'default': {
         'toolbar': 'Custom',
