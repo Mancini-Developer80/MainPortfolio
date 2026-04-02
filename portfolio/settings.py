@@ -1,10 +1,6 @@
 import os
 import sys
-import re
 import dj_database_url
-import cloudinary
-import cloudinary.uploader
-import cloudinary.api
 from pathlib import Path
 import environ
 
@@ -18,22 +14,17 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 TESTING = 'test' in sys.argv or 'test_coverage' in sys.argv
 
 # --- 2. SECURITY CONFIG ---
-# Ripristiniamo la logica dinamica per Cloud Run
 DEBUG = env.bool('DEBUG', default=False) 
 
-# AGGIUNGI QUESTE RIGHE DI STAMPA PER VEDERE COSA SUCCEDE NEL TERMINALE
 print("--- DIAGNOSTICA AVVIO ---")
 print(f"Directory di base: {BASE_DIR}")
 print(f"File .env trovato: {os.path.exists(os.path.join(BASE_DIR, '.env'))}")
 print(f"Valore DEBUG caricato: {DEBUG}")
 print("--------------------------")
 
-# Solo per debug nel terminale locale, puoi decommentare la riga sotto se serve
-# print(f"--- DEBUG MODE: {DEBUG} ---")
-
 SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-local-dev-key-12345")
 
-# --- 3. DOMAIN CONFIG (NO RENDER) ---
+# --- 3. DOMAIN CONFIG ---
 ALLOWED_HOSTS = [
     'localhost', 
     '127.0.0.1', 
@@ -62,13 +53,14 @@ if not DEBUG:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_PRELOAD = True
 else:
-    # Disattiva tutto in locale per evitare il blocco che stai vedendo
     SECURE_SSL_REDIRECT = False
     SESSION_COOKIE_SECURE = False
     CSRF_COOKIE_SECURE = False
 
 # --- 5. APP & MIDDLEWARE ---
+# ORDINE CRUCIALE: Cloudinary storage deve precedere staticfiles
 INSTALLED_APPS = [
+    'cloudinary_storage',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -76,15 +68,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'cloudinary',
-    'cloudinary_storage',
     'ckeditor',
     'blog',
     'pages',
 ]
 
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware', # REINSERITO
-    *([] if DEBUG else ['whitenoise.middleware.WhiteNoiseMiddleware']),
+    'django.middleware.security.SecurityMiddleware',
+    *([('whitenoise.middleware.WhiteNoiseMiddleware')] if not DEBUG else []),
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -105,6 +96,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media', # Aggiunto per le immagini
             ],
         },
     },
@@ -129,17 +121,24 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'css', BASE_DIR / 'js', BASE_DIR / 'img', BASE_DIR / 'resume']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# WhiteNoise per i file statici
 if DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 else:
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-# Cloudinary
+# --- CONFIGURAZIONE MEDIA (CLOUDINARY) ---
+# Cloudinary usa questa variabile se presente nel sistema
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')
-if not DEBUG and CLOUDINARY_URL:
+
+if not DEBUG:
+    # Produzione: Cloudinary gestisce tutto
     DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 else:
+    # Locale: Salvataggio su disco
     DEFAULT_FILE_STORAGE = 'django.core.files.storage.FileSystemStorage'
+    MEDIA_URL = '/media/'
+    MEDIA_ROOT = BASE_DIR / 'media'
 
 # --- 8. EMAIL (ZOHO EU) ---
 if DEBUG:
