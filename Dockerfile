@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN npm run sass:build
+RUN echo "=== Running npm run sass:build ===" && npm run sass:build && echo "=== SCSS compilation complete ===" && ls -la css/ | head -10
 
 # --- STAGE 2: Runtime Python ---
 FROM python:3.12-slim
@@ -34,10 +34,14 @@ COPY --from=node-builder /app/css ./css
 RUN mkdir -p static
 
 # Copia i file statici compilati direttamente (evita problemi con collectstatic)
+RUN echo "=== Files in css/ before copy ===" && ls -la css/ && echo "=== Files in staticfiles/ ===" && ls -la staticfiles/ || echo "staticfiles non esiste ancora"
+
 RUN cp -r css/* staticfiles/ 2>/dev/null || true && \
     cp -r js/* staticfiles/ 2>/dev/null || true && \
     cp -r img/* staticfiles/ 2>/dev/null || true && \
     cp -r resume/* staticfiles/ 2>/dev/null || true
+
+RUN echo "=== Files in staticfiles/ after copy ===" && ls -la staticfiles/ | head -20
 
 # COLLECTSTATIC (Aggiornato: rimosso --no-post-process)
 # Questo permette a WhiteNoise di generare le versioni compresse dei file
