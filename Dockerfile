@@ -4,7 +4,7 @@ WORKDIR /app
 COPY package*.json ./
 RUN npm install
 COPY . .
-RUN echo "=== Running npm run sass:build ===" && npm run sass:build && echo "=== SCSS compilation complete ===" && ls -la css/ | head -10
+RUN npm run sass:build
 
 # --- STAGE 2: Runtime Python ---
 FROM python:3.12-slim
@@ -26,33 +26,32 @@ RUN apt-get update && apt-get install -y \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copia il codice e i CSS compilati dallo stage precedente
+# Copia il codice sorgente
 COPY . .
+
+# Copia i CSS compilati dallo stage precedente
 COPY --from=node-builder /app/css ./css
 
-# Setup ambiente
-RUN mkdir -p static
-
-# Copia i file statici compilati direttamente (evita problemi con collectstatic)
-RUN echo "=== Files in css/ before copy ===" && ls -la css/ && echo "=== Files in staticfiles/ ===" && ls -la staticfiles/ || echo "staticfiles non esiste ancora"
-
-RUN cp -r css/* staticfiles/ 2>/dev/null || true && \
+# Ensures staticfiles/ directory exists and has all needed files
+RUN mkdir -p staticfiles && \
+    cp -r css/* staticfiles/ 2>/dev/null || true && \
     cp -r js/* staticfiles/ 2>/dev/null || true && \
     cp -r img/* staticfiles/ 2>/dev/null || true && \
-    cp -r resume/* staticfiles/ 2>/dev/null || true
+    cp -r resume/* staticfiles/ 2>/dev/null || true && \
+    echo "✓ Static files copied to staticfiles/"
 
-RUN echo "=== Files in staticfiles/ after copy ===" && ls -la staticfiles/ | head -20
+# Setup
+RUN mkdir -p static
 
-# COLLECTSTATIC (Aggiornato: rimosso --no-post-process)
-# Questo permette a WhiteNoise di generare le versioni compresse dei file
-RUN SECRET_KEY=build-key-123 \
+# Force collectstatic to process files with WhiteNoise
+RUN SECRET_KEY=temp-build-key \
     DATABASE_URL=sqlite:///db.sqlite3 \
     DEBUG=False \
     CLOUDINARY_URL=cloudinary://1:1@1 \
-    python manage.py collectstatic --noinput --clear --verbosity=2 || echo "collectstatic warning"
+    python manage.py collectstatic --noinput --clear 2>&1 | tail -5
 
 EXPOSE 8080
 
-# ENTRYPOINT: Esegue migrazioni e poi avvia Gunicorn
+# ENTRYPOINT: Run migrations then start Gunicorn
 CMD python manage.py migrate --noinput && \
     gunicorn --bind :8080 --workers 1 --threads 8 --timeout 0 portfolio.wsgi:application
