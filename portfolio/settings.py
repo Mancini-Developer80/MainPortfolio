@@ -74,7 +74,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # Posizione corretta per gli statici
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Posizione vitale per intercettare i CSS
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -117,17 +117,29 @@ if not DEBUG and 'sqlite' not in DATABASES['default']['ENGINE']:
 
 # --- 7. STATIC & MEDIA ---
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'css', BASE_DIR / 'js', BASE_DIR / 'img', BASE_DIR / 'resume']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
+
+# Cartelle sorgente dove Django cerca i file (compresi i CSS generati da Sass)
+STATICFILES_DIRS = [
+    BASE_DIR / 'css',
+    BASE_DIR / 'js',
+    BASE_DIR / 'img',
+    BASE_DIR / 'resume',
+]
 
 # Configurazione WhiteNoise per Cloud Run
 if DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 else:
-    # Usiamo CompressedStaticFilesStorage (Senza Manifest) per risolvere i 404 dell'admin
+    # Usiamo la versione compressa per performance e compatibilità
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-# Evita errori se WhiteNoise non trova file hash-ati
+# --- SOLUZIONE ERRORI 404 & MIME TYPE ---
+# Forza WhiteNoise a cercare nelle cartelle fisiche se non trova il file nel manifest
+WHITENOISE_USE_FINDERS = True
+# Evita crash se il browser richiede versioni con query string (es. style.css?v=175)
+WHITENOISE_MANIFEST_STRICT = False
+# Non cancellare file senza hash (necessario per CompressedStaticFilesStorage)
 WHITENOISE_KEEP_ONLY_HASHED_FILES = False
 
 # CONFIGURAZIONE MEDIA (CLOUDINARY)

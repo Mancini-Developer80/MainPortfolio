@@ -7,7 +7,7 @@ ENV DJANGO_SETTINGS_MODULE=portfolio.settings
 
 WORKDIR /app
 
-# Install OS dependencies including Node.js for SCSS compilation
+# Install OS dependencies + Node.js per SCSS
 RUN apt-get update && apt-get install -y \
     libpq-dev \
     gcc \
@@ -16,34 +16,23 @@ RUN apt-get update && apt-get install -y \
     && apt-get install -y nodejs \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy source code
+# Copia i file dei requisiti prima per sfruttare la cache
+COPY requirements.txt package*.json ./
+RUN pip install --no-cache-dir -r requirements.txt
+RUN npm install
+
+# Copia tutto il resto
 COPY . .
 
-# Install Python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+# Compila SCSS (genera i file in /app/css/)
+RUN npm run sass:build
 
-# Install Node dependencies and compile SCSS
-RUN npm install && npm run sass:build
-
-# Ensure staticfiles directory exists with all compiled files
-RUN mkdir -p staticfiles && \
-    echo "Copying static files to staticfiles/" && \
-    cp -v css/style.css staticfiles/ 2>/dev/null || echo "css/style.css not found" && \
-    cp -v css/overrides.css staticfiles/ 2>/dev/null || echo "css/overrides.css not found" && \
-    cp -v js/* staticfiles/ 2>/dev/null || echo "js files copy failed" && \
-    cp -rv img staticfiles/ 2>/dev/null || echo "img copy failed" && \
-    cp -rv resume staticfiles/ 2>/dev/null || echo "resume copy failed" && \
-    echo "✓ Static files prepared"
-
-# Run collectstatic with WhiteNoise
+# Esegui collectstatic (Django prenderà i file da /app/css, /app/js, ecc. 
+# e li metterà ordinatamente in /app/staticfiles/)
 RUN SECRET_KEY=temp-build-key \
     DATABASE_URL=sqlite:///db.sqlite3 \
     DEBUG=False \
-    CLOUDINARY_URL=cloudinary://1:1@1 \
-    python manage.py collectstatic --noinput
-
-# Verify files exist
-RUN echo "Checking staticfiles/ contents:" && ls -lh staticfiles/*.css 2>/dev/null || echo "No CSS files found!"
+    python manage.py collectstatic --noinput --clear
 
 EXPOSE 8080
 
