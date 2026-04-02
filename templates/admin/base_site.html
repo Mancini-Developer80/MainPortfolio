@@ -1,0 +1,23 @@
+{% extends "admin/base.html" %}
+{% load static %}
+
+{% block extrahead %}
+    {{ block.super }}
+    <link rel="stylesheet" href="{% static 'admin-custom.css' %}">
+    <style>
+        /* Override extra per un look più personalizzato */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+{% endblock %}
+
+{% block title %}{{ block.super }} - Giuseppe's Portfolio{% endblock %}
+
+{% block branding %}
+    <h1 id="site-name">
+        <a href="{% url 'admin:index' %}">
+            <span style="color: #60efff; font-weight: 700;">Giuseppe's</span> Portfolio Admin
+        </a>
+    </h1>
+{% endblock %}
