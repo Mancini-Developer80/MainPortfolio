@@ -8,6 +8,7 @@ import environ
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 env = environ.Env()
+# Legge il file .env se presente (utile per lo sviluppo locale)
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 TESTING = 'test' in sys.argv or 'test_coverage' in sys.argv
@@ -73,7 +74,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware', # Posizione corretta
+    'whitenoise.middleware.WhiteNoiseMiddleware', # Posizione corretta per gli statici
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -119,12 +120,15 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'css', BASE_DIR / 'js', BASE_DIR / 'img', BASE_DIR / 'resume']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-# Gestione Statici con WhiteNoise
+# Configurazione WhiteNoise per Cloud Run
 if DEBUG:
     STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
 else:
-    # MODIFICA: Usiamo la versione senza Manifest per maggiore resilienza nei path dell'admin
+    # Usiamo CompressedStaticFilesStorage (Senza Manifest) per risolvere i 404 dell'admin
     STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+
+# Evita errori se WhiteNoise non trova file hash-ati
+WHITENOISE_KEEP_ONLY_HASHED_FILES = False
 
 # CONFIGURAZIONE MEDIA (CLOUDINARY)
 CLOUDINARY_URL = os.environ.get('CLOUDINARY_URL')

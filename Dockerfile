@@ -34,16 +34,16 @@ COPY --from=node-builder /app/css ./css
 RUN mkdir -p css js img resume staticfiles static
 RUN touch .env
 
-# COLLECTSTATIC (Usa i CSS appena compilati)
+# COLLECTSTATIC (Aggiornato: rimosso --no-post-process)
+# Questo permette a WhiteNoise di generare le versioni compresse dei file
 RUN SECRET_KEY=build-key-123 \
     DATABASE_URL=sqlite:///db.sqlite3 \
     DEBUG=False \
     CLOUDINARY_URL=cloudinary://1:1@1 \
-    python manage.py collectstatic --noinput --clear --no-post-process
+    python manage.py collectstatic --noinput --clear
 
 EXPOSE 8080
 
 # ENTRYPOINT: Esegue migrazioni e poi avvia Gunicorn
-# Nota: Cloud Run eseguirà questo ogni volta che un'istanza si avvia
 CMD python manage.py migrate --noinput && \
     gunicorn --bind :8080 --workers 1 --threads 8 --timeout 0 portfolio.wsgi:application
