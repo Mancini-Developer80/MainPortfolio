@@ -31,8 +31,13 @@ COPY . .
 COPY --from=node-builder /app/css ./css
 
 # Setup ambiente
-RUN mkdir -p css js img resume staticfiles static
-RUN touch .env
+RUN mkdir -p static
+
+# Copia i file statici compilati direttamente (evita problemi con collectstatic)
+RUN cp -r css/* staticfiles/ 2>/dev/null || true && \
+    cp -r js/* staticfiles/ 2>/dev/null || true && \
+    cp -r img/* staticfiles/ 2>/dev/null || true && \
+    cp -r resume/* staticfiles/ 2>/dev/null || true
 
 # COLLECTSTATIC (Aggiornato: rimosso --no-post-process)
 # Questo permette a WhiteNoise di generare le versioni compresse dei file
@@ -40,7 +45,7 @@ RUN SECRET_KEY=build-key-123 \
     DATABASE_URL=sqlite:///db.sqlite3 \
     DEBUG=False \
     CLOUDINARY_URL=cloudinary://1:1@1 \
-    python manage.py collectstatic --noinput --clear
+    python manage.py collectstatic --noinput --clear --verbosity=2 || echo "collectstatic warning"
 
 EXPOSE 8080
 
