@@ -3038,7 +3038,7 @@ body.case-studies-single .footer {
   background-clip: text;
 }
 
-.skills-description {
+.skills-enterprise .skills-description {
   font-size: clamp(0.95rem, 0.9rem + 0.4vw, 1.1rem);
   line-height: 1.85;
   color: rgba(255, 255, 255, 0.9);
@@ -3051,9 +3051,13 @@ body.case-studies-single .footer {
   border: 1px solid rgba(96, 239, 255, 0.3);
   backdrop-filter: blur(12px);
   box-shadow: 0 8px 32px rgba(57, 125, 226, 0.12);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  opacity: 0;
+  transform: translateY(30px) scale(0.98);
+  filter: blur(4px);
+  will-change: opacity, transform, filter;
 }
-.skills-description strong {
+.skills-enterprise .skills-description strong {
   color: #60efff;
   font-weight: 700;
   background: linear-gradient(135deg, rgba(96, 239, 255, 0.15), rgba(57, 125, 226, 0.1));
@@ -3062,10 +3066,15 @@ body.case-studies-single .footer {
   transition: all 0.3s ease;
   display: inline;
 }
-.skills-description:hover {
+.skills-enterprise .skills-description:hover {
   background: linear-gradient(135deg, rgba(96, 239, 255, 0.12) 0%, rgba(57, 125, 226, 0.1) 100%);
   border-color: rgba(96, 239, 255, 0.5);
   box-shadow: 0 12px 40px rgba(57, 125, 226, 0.18);
+}
+.skills-enterprise .skills-description.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
 }
 
 .skills-category {
