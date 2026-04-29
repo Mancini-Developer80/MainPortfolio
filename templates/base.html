@@ -17,9 +17,11 @@
     <meta name="robots" content="index, follow" />
     <meta name="author" content="Giuseppe Mancini" />
 
-    <title>{% block title %}Giuseppe Mancini | AI Solution Architect & Full Stack Engineer{% endblock %}</title>
-    <meta name="description" content="{% block meta_description %}Giuseppe Mancini: AI Solution Architect & Full Stack Developer in Frankfurt. Engineering Agentic Workflows, RAG systems, and scalable web apps.{% endblock %}" />
-    <meta name="keywords" content="Giuseppe Mancini, AI Solution Architect, Full Stack Developer Frankfurt, Agentic AI, RAG, pgvector, Django AI, Google Cloud AI, GCP, MERN, Python Engineer, Frankfurt am Main, Software Architecture" />
+    <title>{% block title %}Giuseppe Mancini | GCP Cloud Engineer & Full Stack Developer{% endblock %}</title>
+
+    <meta name="description" content="{% block meta_description %}Giuseppe Mancini: GCP Cloud Engineer & Full Stack Developer in Frankfurt. Engineering scalable Serverless architectures, Agentic Workflows, and production-ready AI solutions.{% endblock %}" />
+
+    <meta name="keywords" content="Giuseppe Mancini, GCP Cloud Engineer, Full Stack Developer Frankfurt, Google Cloud Platform, Cloud Run, Agentic AI, RAG, pgvector, Node.js, Python, Frankfurt am Main, Cloud Native Engineering, Google GEAR" />
 
     <link rel="canonical" href="https://www.giuseppemancini.dev{{ request.path }}" />
 
@@ -60,8 +62,8 @@
     
     <link rel="icon" href="{% static 'favicon.ico' %}" type="image/x-icon" />
     
-    <link rel="stylesheet" href="{% static 'style.css' %}?v=175" />
-    <link rel="stylesheet" href="{% static 'overrides.css' %}?v=162" />
+    <link rel="stylesheet" href="{% static 'style.css' %}?v={% now 'U' %}" />
+    <link rel="stylesheet" href="{% static 'overrides.css' %}?v=163" />
 
     {% block extra_head %}{% endblock %}
 </head>

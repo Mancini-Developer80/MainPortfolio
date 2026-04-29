@@ -1,10 +1,26 @@
 /* Hero section */
 .hero {
   padding: 14rem 0;
-  background-image: url("/img/ai-solution-architect-gcp-cloud-infrastructure-frankfurt.webp");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
+  background-color: #000000;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+    linear-gradient(rgba(66, 133, 244, 0.1) 1.5px, transparent 1.5px),
+    linear-gradient(90deg, rgba(66, 133, 244, 0.1) 1.5px, transparent 1.5px),
+    linear-gradient(rgba(66, 133, 244, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(66, 133, 244, 0.04) 1px, transparent 1px),
+    radial-gradient(circle at 50% 50%, rgba(18, 18, 18, 0) 0%, #000 90%),
+    linear-gradient(135deg, rgba(123, 31, 162, 0.05) 0%, transparent 50%),
+    linear-gradient(225deg, rgba(66, 133, 244, 0.05) 0%, transparent 50%);
+  background-size:
+    100% 100%,
+    160px 160px,
+    160px 160px,
+    40px 40px,
+    40px 40px,
+    100% 100%,
+    100% 100%,
+    100% 100%;
+  background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
   position: relative;
@@ -20,10 +36,25 @@
 .hero::before {
   content: "";
   position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background:
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 19px,
+      rgba(66, 133, 244, 0.03) 20px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent,
+      transparent 19px,
+      rgba(66, 133, 244, 0.03) 20px
+    );
   z-index: 1;
+  pointer-events: none;
 }
 
 .content {
@@ -58,6 +89,58 @@
     2px 2px 8px rgba(0, 0, 0, 0.5);
   opacity: 0;
   animation: slideInLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+.gear-badge-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 1.5rem 0;
+  opacity: 0;
+  animation: fadeIn 1s ease-out 0.8s forwards;
+}
+
+.gear-badge {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 25px;
+  background: rgba(57, 125, 226, 0.2);
+  border: 1.5px solid var(--primary-color);
+  border-radius: 100px;
+  backdrop-filter: blur(12px);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: default;
+  box-shadow: 0 0 20px rgba(57, 125, 226, 0.25);
+
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+    background: rgba(57, 125, 226, 0.3);
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 35px rgba(96, 239, 255, 0.4);
+
+    .gear-logo {
+      transform: rotate(180deg);
+      color: var(--secondary-color);
+    }
+  }
+
+  .gear-logo {
+    width: 28px;
+    height: 28px;
+    color: var(--primary-color);
+    filter: drop-shadow(0 0 8px var(--primary-color));
+    transition: all 0.6s ease;
+  }
+
+  .gear-text {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
 }
 
 .content .main-text::before {
@@ -176,8 +259,23 @@
 
 @media (max-width: 600px) {
   .hero {
-    background-image: url("/img/ai-solution-architect-gcp-cloud-infrastructure-frankfurt_mobile.webp");
-    background-size: cover;
+    background-image:
+      linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
+      linear-gradient(rgba(66, 133, 244, 0.1) 1.5px, transparent 1.5px),
+      linear-gradient(90deg, rgba(66, 133, 244, 0.1) 1.5px, transparent 1.5px),
+      linear-gradient(rgba(66, 133, 244, 0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(66, 133, 244, 0.04) 1px, transparent 1px),
+      radial-gradient(circle at 50% 50%, rgba(18, 18, 18, 0) 0%, #000 90%),
+      url("/img/ai-solution-architect-gcp-cloud-infrastructure-frankfurt_mobile.webp");
+    background-size:
+      100% 100%,
+      80px 80px,
+      80px 80px,
+      20px 20px,
+      20px 20px,
+      100% 100%,
+      cover;
     background-position: center;
+    background-attachment: scroll;
   }
 }

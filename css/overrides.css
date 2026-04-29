@@ -1,11 +1,8 @@
 /* Overrides to ensure background images resolve via absolute static paths */
-.hero {
-  background-image: url("/img/ai-solution-architect-gcp-cloud-infrastructure-frankfurt.webp") !important;
-}
+/* Removed hardcoded hero background to allow procedural CSS background */
+
 @media (max-width: 600px) {
-  .hero {
-    background-image: url("/img/ai-solution-architect-gcp-cloud-infrastructure-frankfurt_mobile.webp") !important;
-  }
+  /* .hero override removed to follow SCSS procedural background */
 }
 .about {
   background-image: url("/static/laptopDesk.jpg") !important;
