@@ -100,10 +100,6 @@
   margin: 0; /* ensure badge doesn't introduce layout margins */
 }
 
-// .badge--soon {
-//   /* same gradient, semantic hook for future theming */
-// }
-
 /* ================================
    PROJECT CARD ENTERPRISE REDESIGN
    IMPORTANT: NO .btn* modifications
@@ -181,11 +177,11 @@
   right: 0;
   height: 74%;
   padding: 1.2rem 1.1rem;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 23, 42, 0.75) 0%,
-    rgba(7, 13, 23, 0.9) 100%
-  );
+  // background: linear-gradient(
+  //   180deg,
+  //   rgba(15, 23, 42, 0.75) 0%,
+  //   rgba(7, 13, 23, 0.9) 100%
+  // );
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   min-height: auto;

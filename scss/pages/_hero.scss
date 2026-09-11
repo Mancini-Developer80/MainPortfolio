@@ -1,25 +1,8 @@
 /* Hero section */
 .hero {
   padding: 14rem 0;
-  background-color: #000000;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)),
-    linear-gradient(rgba(66, 133, 244, 0.1) 1.5px, transparent 1.5px),
-    linear-gradient(90deg, rgba(66, 133, 244, 0.1) 1.5px, transparent 1.5px),
-    linear-gradient(rgba(66, 133, 244, 0.04) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(66, 133, 244, 0.04) 1px, transparent 1px),
-    radial-gradient(circle at 50% 50%, rgba(18, 18, 18, 0) 0%, #000 90%),
-    linear-gradient(135deg, rgba(123, 31, 162, 0.05) 0%, transparent 50%),
-    linear-gradient(225deg, rgba(66, 133, 244, 0.05) 0%, transparent 50%);
-  background-size:
-    100% 100%,
-    160px 160px,
-    160px 160px,
-    40px 40px,
-    40px 40px,
-    100% 100%,
-    100% 100%,
-    100% 100%;
+  background-color: #333;
+
   background-attachment: fixed;
   min-height: 100vh;
   width: 100%;
@@ -91,55 +74,87 @@
   animation: slideInLeft 1s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.gear-badge-container {
+.cert-badge-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 1.5rem 0;
+  width: 100%;
+  margin: 1.75rem 0 2.25rem;
   opacity: 0;
   animation: fadeIn 1s ease-out 0.8s forwards;
 }
 
-.gear-badge {
+/* When the badge is used as a prominent pill right under titles */
+.cert-badge-prominent {
+  margin: 0.6rem 0 1rem;
+}
+
+.cert-badge {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 25px;
+  padding: 8px 25px;
   background: rgba(57, 125, 226, 0.2);
   border: 1.5px solid var(--primary-color);
   border-radius: 100px;
   backdrop-filter: blur(12px);
   transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: default;
+  cursor: pointer;
+  text-decoration: none;
   box-shadow: 0 0 20px rgba(57, 125, 226, 0.25);
 
   &:hover {
-    transform: translateY(-3px) scale(1.05);
+    transform: translateY(-3px) scale(1.03);
     background: rgba(57, 125, 226, 0.3);
     border-color: var(--secondary-color);
     box-shadow: 0 0 35px rgba(96, 239, 255, 0.4);
 
-    .gear-logo {
-      transform: rotate(180deg);
-      color: var(--secondary-color);
+    .cert-badge-img {
+      transform: scale(1.1);
     }
   }
 
-  .gear-logo {
-    width: 28px;
-    height: 28px;
-    color: var(--primary-color);
-    filter: drop-shadow(0 0 8px var(--primary-color));
-    transition: all 0.6s ease;
+  .cert-badge-img {
+    max-width: 64px;
+    max-height: 64px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.35));
+    transition:
+      transform 0.25s ease,
+      filter 0.25s ease;
+    display: inline-block;
   }
 
-  .gear-text {
+  .cert-text {
     font-size: 0.95rem;
     font-weight: 700;
     color: #fff;
     text-transform: uppercase;
-    letter-spacing: 2.5px;
+    letter-spacing: 2px;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  }
+}
+
+/* Prominent badge modifier */
+.cert-badge-prominent .cert-badge {
+  padding: 12px 28px;
+  background: linear-gradient(
+    135deg,
+    rgba(57, 125, 226, 0.22),
+    rgba(96, 239, 255, 0.08)
+  );
+  border-width: 2px;
+}
+
+@media (max-width: 600px) {
+  .cert-badge-prominent .cert-badge {
+    padding: 8px 16px;
+  }
+  .cert-badge-prominent .cert-badge-img {
+    max-width: 40px;
+    max-height: 40px;
   }
 }
 

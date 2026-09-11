@@ -30,3 +30,29 @@
   opacity: 1 !important;
   pointer-events: auto !important;
 }
+
+/* Center single featured project */
+.projects-grid--single {
+  justify-items: center;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 768px) {
+  .projects-grid--single {
+    grid-template-columns: 700px;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 1200px) {
+  .projects-grid--single {
+    grid-template-columns: 900px;
+  }
+}
+
+/* Make Featured Projects background match about-intro */
+.projects-section {
+  background-image: linear-gradient(45deg, var(--secondary-color), var(--primary-color)) !important;
+  /* keep existing spacing but reduce heavy darkness */
+  box-shadow: none !important;
+}
