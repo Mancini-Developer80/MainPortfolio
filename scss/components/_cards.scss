@@ -106,17 +106,11 @@
    ================================ */
 
 .card--project {
-  background: linear-gradient(
-    135deg,
-    rgba(15, 23, 42, 0.95) 0%,
-    rgba(30, 41, 59, 0.95) 100%
-  );
-  border: 1px solid rgba(148, 163, 184, 0.15);
+  background: #111827;
+  border: 1px solid rgba(148, 163, 184, 0.28);
   box-shadow:
-    0 16px 48px rgba(0, 0, 0, 0.25),
+    0 12px 32px rgba(0, 0, 0, 0.22),
     inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
   padding: 0;
   min-height: clamp(410px, 42vw, 600px);
   height: auto;
@@ -124,11 +118,11 @@
 }
 
 .card--project:hover {
-  transform: translateY(-8px);
+  transform: translateY(-4px);
   box-shadow:
-    0 24px 64px rgba(0, 0, 0, 0.35),
+    0 18px 40px rgba(0, 0, 0, 0.28),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
-  border-color: rgba(6, 182, 212, 0.8);
+  border-color: rgba(96, 239, 255, 0.55);
 }
 
 /* Hero section - image with overlay */
@@ -143,11 +137,11 @@
   margin: 0;
   z-index: 1;
   display: block;
-  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: filter 0.35s ease;
 }
 
 .card--project:hover .card__media {
-  transform: scale(1.04);
+  filter: saturate(1.08) brightness(1.04);
 }
 
 /* Dark overlay on image */
@@ -175,13 +169,7 @@
   flex: 1 1 auto;
   height: auto;
   padding: 1.2rem 1.1rem;
-  background: linear-gradient(
-    180deg,
-    rgba(15, 23, 42, 0.82) 0%,
-    rgba(7, 13, 23, 0.98) 100%
-  );
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  background: #111827;
   min-height: auto;
   gap: 0.15rem;
   z-index: 3;
@@ -210,7 +198,7 @@
 
 /* Description text */
 .card--project .card__text {
-  color: #fff;
+  color: #dbe4ee;
   font-size: 0.91rem;
   font-weight: 500;
   margin: 0;
@@ -222,10 +210,7 @@
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
-  text-shadow:
-    0 1px 2px rgba(0, 0, 0, 0.3),
-    0 2px 4px rgba(0, 0, 0, 0.4),
-    0 4px 8px rgba(0, 0, 0, 0.5);
+  text-shadow: none;
 }
 
 /* Actions layout - HIDDEN BY DEFAULT, VISIBLE ON HOVER */
@@ -233,14 +218,16 @@
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 0.3rem;
-  margin-top: 0.1rem;
+  margin-top: 1rem;
   flex-shrink: 0;
   overflow: visible;
   pointer-events: none;
   z-index: 20;
   opacity: 0;
-  transform: translateY(8px);
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(4px);
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease;
 }
 
 .card--project:hover .card__actions {
@@ -265,8 +252,8 @@
 }
 
 .card--project .card__actions .btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.22);
 }
 
 .card--project .card__actions .btn--primary {
@@ -306,20 +293,22 @@
 
 /* Tech tags styling - ALWAYS VISIBLE */
 .card--project .project-tech-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(84px, 1fr));
+  gap: 0.45rem;
   flex-shrink: 0;
   pointer-events: auto;
   opacity: 1;
   visibility: visible;
-  transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: opacity 0.25s ease;
   margin-top: auto;
 }
 
 .card--project .tech-tag {
   display: inline-flex;
   align-items: center;
+  justify-content: center;
+  min-height: 1.8rem;
   padding: 0.35rem 0.75rem;
   background: transparent;
   border: 1px solid rgba(6, 182, 212, 0.5);
@@ -329,7 +318,11 @@
   font-weight: 600;
   letter-spacing: 0.4px;
   text-transform: uppercase;
-  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  text-align: center;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 }
 
 .card--project .tech-tag:hover {

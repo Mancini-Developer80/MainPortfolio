@@ -437,24 +437,23 @@ a[aria-label="Twitter"] i {
   transform: none;
   filter: none;
   transition:
-    opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    filter 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-    box-shadow 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  will-change: opacity, transform, filter;
+    opacity 0.35s ease,
+    transform 0.35s ease,
+    box-shadow 0.35s ease;
+  will-change: transform, box-shadow;
 }
 
 .projects .project.visible {
   opacity: 1;
-  transform: translateY(0) scale(1.03) rotate(0deg);
-  filter: blur(0);
-  box-shadow: 0 8px 32px rgba(57, 125, 226, 0.1);
+  transform: none;
+  filter: none;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.22);
 }
 
 .projects .project.visible:hover {
-  transform: translateY(-10px) scale(1.06) rotate(0deg);
-  box-shadow: 0 16px 40px rgba(57, 125, 226, 0.18);
-  filter: blur(0);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.28);
+  filter: none;
 }
 
 .skills-heading,
