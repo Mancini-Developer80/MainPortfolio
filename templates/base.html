@@ -18,14 +18,13 @@
   <meta name="robots" content="index, follow" />
   <meta name="author" content="Giuseppe Mancini" />
 
-  <title>{% block title %}Giuseppe Mancini | Google Cloud Certified Engineer & AI Solution Architect{% endblock %}
-  </title>
+  <title>{% block title %}Giuseppe Mancini | Professional Cloud Architect & AI Solution Architect{% endblock %}</title>
 
   <meta name="description"
-    content="{% block meta_description %}Giuseppe Mancini: Google Cloud Certified Associate Cloud Engineer (ACE) & Full Stack Developer in Frankfurt. Specializing in Serverless GCP architectures, Vertex AI, Agentic Workflows, and enterprise RAG solutions.{% endblock %}" />
+    content="{% block meta_description %}Giuseppe Mancini: Google Cloud Certified Professional Cloud Architect (PCA) & AI Solution Architect in Frankfurt. Specializing in enterprise GCP infrastructure, FinOps, Agentic Workflows, and GDPR-compliant AI.{% endblock %}" />
 
   <meta name="keywords"
-    content="Giuseppe Mancini, Google Cloud Certified, Associate Cloud Engineer, ACE, GCP Cloud Engineer, AI Solution Architect Frankfurt, Cloud Run, Vertex AI, Agentic AI, RAG, pgvector, Node.js, Python, Frankfurt am Main, Cloud Native Engineering, Google GEAR" />
+    content="Giuseppe Mancini, Google Cloud Certified, Professional Cloud Architect, PCA, ACE, GCP Architect, AI Solution Architect Frankfurt, Enterprise Cloud, FinOps, Cloud Run, Vertex AI, Agentic AI, RAG, pgvector, Frankfurt am Main, Google GEAR" />
 
   <link rel="canonical" href="https://www.giuseppemancini.dev{{ request.path }}" />
 
@@ -33,27 +32,28 @@
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://www.giuseppemancini.dev{{ request.path }}" />
   <meta property="og:title"
-    content="{% block og_title %}Giuseppe Mancini | Google Cloud Certified Engineer & AI Architect{% endblock %}" />
+    content="{% block og_title %}Giuseppe Mancini | Professional Cloud Architect & AI Architect{% endblock %}" />
   <meta property="og:description"
-    content="{% block og_description %}Architecting production-ready Cloud Run infrastructure, Vertex AI pipelines, and Agentic Workflows in Frankfurt am Main.{% endblock %}" />
+    content="{% block og_description %}Architecting production-ready Cloud Run infrastructure, enterprise AI platforms, and Agentic Workflows in Frankfurt am Main.{% endblock %}" />
   <meta property="og:image" content="{% static 'images/og-preview.jpg' %}" />
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content="https://www.giuseppemancini.dev{{ request.path }}" />
   <meta name="twitter:title"
-    content="{% block twitter_title %}Giuseppe Mancini | GCP Certified Cloud Engineer{% endblock %}" />
+    content="{% block twitter_title %}Giuseppe Mancini | GCP Professional Cloud Architect{% endblock %}" />
   <meta name="twitter:description"
-    content="{% block twitter_description %}Engineering Serverless Cloud Native Systems & Agentic AI Workflows in Frankfurt.{% endblock %}" />
+    content="{% block twitter_description %}Engineering Enterprise Cloud Native Systems, FinOps & Agentic AI Workflows in Frankfurt.{% endblock %}" />
   <meta name="twitter:image" content="{% static 'images/og-preview.jpg' %}" />
 
+  <!-- Structured Data (Schema.org) per Google Knowledge Graph & AI Search -->
   <!-- Structured Data (Schema.org) per Google Knowledge Graph & AI Search -->
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
       "@type": "Person",
       "name": "Giuseppe Mancini",
-      "jobTitle": "Google Cloud Certified Associate Cloud Engineer & AI Solution Architect",
+      "jobTitle": "Google Cloud Certified Professional Cloud Architect & AI Solution Architect",
       "url": "https://www.giuseppemancini.dev",
       "address": {
         "@type": "PostalAddress",
@@ -61,29 +61,40 @@
         "addressRegion": "Hessen",
         "addressCountry": "DE"
       },
-      "hasCredential": {
-        "@type": "EducationalOccupationalCredential",
-        "name": "Google Cloud Certified Associate Cloud Engineer",
-        "credentialCategory": "certification",
-        "offeredBy": {
-          "@type": "Organization",
-          "name": "Google Cloud"
+      "hasCredential": [
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Google Cloud Certified Professional Cloud Architect",
+          "credentialCategory": "certification",
+          "offeredBy": {
+            "@type": "Organization",
+            "name": "Google Cloud"
+          }
+        },
+        {
+          "@type": "EducationalOccupationalCredential",
+          "name": "Google Cloud Certified Associate Cloud Engineer",
+          "credentialCategory": "certification",
+          "offeredBy": {
+            "@type": "Organization",
+            "name": "Google Cloud"
+          }
         }
-      },
+      ],
       "sameAs": [
         "https://github.com/Mancini-Developer80",
         "https://linkedin.com/in/giuseppe-mancini-developer/"
       ],
       "knowsAbout": [
         "Google Cloud Platform (GCP)",
+        "Enterprise Cloud Architecture",
+        "FinOps & Cloud Governance",
         "Cloud Run",
         "Vertex AI",
         "AI Agentic Workflows",
         "Enterprise RAG Systems",
         "PostgreSQL pgvector",
-        "Django",
-        "React",
-        "Python"
+        "GDPR & BDSG Compliance"
       ]
     }
     </script>

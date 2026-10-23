@@ -128,11 +128,22 @@ STATICFILES_DIRS = [
 ]
 
 # Configurazione WhiteNoise per Cloud Run
-if DEBUG:
-    STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
-else:
-    # Usiamo la versione compressa per performance e compatibilità
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
+STORAGES = {
+    'default': {
+        'BACKEND': (
+            'django.core.files.storage.FileSystemStorage'
+            if DEBUG
+            else 'cloudinary_storage.storage.MediaCloudinaryStorage'
+        ),
+    },
+    'staticfiles': {
+        'BACKEND': (
+            'django.contrib.staticfiles.storage.StaticFilesStorage'
+            if DEBUG
+            else 'whitenoise.storage.CompressedStaticFilesStorage'
+        ),
+    },
+}
 
 # --- SOLUZIONE ERRORI 404 & MIME TYPE ---
 # Forza WhiteNoise a cercare nelle cartelle fisiche se non trova il file nel manifest
