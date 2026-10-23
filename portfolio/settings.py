@@ -199,3 +199,6 @@ CKEDITOR_UPLOAD_PATH = "uploads/"
 TURNSTILE_SITE_KEY = os.environ.get('TURNSTILE_SITE_KEY', '')
 TURNSTILE_SECRET_KEY = os.environ.get('TURNSTILE_SECRET_KEY', '')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Backwards compatibility for staticfiles storage in Django 4.2+ / 5.x
+STATICFILES_STORAGE = STORAGES["staticfiles"]["BACKEND"]
